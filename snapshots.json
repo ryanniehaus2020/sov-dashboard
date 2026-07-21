@@ -1,0 +1,2462 @@
+{
+ "2026-01": {
+  "period": "2026-01",
+  "linkedin": {
+   "start": "Jan 2026",
+   "end": "Jan 2026",
+   "source": "LinkedIn Competitor Analytics Report"
+  },
+  "web": {
+   "period_label": "Jan 2026",
+   "carried_forward": false,
+   "source_period": "2026-01"
+  },
+  "aeo": {
+   "share_of_authority": 0.3845,
+   "included_in_overall": true
+  },
+  "readings": [
+   {
+    "name": "Skills / talent intel",
+    "members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "linkedin_share": 0.19199560914858538,
+    "web_share": 0.04462161117777461,
+    "aeo_share": null,
+    "sov": 11.830861016318,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "web_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.016134719435831966,
+      "Eightfold": 0.006847541329157759,
+      "TechWolf": 0.031932998925116446,
+      "Gloat": 0.003912119798953314,
+      "Skillsoft": 0.005675904635120416
+     },
+     "growth_rate": {
+      "Degreed": 0.006687336616207672,
+      "Eightfold": 0.010238188442891987,
+      "TechWolf": 0.021049802938015047,
+      "Gloat": 0.001774703352505311,
+      "Skillsoft": 0.010210173867441203
+     },
+     "efficiency_share": 0.25013795274004746,
+     "growth_share": 0.1338532655571233,
+     "web_organic_traffic": {
+      "Degreed": 8776.0,
+      "Eightfold": 82300.0,
+      "TechWolf": 2600.0,
+      "Gloat": 8800.0,
+      "Skillsoft": 94200.0
+     }
+    }
+   },
+   {
+    "name": "Learning platforms",
+    "members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "linkedin_share": 0.2202177963774402,
+    "web_share": 0.030036690214117517,
+    "aeo_share": null,
+    "sov": 12.512724329577887,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "web_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.016134719435831966,
+      "Docebo": 0.0195797371069566,
+      "Cornerstone": 0.009875244399892812,
+      "360Learning": 0.0139643908034512
+     },
+     "growth_rate": {
+      "Degreed": 0.006687336616207672,
+      "Docebo": 0.007731251334288938,
+      "Cornerstone": 0.009721408934366843,
+      "360Learning": 0.01531095705949828
+     },
+     "efficiency_share": 0.2709254555440307,
+     "growth_share": 0.16951013721084976,
+     "web_organic_traffic": {
+      "Degreed": 8776.0,
+      "Docebo": 113300.0,
+      "Cornerstone": 74300.0,
+      "360Learning": 95800.0
+     }
+    }
+   },
+   {
+    "name": "AI learning / practice",
+    "members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "linkedin_share": 0.13287328408281227,
+    "web_share": 0.12243986829622189,
+    "aeo_share": null,
+    "sov": 12.765657618951709,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "web_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.016134719435831966,
+      "Sana": 0.041773187959136246,
+      "Yoodli": 0.03469661414683205
+     },
+     "growth_rate": {
+      "Degreed": 0.006687336616207672,
+      "Sana": 0.03515455271161949,
+      "Yoodli": 0.03123253994859761
+     },
+     "efficiency_share": 0.17423252306907067,
+     "growth_share": 0.09151404509655386,
+     "web_organic_traffic": {
+      "Degreed": 8776.0,
+      "Sana": 41100.0,
+      "Yoodli": 21800.0
+     }
+    }
+   },
+   {
+    "name": "Overall",
+    "members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "linkedin_share": 0.06617506305762079,
+    "web_share": 0.01616277699198491,
+    "aeo_share": 0.3845,
+    "sov": 10.98351360198423,
+    "weights_used": {
+     "linkedin": 0.4,
+     "web": 0.4,
+     "aeo": 0.2
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "web_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Cornerstone": 0.009875244399892812,
+      "Degreed": 0.016134719435831966,
+      "Yoodli": 0.03469661414683205,
+      "Sana": 0.041773187959136246,
+      "Skillsoft": 0.005675904635120416,
+      "Eightfold": 0.006847541329157759,
+      "Docebo": 0.0195797371069566,
+      "360Learning": 0.0139643908034512,
+      "Gloat": 0.003912119798953314,
+      "TechWolf": 0.031932998925116446
+     },
+     "growth_rate": {
+      "Cornerstone": 0.009721408934366843,
+      "Degreed": 0.006687336616207672,
+      "Yoodli": 0.03123253994859761,
+      "Sana": 0.03515455271161949,
+      "Skillsoft": 0.010210173867441203,
+      "Eightfold": 0.010238188442891987,
+      "Docebo": 0.007731251334288938,
+      "360Learning": 0.01531095705949828,
+      "Gloat": 0.001774703352505311,
+      "TechWolf": 0.021049802938015047
+     },
+     "efficiency_share": 0.08750205709900338,
+     "growth_share": 0.04484806901623819,
+     "web_organic_traffic": {
+      "Cornerstone": 74300.0,
+      "Degreed": 8776.0,
+      "Yoodli": 21800.0,
+      "Sana": 41100.0,
+      "Skillsoft": 94200.0,
+      "Eightfold": 82300.0,
+      "Docebo": 113300.0,
+      "360Learning": 95800.0,
+      "Gloat": 8800.0,
+      "TechWolf": 2600.0
+     }
+    }
+   }
+  ],
+  "context": {
+   "Cornerstone": {
+    "linkedin": {
+     "total_followers": 201514,
+     "new_followers": 1959,
+     "engagements": 1990,
+     "total_posts": 26
+    },
+    "web": {
+     "domain": "cornerstoneondemand.com",
+     "period": "Jan 2026",
+     "organic_traffic": 74300,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Degreed": {
+    "linkedin": {
+     "total_followers": 82245,
+     "new_followers": 550,
+     "engagements": 1327,
+     "total_posts": 23
+    },
+    "web": {
+     "domain": "degreed.com",
+     "period": "Jan 2026",
+     "organic_traffic": 10813,
+     "organic_source": "Google Analytics (Organic Search)"
+    }
+   },
+   "Yoodli": {
+    "linkedin": {
+     "total_followers": 17898,
+     "new_followers": 559,
+     "engagements": 621,
+     "total_posts": 64
+    },
+    "web": {
+     "domain": "yoodli.ai",
+     "period": "Jan 2026",
+     "organic_traffic": 21800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Sana": {
+    "linkedin": {
+     "total_followers": 98963,
+     "new_followers": 3479,
+     "engagements": 4134,
+     "total_posts": 9
+    },
+    "web": {
+     "domain": "sanalabs.com",
+     "period": "Jan 2026",
+     "organic_traffic": 41100,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Skillsoft": {
+    "linkedin": {
+     "total_followers": 247890,
+     "new_followers": 2531,
+     "engagements": 1407,
+     "total_posts": 21
+    },
+    "web": {
+     "domain": "skillsoft.com",
+     "period": "Jan 2026",
+     "organic_traffic": 94200,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Eightfold": {
+    "linkedin": {
+     "total_followers": 166045,
+     "new_followers": 1700,
+     "engagements": 1137,
+     "total_posts": 23
+    },
+    "web": {
+     "domain": "eightfold.ai",
+     "period": "Jan 2026",
+     "organic_traffic": 82300,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Docebo": {
+    "linkedin": {
+     "total_followers": 131156,
+     "new_followers": 1014,
+     "engagements": 2568,
+     "total_posts": 42
+    },
+    "web": {
+     "domain": "docebo.com",
+     "period": "Jan 2026",
+     "organic_traffic": 113300,
+     "organic_source": "SEMrush"
+    }
+   },
+   "360Learning": {
+    "linkedin": {
+     "total_followers": 60153,
+     "new_followers": 921,
+     "engagements": 840,
+     "total_posts": 22
+    },
+    "web": {
+     "domain": "360learning.com",
+     "period": "Jan 2026",
+     "organic_traffic": 95800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Gloat": {
+    "linkedin": {
+     "total_followers": 77196,
+     "new_followers": 137,
+     "engagements": 302,
+     "total_posts": 16
+    },
+    "web": {
+     "domain": "gloat.com",
+     "period": "Jan 2026",
+     "organic_traffic": 8800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "TechWolf": {
+    "linkedin": {
+     "total_followers": 22328,
+     "new_followers": 470,
+     "engagements": 713,
+     "total_posts": 12
+    },
+    "web": {
+     "domain": "techwolf.ai",
+     "period": "Jan 2026",
+     "organic_traffic": 2600,
+     "organic_source": "SEMrush"
+    }
+   }
+  }
+ },
+ "2026-02": {
+  "period": "2026-02",
+  "linkedin": {
+   "start": "Feb 2026",
+   "end": "Feb 2026",
+   "source": "LinkedIn Competitor Analytics Report"
+  },
+  "web": {
+   "period_label": "Feb 2026",
+   "carried_forward": false,
+   "source_period": "2026-02"
+  },
+  "aeo": {
+   "share_of_authority": 0.376,
+   "included_in_overall": true
+  },
+  "readings": [
+   {
+    "name": "Skills / talent intel",
+    "members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "linkedin_share": 0.15063262302751923,
+    "web_share": 0.036879580487406916,
+    "aeo_share": null,
+    "sov": 9.375610175746306,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "web_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.008754331570308225,
+      "Eightfold": 0.007076394953175344,
+      "TechWolf": 0.032694374776065925,
+      "Gloat": 0.0008420125395098191,
+      "Skillsoft": 0.0058856750978256486
+     },
+     "growth_rate": {
+      "Degreed": 0.006845400936227126,
+      "Eightfold": 0.009009605829744948,
+      "TechWolf": 0.0221694733070584,
+      "Gloat": 0.0014249442976320018,
+      "Skillsoft": 0.008479567550123038
+     },
+     "efficiency_share": 0.1584414423009174,
+     "growth_share": 0.1428238037541211,
+     "web_organic_traffic": {
+      "Degreed": 8137.0,
+      "Eightfold": 82700.0,
+      "TechWolf": 2500.0,
+      "Gloat": 14800.0,
+      "Skillsoft": 112500.0
+     }
+    }
+   },
+   {
+    "name": "Learning platforms",
+    "members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "linkedin_share": 0.16289270485554605,
+    "web_share": 0.02591095953661511,
+    "aeo_share": null,
+    "sov": 9.440183219608059,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "web_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.008754331570308225,
+      "Docebo": 0.01425772166182514,
+      "Cornerstone": 0.00596484611491013,
+      "360Learning": 0.017023257360397653
+     },
+     "growth_rate": {
+      "Degreed": 0.006845400936227126,
+      "Docebo": 0.006099560069230007,
+      "Cornerstone": 0.020594102642992548,
+      "360Learning": 0.016990008810865626
+     },
+     "efficiency_share": 0.19031090754723654,
+     "growth_share": 0.13547450216385556,
+     "web_organic_traffic": {
+      "Degreed": 8137.0,
+      "Docebo": 124600.0,
+      "Cornerstone": 65200.0,
+      "360Learning": 116100.0
+     }
+    }
+   },
+   {
+    "name": "AI learning / practice",
+    "members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "linkedin_share": 0.10065158863472258,
+    "web_share": 0.11035165520701955,
+    "aeo_share": null,
+    "sov": 10.550162192087106,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "web_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.008754331570308225,
+      "Sana": 0.03749886321150329,
+      "Yoodli": 0.05084366968376355
+     },
+     "growth_rate": {
+      "Degreed": 0.006845400936227126,
+      "Sana": 0.02742439093398543,
+      "Yoodli": 0.02732148843446195
+     },
+     "efficiency_share": 0.09016080610318787,
+     "growth_share": 0.11114237116625729,
+     "web_organic_traffic": {
+      "Degreed": 8137.0,
+      "Sana": 41000.0,
+      "Yoodli": 24600.0
+     }
+    }
+   },
+   {
+    "name": "Overall",
+    "members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "linkedin_share": 0.04759020309596105,
+    "web_share": 0.013741752330963948,
+    "aeo_share": 0.376,
+    "sov": 9.973278217077,
+    "weights_used": {
+     "linkedin": 0.4,
+     "web": 0.4,
+     "aeo": 0.2
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "web_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Cornerstone": 0.00596484611491013,
+      "Degreed": 0.008754331570308225,
+      "Yoodli": 0.05084366968376355,
+      "Sana": 0.03749886321150329,
+      "Skillsoft": 0.0058856750978256486,
+      "Eightfold": 0.007076394953175344,
+      "Docebo": 0.01425772166182514,
+      "360Learning": 0.017023257360397653,
+      "Gloat": 0.0008420125395098191,
+      "TechWolf": 0.032694374776065925
+     },
+     "growth_rate": {
+      "Cornerstone": 0.020594102642992548,
+      "Degreed": 0.006845400936227126,
+      "Yoodli": 0.02732148843446195,
+      "Sana": 0.02742439093398543,
+      "Skillsoft": 0.008479567550123038,
+      "Eightfold": 0.009009605829744948,
+      "Docebo": 0.006099560069230007,
+      "360Learning": 0.016990008810865626,
+      "Gloat": 0.0014249442976320018,
+      "TechWolf": 0.0221694733070584
+     },
+     "efficiency_share": 0.048408958453438254,
+     "growth_share": 0.046771447738483844,
+     "web_organic_traffic": {
+      "Cornerstone": 65200.0,
+      "Degreed": 8137.0,
+      "Yoodli": 24600.0,
+      "Sana": 41000.0,
+      "Skillsoft": 112500.0,
+      "Eightfold": 82700.0,
+      "Docebo": 124600.0,
+      "360Learning": 116100.0,
+      "Gloat": 14800.0,
+      "TechWolf": 2500.0
+     }
+    }
+   }
+  ],
+  "context": {
+   "Cornerstone": {
+    "linkedin": {
+     "total_followers": 201514,
+     "new_followers": 4150,
+     "engagements": 1202,
+     "total_posts": 15
+    },
+    "web": {
+     "domain": "cornerstoneondemand.com",
+     "period": "Feb 2026",
+     "organic_traffic": 65200,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Degreed": {
+    "linkedin": {
+     "total_followers": 82245,
+     "new_followers": 563,
+     "engagements": 720,
+     "total_posts": 20
+    },
+    "web": {
+     "domain": "degreed.com",
+     "period": "Feb 2026",
+     "organic_traffic": 10195,
+     "organic_source": "Google Analytics (Organic Search)"
+    }
+   },
+   "Yoodli": {
+    "linkedin": {
+     "total_followers": 17898,
+     "new_followers": 489,
+     "engagements": 910,
+     "total_posts": 141
+    },
+    "web": {
+     "domain": "yoodli.ai",
+     "period": "Feb 2026",
+     "organic_traffic": 24600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Sana": {
+    "linkedin": {
+     "total_followers": 98963,
+     "new_followers": 2714,
+     "engagements": 3711,
+     "total_posts": 6
+    },
+    "web": {
+     "domain": "sanalabs.com",
+     "period": "Feb 2026",
+     "organic_traffic": 41000,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Skillsoft": {
+    "linkedin": {
+     "total_followers": 247890,
+     "new_followers": 2102,
+     "engagements": 1459,
+     "total_posts": 16
+    },
+    "web": {
+     "domain": "skillsoft.com",
+     "period": "Feb 2026",
+     "organic_traffic": 112500,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Eightfold": {
+    "linkedin": {
+     "total_followers": 166045,
+     "new_followers": 1496,
+     "engagements": 1175,
+     "total_posts": 24
+    },
+    "web": {
+     "domain": "eightfold.ai",
+     "period": "Feb 2026",
+     "organic_traffic": 82700,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Docebo": {
+    "linkedin": {
+     "total_followers": 131157,
+     "new_followers": 800,
+     "engagements": 1870,
+     "total_posts": 36
+    },
+    "web": {
+     "domain": "docebo.com",
+     "period": "Feb 2026",
+     "organic_traffic": 124600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "360Learning": {
+    "linkedin": {
+     "total_followers": 60153,
+     "new_followers": 1022,
+     "engagements": 1024,
+     "total_posts": 26
+    },
+    "web": {
+     "domain": "360learning.com",
+     "period": "Feb 2026",
+     "organic_traffic": 116100,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Gloat": {
+    "linkedin": {
+     "total_followers": 77196,
+     "new_followers": 110,
+     "engagements": 65,
+     "total_posts": 2
+    },
+    "web": {
+     "domain": "gloat.com",
+     "period": "Feb 2026",
+     "organic_traffic": 14800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "TechWolf": {
+    "linkedin": {
+     "total_followers": 22328,
+     "new_followers": 495,
+     "engagements": 730,
+     "total_posts": 11
+    },
+    "web": {
+     "domain": "techwolf.ai",
+     "period": "Feb 2026",
+     "organic_traffic": 2500,
+     "organic_source": "SEMrush"
+    }
+   }
+  }
+ },
+ "2026-03": {
+  "period": "2026-03",
+  "linkedin": {
+   "start": "Mar 2026",
+   "end": "Mar 2026",
+   "source": "LinkedIn Competitor Analytics Report"
+  },
+  "web": {
+   "period_label": "Mar 2026",
+   "carried_forward": false,
+   "source_period": "2026-03"
+  },
+  "aeo": {
+   "share_of_authority": 0.3403,
+   "included_in_overall": true
+  },
+  "readings": [
+   {
+    "name": "Skills / talent intel",
+    "members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "linkedin_share": 0.16988257783535615,
+    "web_share": 0.04068235653325848,
+    "aeo_share": null,
+    "sov": 10.528246718430731,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "web_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.023089549516687943,
+      "Eightfold": 0.006251317413954048,
+      "TechWolf": 0.07649587961304193,
+      "Gloat": 0.0003497590548733095,
+      "Skillsoft": 0.003626608576384687
+     },
+     "growth_rate": {
+      "Degreed": 0.008766490364155876,
+      "Eightfold": 0.010280345689421542,
+      "TechWolf": 0.03963633106413472,
+      "Gloat": 0.001321311985076947,
+      "Skillsoft": 0.0076888942676187014
+     },
+     "efficiency_share": 0.21026222314307805,
+     "growth_share": 0.12950293252763428,
+     "web_organic_traffic": {
+      "Degreed": 8261.0,
+      "Eightfold": 81000.0,
+      "TechWolf": 3700.0,
+      "Gloat": 12700.0,
+      "Skillsoft": 97400.0
+     }
+    }
+   },
+   {
+    "name": "Learning platforms",
+    "members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "linkedin_share": 0.27611644921290635,
+    "web_share": 0.027586229926434495,
+    "aeo_share": null,
+    "sov": 15.185133956967043,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "web_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.023089549516687943,
+      "Docebo": 0.012069504486988876,
+      "Cornerstone": 0.013204972334565666,
+      "360Learning": 0.01486210164081592
+     },
+     "growth_rate": {
+      "Degreed": 0.008766490364155876,
+      "Docebo": 0.008707121998825834,
+      "Cornerstone": 0.014549785375778479,
+      "360Learning": 0.014845477366049907
+     },
+     "efficiency_share": 0.3651899974696474,
+     "growth_share": 0.1870429009561653,
+     "web_organic_traffic": {
+      "Degreed": 8261.0,
+      "Docebo": 106200.0,
+      "Cornerstone": 60400.0,
+      "360Learning": 124600.0
+     }
+    }
+   },
+   {
+    "name": "AI learning / practice",
+    "members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "linkedin_share": 0.13349448663369098,
+    "web_share": 0.14528411389177115,
+    "aeo_share": null,
+    "sov": 13.938930026273106,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "web_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.023089549516687943,
+      "Sana": 0.04833119448682841,
+      "Yoodli": 0.07766664804157121
+     },
+     "growth_rate": {
+      "Degreed": 0.008766490364155876,
+      "Sana": 0.03645807018784798,
+      "Yoodli": 0.032966418952897134
+     },
+     "efficiency_share": 0.15487258312027563,
+     "growth_share": 0.11211639014710635,
+     "web_organic_traffic": {
+      "Degreed": 8261.0,
+      "Sana": 27100.0,
+      "Yoodli": 21500.0
+     }
+    }
+   },
+   {
+    "name": "Overall",
+    "members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "linkedin_share": 0.06685247857692038,
+    "web_share": 0.015217523454438614,
+    "aeo_share": 0.3403,
+    "sov": 10.088800081254359,
+    "weights_used": {
+     "linkedin": 0.4,
+     "web": 0.4,
+     "aeo": 0.2
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "web_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Cornerstone": 0.013204972334565666,
+      "Degreed": 0.023089549516687943,
+      "Yoodli": 0.07766664804157121,
+      "Sana": 0.04833119448682841,
+      "Skillsoft": 0.003626608576384687,
+      "Eightfold": 0.006251317413954048,
+      "Docebo": 0.012069504486988876,
+      "360Learning": 0.01486210164081592,
+      "Gloat": 0.0003497590548733095,
+      "TechWolf": 0.07649587961304193
+     },
+     "growth_rate": {
+      "Cornerstone": 0.014549785375778479,
+      "Degreed": 0.008766490364155876,
+      "Yoodli": 0.032966418952897134,
+      "Sana": 0.03645807018784798,
+      "Skillsoft": 0.0076888942676187014,
+      "Eightfold": 0.010280345689421542,
+      "Docebo": 0.008707121998825834,
+      "360Learning": 0.014845477366049907,
+      "Gloat": 0.001321311985076947,
+      "TechWolf": 0.03963633106413472
+     },
+     "efficiency_share": 0.08367369363463315,
+     "growth_share": 0.050031263519207614,
+     "web_organic_traffic": {
+      "Cornerstone": 60400.0,
+      "Degreed": 8261.0,
+      "Yoodli": 21500.0,
+      "Sana": 27100.0,
+      "Skillsoft": 97400.0,
+      "Eightfold": 81000.0,
+      "Docebo": 106200.0,
+      "360Learning": 124600.0,
+      "Gloat": 12700.0,
+      "TechWolf": 3700.0
+     }
+    }
+   }
+  ],
+  "context": {
+   "Cornerstone": {
+    "linkedin": {
+     "total_followers": 201515,
+     "new_followers": 2932,
+     "engagements": 2661,
+     "total_posts": 30
+    },
+    "web": {
+     "domain": "cornerstoneondemand.com",
+     "period": "Mar 2026",
+     "organic_traffic": 60400,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Degreed": {
+    "linkedin": {
+     "total_followers": 82245,
+     "new_followers": 721,
+     "engagements": 1899,
+     "total_posts": 34
+    },
+    "web": {
+     "domain": "degreed.com",
+     "period": "Mar 2026",
+     "organic_traffic": 10248,
+     "organic_source": "Google Analytics (Organic Search)"
+    }
+   },
+   "Yoodli": {
+    "linkedin": {
+     "total_followers": 17897,
+     "new_followers": 590,
+     "engagements": 1390,
+     "total_posts": 139
+    },
+    "web": {
+     "domain": "yoodli.ai",
+     "period": "Mar 2026",
+     "organic_traffic": 21500,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Sana": {
+    "linkedin": {
+     "total_followers": 98963,
+     "new_followers": 3608,
+     "engagements": 4783,
+     "total_posts": 13
+    },
+    "web": {
+     "domain": "sanalabs.com",
+     "period": "Mar 2026",
+     "organic_traffic": 27100,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Skillsoft": {
+    "linkedin": {
+     "total_followers": 247890,
+     "new_followers": 1906,
+     "engagements": 899,
+     "total_posts": 28
+    },
+    "web": {
+     "domain": "skillsoft.com",
+     "period": "Mar 2026",
+     "organic_traffic": 97400,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Eightfold": {
+    "linkedin": {
+     "total_followers": 166045,
+     "new_followers": 1707,
+     "engagements": 1038,
+     "total_posts": 29
+    },
+    "web": {
+     "domain": "eightfold.ai",
+     "period": "Mar 2026",
+     "organic_traffic": 81000,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Docebo": {
+    "linkedin": {
+     "total_followers": 131157,
+     "new_followers": 1142,
+     "engagements": 1583,
+     "total_posts": 44
+    },
+    "web": {
+     "domain": "docebo.com",
+     "period": "Mar 2026",
+     "organic_traffic": 106200,
+     "organic_source": "SEMrush"
+    }
+   },
+   "360Learning": {
+    "linkedin": {
+     "total_followers": 60153,
+     "new_followers": 893,
+     "engagements": 894,
+     "total_posts": 22
+    },
+    "web": {
+     "domain": "360learning.com",
+     "period": "Mar 2026",
+     "organic_traffic": 124600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Gloat": {
+    "linkedin": {
+     "total_followers": 77196,
+     "new_followers": 102,
+     "engagements": 27,
+     "total_posts": 1
+    },
+    "web": {
+     "domain": "gloat.com",
+     "period": "Mar 2026",
+     "organic_traffic": 12700,
+     "organic_source": "SEMrush"
+    }
+   },
+   "TechWolf": {
+    "linkedin": {
+     "total_followers": 22328,
+     "new_followers": 885,
+     "engagements": 1708,
+     "total_posts": 17
+    },
+    "web": {
+     "domain": "techwolf.ai",
+     "period": "Mar 2026",
+     "organic_traffic": 3700,
+     "organic_source": "SEMrush"
+    }
+   }
+  }
+ },
+ "2026-04": {
+  "period": "2026-04",
+  "linkedin": {
+   "start": "Apr 2026",
+   "end": "Apr 2026",
+   "source": "LinkedIn Competitor Analytics Report"
+  },
+  "web": {
+   "period_label": "Apr 2026",
+   "carried_forward": false,
+   "source_period": "2026-04"
+  },
+  "aeo": {
+   "share_of_authority": 0.3399,
+   "included_in_overall": true
+  },
+  "readings": [
+   {
+    "name": "Skills / talent intel",
+    "members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "linkedin_share": 0.1894420281749291,
+    "web_share": 0.034996377037616426,
+    "aeo_share": null,
+    "sov": 11.221920260627277,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "web_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.011721077269134902,
+      "Eightfold": 0.007353428287512421,
+      "TechWolf": 0.020288427087065568,
+      "Gloat": 0.0015285766101870563,
+      "Skillsoft": 0.006333454354754125
+     },
+     "growth_rate": {
+      "Degreed": 0.005775427077633899,
+      "Eightfold": 0.01074407540124665,
+      "TechWolf": 0.019168756718022213,
+      "Gloat": 0.003199647650137313,
+      "Skillsoft": 0.005304772278026544
+     },
+     "efficiency_share": 0.24819663952026824,
+     "growth_share": 0.13068741682958995,
+     "web_organic_traffic": {
+      "Degreed": 7293.0,
+      "Eightfold": 86700.0,
+      "TechWolf": 3800.0,
+      "Gloat": 19600.0,
+      "Skillsoft": 91000.0
+     }
+    }
+   },
+   {
+    "name": "Learning platforms",
+    "members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "linkedin_share": 0.15582947810981534,
+    "web_share": 0.027438645863510327,
+    "aeo_share": null,
+    "sov": 9.163406198666284,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "web_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.011721077269134902,
+      "Docebo": 0.02265224120710294,
+      "Cornerstone": 0.012237302434061981,
+      "360Learning": 0.014729107442687813
+     },
+     "growth_rate": {
+      "Degreed": 0.005775427077633899,
+      "Docebo": 0.009103593403325784,
+      "Cornerstone": 0.020335955139815894,
+      "360Learning": 0.012684321646468173
+     },
+     "efficiency_share": 0.1910845969464423,
+     "growth_share": 0.1205743592731884,
+     "web_organic_traffic": {
+      "Degreed": 7293.0,
+      "Docebo": 96100.0,
+      "Cornerstone": 65600.0,
+      "360Learning": 96800.0
+     }
+    }
+   },
+   {
+    "name": "AI learning / practice",
+    "members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "linkedin_share": 0.09706758169800059,
+    "web_share": 0.1223801453190811,
+    "aeo_share": null,
+    "sov": 10.972386350854086,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "web_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.011721077269134902,
+      "Sana": 0.04014631731050999,
+      "Yoodli": 0.05140526345197519
+     },
+     "growth_rate": {
+      "Degreed": 0.005775427077633899,
+      "Sana": 0.03416428362115134,
+      "Yoodli": 0.031681287366597755
+     },
+     "efficiency_share": 0.11349642289197336,
+     "growth_share": 0.08063874050402783,
+     "web_organic_traffic": {
+      "Degreed": 7293.0,
+      "Sana": 35500.0,
+      "Yoodli": 16800.0
+     }
+    }
+   },
+   {
+    "name": "Overall",
+    "members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "linkedin_share": 0.05008556021613655,
+    "web_share": 0.014046799552382255,
+    "aeo_share": 0.3399,
+    "sov": 9.363294390740752,
+    "weights_used": {
+     "linkedin": 0.4,
+     "web": 0.4,
+     "aeo": 0.2
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "web_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Cornerstone": 0.012237302434061981,
+      "Degreed": 0.011721077269134902,
+      "Yoodli": 0.05140526345197519,
+      "Sana": 0.04014631731050999,
+      "Skillsoft": 0.006333454354754125,
+      "Eightfold": 0.007353428287512421,
+      "Docebo": 0.02265224120710294,
+      "360Learning": 0.014729107442687813,
+      "Gloat": 0.0015285766101870563,
+      "TechWolf": 0.020288427087065568
+     },
+     "growth_rate": {
+      "Cornerstone": 0.020335955139815894,
+      "Degreed": 0.005775427077633899,
+      "Yoodli": 0.031681287366597755,
+      "Sana": 0.03416428362115134,
+      "Skillsoft": 0.005304772278026544,
+      "Eightfold": 0.01074407540124665,
+      "Docebo": 0.009103593403325784,
+      "360Learning": 0.012684321646468173,
+      "Gloat": 0.003199647650137313,
+      "TechWolf": 0.019168756718022213
+     },
+     "efficiency_share": 0.062215372535522506,
+     "growth_share": 0.03795574789675059,
+     "web_organic_traffic": {
+      "Cornerstone": 65600.0,
+      "Degreed": 7293.0,
+      "Yoodli": 16800.0,
+      "Sana": 35500.0,
+      "Skillsoft": 91000.0,
+      "Eightfold": 86700.0,
+      "Docebo": 96100.0,
+      "360Learning": 96800.0,
+      "Gloat": 19600.0,
+      "TechWolf": 3800.0
+     }
+    }
+   }
+  ],
+  "context": {
+   "Cornerstone": {
+    "linkedin": {
+     "total_followers": 201515,
+     "new_followers": 4098,
+     "engagements": 2466,
+     "total_posts": 52
+    },
+    "web": {
+     "domain": "cornerstoneondemand.com",
+     "period": "Apr 2026",
+     "organic_traffic": 65600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Degreed": {
+    "linkedin": {
+     "total_followers": 82245,
+     "new_followers": 475,
+     "engagements": 964,
+     "total_posts": 23
+    },
+    "web": {
+     "domain": "degreed.com",
+     "period": "Apr 2026",
+     "organic_traffic": 8692,
+     "organic_source": "Google Analytics (Organic Search)"
+    }
+   },
+   "Yoodli": {
+    "linkedin": {
+     "total_followers": 17897,
+     "new_followers": 567,
+     "engagements": 920,
+     "total_posts": 116
+    },
+    "web": {
+     "domain": "yoodli.ai",
+     "period": "Apr 2026",
+     "organic_traffic": 16800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Sana": {
+    "linkedin": {
+     "total_followers": 98963,
+     "new_followers": 3381,
+     "engagements": 3973,
+     "total_posts": 11
+    },
+    "web": {
+     "domain": "sanalabs.com",
+     "period": "Apr 2026",
+     "organic_traffic": 35500,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Skillsoft": {
+    "linkedin": {
+     "total_followers": 247890,
+     "new_followers": 1315,
+     "engagements": 1570,
+     "total_posts": 31
+    },
+    "web": {
+     "domain": "skillsoft.com",
+     "period": "Apr 2026",
+     "organic_traffic": 91000,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Eightfold": {
+    "linkedin": {
+     "total_followers": 166045,
+     "new_followers": 1784,
+     "engagements": 1221,
+     "total_posts": 37
+    },
+    "web": {
+     "domain": "eightfold.ai",
+     "period": "Apr 2026",
+     "organic_traffic": 86700,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Docebo": {
+    "linkedin": {
+     "total_followers": 131157,
+     "new_followers": 1194,
+     "engagements": 2971,
+     "total_posts": 75
+    },
+    "web": {
+     "domain": "docebo.com",
+     "period": "Apr 2026",
+     "organic_traffic": 96100,
+     "organic_source": "SEMrush"
+    }
+   },
+   "360Learning": {
+    "linkedin": {
+     "total_followers": 60153,
+     "new_followers": 763,
+     "engagements": 886,
+     "total_posts": 25
+    },
+    "web": {
+     "domain": "360learning.com",
+     "period": "Apr 2026",
+     "organic_traffic": 96800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Gloat": {
+    "linkedin": {
+     "total_followers": 77196,
+     "new_followers": 247,
+     "engagements": 118,
+     "total_posts": 1
+    },
+    "web": {
+     "domain": "gloat.com",
+     "period": "Apr 2026",
+     "organic_traffic": 19600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "TechWolf": {
+    "linkedin": {
+     "total_followers": 22328,
+     "new_followers": 428,
+     "engagements": 453,
+     "total_posts": 11
+    },
+    "web": {
+     "domain": "techwolf.ai",
+     "period": "Apr 2026",
+     "organic_traffic": 3800,
+     "organic_source": "SEMrush"
+    }
+   }
+  }
+ },
+ "2026-05": {
+  "period": "2026-05",
+  "linkedin": {
+   "start": "May 2026",
+   "end": "May 2026",
+   "source": "LinkedIn Competitor Analytics Report"
+  },
+  "web": {
+   "period_label": "May 2026",
+   "carried_forward": false,
+   "source_period": "2026-05"
+  },
+  "aeo": {
+   "share_of_authority": 0.2804,
+   "included_in_overall": true
+  },
+  "readings": [
+   {
+    "name": "Skills / talent intel",
+    "members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "linkedin_share": 0.11301577664571838,
+    "web_share": 0.03729299559249324,
+    "aeo_share": null,
+    "sov": 7.515438611910581,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "web_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.010407927533588667,
+      "Eightfold": 0.013387937005028758,
+      "TechWolf": 0.04680222142601218,
+      "Gloat": 0.0013342660241463288,
+      "Skillsoft": 0.00494574206301182
+     },
+     "growth_rate": {
+      "Degreed": 0.005131011003708432,
+      "Eightfold": 0.01156313047667801,
+      "TechWolf": 0.03314224292368327,
+      "Gloat": 0.00155448468832582,
+      "Skillsoft": 0.005211989188753076
+     },
+     "efficiency_share": 0.13538222639309355,
+     "growth_share": 0.0906493268983432,
+     "web_organic_traffic": {
+      "Degreed": 6659.0,
+      "Eightfold": 63300.0,
+      "TechWolf": 3700.0,
+      "Gloat": 16200.0,
+      "Skillsoft": 88700.0
+     }
+    }
+   },
+   {
+    "name": "Learning platforms",
+    "members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "linkedin_share": 0.11963135634129604,
+    "web_share": 0.027206354005368548,
+    "aeo_share": null,
+    "sov": 7.34188551733323,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "web_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.010407927533588667,
+      "Docebo": 0.013136927499104127,
+      "Cornerstone": 0.024539116194824205,
+      "360Learning": 0.01456286469502768
+     },
+     "growth_rate": {
+      "Degreed": 0.005131011003708432,
+      "Docebo": 0.010209138665873724,
+      "Cornerstone": 0.039232811453241694,
+      "360Learning": 0.015593569730520507
+     },
+     "efficiency_share": 0.16613652358208203,
+     "growth_share": 0.07312618910051005,
+     "web_organic_traffic": {
+      "Degreed": 6659.0,
+      "Docebo": 121600.0,
+      "Cornerstone": 47800.0,
+      "360Learning": 68700.0
+     }
+    }
+   },
+   {
+    "name": "AI learning / practice",
+    "members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "linkedin_share": 0.0833788579654933,
+    "web_share": 0.10888013211465197,
+    "aeo_share": null,
+    "sov": 9.612949504007263,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "web_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.010407927533588667,
+      "Sana": 0.03601345957580106,
+      "Yoodli": 0.06934123037380567
+     },
+     "growth_rate": {
+      "Degreed": 0.005131011003708432,
+      "Sana": 0.03213322150702788,
+      "Yoodli": 0.02950215119852489
+     },
+     "efficiency_share": 0.08990750001916228,
+     "growth_share": 0.07685021591182431,
+     "web_organic_traffic": {
+      "Degreed": 6659.0,
+      "Sana": 37600.0,
+      "Yoodli": 16900.0
+     }
+    }
+   },
+   {
+    "name": "Overall",
+    "members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "linkedin_share": 0.036192638066202015,
+    "web_share": 0.014133233154837327,
+    "aeo_share": 0.2804,
+    "sov": 7.621034848841574,
+    "weights_used": {
+     "linkedin": 0.4,
+     "web": 0.4,
+     "aeo": 0.2
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "web_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Cornerstone": 0.024539116194824205,
+      "Degreed": 0.010407927533588667,
+      "Yoodli": 0.06934123037380567,
+      "Sana": 0.03601345957580106,
+      "Skillsoft": 0.00494574206301182,
+      "Eightfold": 0.013387937005028758,
+      "Docebo": 0.013136927499104127,
+      "360Learning": 0.01456286469502768,
+      "Gloat": 0.0013342660241463288,
+      "TechWolf": 0.04680222142601218
+     },
+     "growth_rate": {
+      "Cornerstone": 0.039232811453241694,
+      "Degreed": 0.005131011003708432,
+      "Yoodli": 0.02950215119852489,
+      "Sana": 0.03213322150702788,
+      "Skillsoft": 0.005211989188753076,
+      "Eightfold": 0.01156313047667801,
+      "Docebo": 0.010209138665873724,
+      "360Learning": 0.015593569730520507,
+      "Gloat": 0.00155448468832582,
+      "TechWolf": 0.03314224292368327
+     },
+     "efficiency_share": 0.04438884467239423,
+     "growth_share": 0.027996431460009807,
+     "web_organic_traffic": {
+      "Cornerstone": 47800.0,
+      "Degreed": 6659.0,
+      "Yoodli": 16900.0,
+      "Sana": 37600.0,
+      "Skillsoft": 88700.0,
+      "Eightfold": 63300.0,
+      "Docebo": 121600.0,
+      "360Learning": 68700.0,
+      "Gloat": 16200.0,
+      "TechWolf": 3700.0
+     }
+    }
+   }
+  ],
+  "context": {
+   "Cornerstone": {
+    "linkedin": {
+     "total_followers": 201515,
+     "new_followers": 7906,
+     "engagements": 4945,
+     "total_posts": 97
+    },
+    "web": {
+     "domain": "cornerstoneondemand.com",
+     "period": "May 2026",
+     "organic_traffic": 47800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Degreed": {
+    "linkedin": {
+     "total_followers": 82245,
+     "new_followers": 422,
+     "engagements": 856,
+     "total_posts": 22
+    },
+    "web": {
+     "domain": "degreed.com",
+     "period": "May 2026",
+     "organic_traffic": 8001,
+     "organic_source": "Google Analytics (Organic Search)"
+    }
+   },
+   "Yoodli": {
+    "linkedin": {
+     "total_followers": 17897,
+     "new_followers": 528,
+     "engagements": 1241,
+     "total_posts": 149
+    },
+    "web": {
+     "domain": "yoodli.ai",
+     "period": "May 2026",
+     "organic_traffic": 16900,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Sana": {
+    "linkedin": {
+     "total_followers": 98963,
+     "new_followers": 3180,
+     "engagements": 3564,
+     "total_posts": 8
+    },
+    "web": {
+     "domain": "sanalabs.com",
+     "period": "May 2026",
+     "organic_traffic": 37600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Skillsoft": {
+    "linkedin": {
+     "total_followers": 247890,
+     "new_followers": 1292,
+     "engagements": 1226,
+     "total_posts": 41
+    },
+    "web": {
+     "domain": "skillsoft.com",
+     "period": "May 2026",
+     "organic_traffic": 88700,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Eightfold": {
+    "linkedin": {
+     "total_followers": 166045,
+     "new_followers": 1920,
+     "engagements": 2223,
+     "total_posts": 69
+    },
+    "web": {
+     "domain": "eightfold.ai",
+     "period": "May 2026",
+     "organic_traffic": 63300,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Docebo": {
+    "linkedin": {
+     "total_followers": 131157,
+     "new_followers": 1339,
+     "engagements": 1723,
+     "total_posts": 34
+    },
+    "web": {
+     "domain": "docebo.com",
+     "period": "May 2026",
+     "organic_traffic": 121600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "360Learning": {
+    "linkedin": {
+     "total_followers": 60153,
+     "new_followers": 938,
+     "engagements": 876,
+     "total_posts": 21
+    },
+    "web": {
+     "domain": "360learning.com",
+     "period": "May 2026",
+     "organic_traffic": 68700,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Gloat": {
+    "linkedin": {
+     "total_followers": 77196,
+     "new_followers": 120,
+     "engagements": 103,
+     "total_posts": 1
+    },
+    "web": {
+     "domain": "gloat.com",
+     "period": "May 2026",
+     "organic_traffic": 16200,
+     "organic_source": "SEMrush"
+    }
+   },
+   "TechWolf": {
+    "linkedin": {
+     "total_followers": 22328,
+     "new_followers": 740,
+     "engagements": 1045,
+     "total_posts": 11
+    },
+    "web": {
+     "domain": "techwolf.ai",
+     "period": "May 2026",
+     "organic_traffic": 3700,
+     "organic_source": "SEMrush"
+    }
+   }
+  }
+ },
+ "2026-06": {
+  "period": "2026-06",
+  "linkedin": {
+   "start": "Jun 2026",
+   "end": "Jun 2026",
+   "source": "LinkedIn Competitor Analytics Report"
+  },
+  "web": {
+   "period_label": "Jun 2026",
+   "carried_forward": false,
+   "source_period": "2026-06"
+  },
+  "aeo": {
+   "share_of_authority": 0.3533,
+   "included_in_overall": true
+  },
+  "readings": [
+   {
+    "name": "Skills / talent intel",
+    "members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "linkedin_share": 0.11741164998856718,
+    "web_share": 0.038666396453978104,
+    "aeo_share": null,
+    "sov": 7.803902322127263,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "web_members": [
+     "Degreed",
+     "Eightfold",
+     "TechWolf",
+     "Gloat",
+     "Skillsoft"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.008280138610249864,
+      "Eightfold": 0.00749194495468096,
+      "TechWolf": 0.04160695091365102,
+      "Gloat": 0.00155448468832582,
+      "Skillsoft": 0.0040985921174714595
+     },
+     "growth_rate": {
+      "Degreed": 0.005641680345309746,
+      "Eightfold": 0.019350176157065857,
+      "TechWolf": 0.022975635972769616,
+      "Gloat": 0.0014638064148401473,
+      "Skillsoft": 0.005099035862681028
+     },
+     "efficiency_share": 0.1313638150702701,
+     "growth_share": 0.10345948490686428,
+     "web_organic_traffic": {
+      "Degreed": 7441.0,
+      "Eightfold": 87600.0,
+      "TechWolf": 3300.0,
+      "Gloat": 16800.0,
+      "Skillsoft": 77300.0
+     }
+    }
+   },
+   {
+    "name": "Learning platforms",
+    "members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "linkedin_share": 0.13079195544818367,
+    "web_share": 0.03216464007676979,
+    "aeo_share": null,
+    "sov": 8.147829776247672,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "web_members": [
+     "Degreed",
+     "Docebo",
+     "Cornerstone",
+     "360Learning"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.008280138610249864,
+      "Docebo": 0.010948710324267863,
+      "Cornerstone": 0.018395652929062353,
+      "360Learning": 0.018835303309893105
+     },
+     "growth_rate": {
+      "Degreed": 0.005641680345309746,
+      "Docebo": 0.011314683928421663,
+      "Cornerstone": 0.018400615338808525,
+      "360Learning": 0.013731650956727013
+     },
+     "efficiency_share": 0.14665545842407843,
+     "growth_share": 0.11492845247228893,
+     "web_organic_traffic": {
+      "Degreed": 7441.0,
+      "Docebo": 110700.0,
+      "Cornerstone": 49200.0,
+      "360Learning": 64000.0
+     }
+    }
+   },
+   {
+    "name": "AI learning / practice",
+    "members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "linkedin_share": 0.08197632435036009,
+    "web_share": 0.16483905983474004,
+    "aeo_share": null,
+    "sov": 12.340769209255006,
+    "weights_used": {
+     "linkedin": 0.5,
+     "web": 0.5
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "web_members": [
+     "Degreed",
+     "Sana",
+     "Yoodli"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Degreed": 0.008280138610249864,
+      "Sana": 0.034982771338783185,
+      "Yoodli": 0.05827792367435883
+     },
+     "growth_rate": {
+      "Degreed": 0.005641680345309746,
+      "Sana": 0.031193476349746875,
+      "Yoodli": 0.03162541208023691
+     },
+     "efficiency_share": 0.08154491463956601,
+     "growth_share": 0.08240773406115419,
+     "web_organic_traffic": {
+      "Degreed": 7441.0,
+      "Sana": 20200.0,
+      "Yoodli": 17500.0
+     }
+    }
+   },
+   {
+    "name": "Overall",
+    "members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "linkedin_share": 0.037790519003155,
+    "web_share": 0.01638838783281686,
+    "aeo_share": 0.3533,
+    "sov": 9.233156273438874,
+    "weights_used": {
+     "linkedin": 0.4,
+     "web": 0.4,
+     "aeo": 0.2
+    },
+    "web_fallback": false,
+    "linkedin_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "web_members": [
+     "Cornerstone",
+     "Degreed",
+     "Yoodli",
+     "Sana",
+     "Skillsoft",
+     "Eightfold",
+     "Docebo",
+     "360Learning",
+     "Gloat",
+     "TechWolf"
+    ],
+    "flags": [],
+    "raw": {
+     "efficiency": {
+      "Cornerstone": 0.018395652929062353,
+      "Degreed": 0.008280138610249864,
+      "Yoodli": 0.05827792367435883,
+      "Sana": 0.034982771338783185,
+      "Skillsoft": 0.0040985921174714595,
+      "Eightfold": 0.00749194495468096,
+      "Docebo": 0.010948710324267863,
+      "360Learning": 0.018835303309893105,
+      "Gloat": 0.00155448468832582,
+      "TechWolf": 0.04160695091365102
+     },
+     "growth_rate": {
+      "Cornerstone": 0.018400615338808525,
+      "Degreed": 0.005641680345309746,
+      "Yoodli": 0.03162541208023691,
+      "Sana": 0.031193476349746875,
+      "Skillsoft": 0.005099035862681028,
+      "Eightfold": 0.019350176157065857,
+      "Docebo": 0.011314683928421663,
+      "360Learning": 0.013731650956727013,
+      "Gloat": 0.0014638064148401473,
+      "TechWolf": 0.022975635972769616
+     },
+     "efficiency_share": 0.040495126284744616,
+     "growth_share": 0.03508591172156538,
+     "web_organic_traffic": {
+      "Cornerstone": 49200.0,
+      "Degreed": 7441.0,
+      "Yoodli": 17500.0,
+      "Sana": 20200.0,
+      "Skillsoft": 77300.0,
+      "Eightfold": 87600.0,
+      "Docebo": 110700.0,
+      "360Learning": 64000.0,
+      "Gloat": 16800.0,
+      "TechWolf": 3300.0
+     }
+    }
+   }
+  ],
+  "context": {
+   "Cornerstone": {
+    "linkedin": {
+     "total_followers": 201515,
+     "new_followers": 3708,
+     "engagements": 3707,
+     "total_posts": 95
+    },
+    "web": {
+     "domain": "cornerstoneondemand.com",
+     "period": "Jun 2026",
+     "organic_traffic": 49200,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Degreed": {
+    "linkedin": {
+     "total_followers": 82245,
+     "new_followers": 464,
+     "engagements": 681,
+     "total_posts": 24
+    },
+    "web": {
+     "domain": "degreed.com",
+     "period": "Jun 2026",
+     "organic_traffic": 8817,
+     "organic_source": "Google Analytics (Organic Search)"
+    }
+   },
+   "Yoodli": {
+    "linkedin": {
+     "total_followers": 17897,
+     "new_followers": 566,
+     "engagements": 1043,
+     "total_posts": 143
+    },
+    "web": {
+     "domain": "yoodli.ai",
+     "period": "Jun 2026",
+     "organic_traffic": 17500,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Sana": {
+    "linkedin": {
+     "total_followers": 98963,
+     "new_followers": 3087,
+     "engagements": 3462,
+     "total_posts": 13
+    },
+    "web": {
+     "domain": "sanalabs.com",
+     "period": "Jun 2026",
+     "organic_traffic": 20200,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Skillsoft": {
+    "linkedin": {
+     "total_followers": 247890,
+     "new_followers": 1264,
+     "engagements": 1016,
+     "total_posts": 34
+    },
+    "web": {
+     "domain": "skillsoft.com",
+     "period": "Jun 2026",
+     "organic_traffic": 77300,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Eightfold": {
+    "linkedin": {
+     "total_followers": 166045,
+     "new_followers": 3213,
+     "engagements": 1244,
+     "total_posts": 63
+    },
+    "web": {
+     "domain": "eightfold.ai",
+     "period": "Jun 2026",
+     "organic_traffic": 87600,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Docebo": {
+    "linkedin": {
+     "total_followers": 131157,
+     "new_followers": 1484,
+     "engagements": 1436,
+     "total_posts": 26
+    },
+    "web": {
+     "domain": "docebo.com",
+     "period": "Jun 2026",
+     "organic_traffic": 110700,
+     "organic_source": "SEMrush"
+    }
+   },
+   "360Learning": {
+    "linkedin": {
+     "total_followers": 60153,
+     "new_followers": 826,
+     "engagements": 1133,
+     "total_posts": 33
+    },
+    "web": {
+     "domain": "360learning.com",
+     "period": "Jun 2026",
+     "organic_traffic": 64000,
+     "organic_source": "SEMrush"
+    }
+   },
+   "Gloat": {
+    "linkedin": {
+     "total_followers": 77196,
+     "new_followers": 113,
+     "engagements": 120,
+     "total_posts": 4
+    },
+    "web": {
+     "domain": "gloat.com",
+     "period": "Jun 2026",
+     "organic_traffic": 16800,
+     "organic_source": "SEMrush"
+    }
+   },
+   "TechWolf": {
+    "linkedin": {
+     "total_followers": 22328,
+     "new_followers": 513,
+     "engagements": 929,
+     "total_posts": 15
+    },
+    "web": {
+     "domain": "techwolf.ai",
+     "period": "Jun 2026",
+     "organic_traffic": 3300,
+     "organic_source": "SEMrush"
+    }
+   }
+  }
+ }
+}
