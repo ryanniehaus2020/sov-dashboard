@@ -660,15 +660,15 @@ html += `<h2 class="section">Organic traffic &amp; authority</h2><div class="met
 <div class="mval" style="color:${col}">${fmtInt(latestSel.ga_organic)}</div>
 <div class="msub">${latestSel.month_label} · Google Analytics (Organic Search)</div>
 <div data-chart="ga"></div>
-<div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics · Traffic Acquisition</a> (Organic Search row).</div>
 </div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics · Traffic Acquisition</a> (Organic Search row).</div>
 <div class="m-card">
 <div class="mh"><span class="mname">Authority Score</span></div>
 <div class="mval" style="color:${col}">${seoAuthorityValue(selMonths)}</div>
 <div class="msub">${selMonths.length>1?`Average of ${selMonths.length} selected months (rounded)`:latestSel.month_label} · SEMrush</div>
 <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line)">${seoCompetitorAuthority()}</div>
-<div class="srcnote"><b>Source:</b> <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.</div>
 </div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.</div>
 </div>`;
 html += `<h2 class="section">Search Console — queries &amp; clicks</h2>
 <div class="panel">
@@ -773,13 +773,14 @@ html += `<h2 class="section">Primary metrics</h2><div class="metric-grid">
 </div>
 <div class="msub" style="margin-top:10px">${sel.length>1?`Average of ${soaVals.length} selected months`:latestSel.month_name} · Microsoft Clarity</div>
 </div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.aeo}" target="_blank">Microsoft Clarity</a>.</div>
 <div class="m-card">
 <div class="mname">AI sessions driven to site</div>
 <div class="mval" style="color:${col}">${aiLatest?fmtInt(aiLatest.sessions):'—'}</div>
 <div class="msub">${aiLatest?aiLatest.month_label:''} · GA — sessions from AI sources</div>
 <div data-chart="ai"></div>
-<div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics</a> — sessions from AI sources (ChatGPT, Gemini, Perplexity), per the WEB OKR metrics report. Consistent method across all six months.</div>
 </div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics</a> — sessions from AI sources (ChatGPT, Gemini, Perplexity), per the WEB OKR metrics report. Consistent method across all six months.</div>
 </div>`;
 html += `<h2 class="section">Secondary metrics</h2><div class="metric-grid three">`;
 const mk=(title,key)=>{
