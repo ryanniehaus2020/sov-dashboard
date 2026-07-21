@@ -1,4 +1,4 @@
-{
+﻿{
   "config": {
     "brand": "Degreed",
     "channel_weights": {"groups": {"linkedin": 0.5, "web": 0.5}, "overall": {"linkedin": 0.4, "web": 0.4, "aeo": 0.2}},
