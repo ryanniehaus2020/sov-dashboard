@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Degreed — Share of Voice</title>
+<style>
+:root{
+--true-blue:#0062E3; --deep-blue:#0026EE; --moonshot:#0F1F2C;
+--sky:#8FCEEE; --fry:#FF7F64; --gold:#FED141; --gold-deep:#C98A00;
+--ink:#0F1F2C; --muted:#5b6b78; --line:#e4e9ee; --bg:#f5f7fa;
+--card:#ffffff; --good:#1a9d6b; --bad:#d4483b;
+--r-skills:#0062E3; --r-learning:#FF7F64; --r-ai:#C98A00; --r-overall:#0F1F2C;
+--seo:#1a9d6b; --aeo:#6b5bd4; --lead:#0062E3;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--true-blue)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px 60px}
+header.top{background:linear-gradient(105deg,#0026EE 0%,#0062E3 60%,#3d8bf0 100%);color:#fff;padding:26px 0 30px;margin-bottom:-26px}
+header.top .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+header.top h1{margin:0;font-size:26px;font-weight:700;letter-spacing:-.02em}
+header.top .sub{opacity:.85;font-size:13.5px;margin-top:3px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle}
+.period-pick{display:flex;align-items:center;gap:9px;font-size:13px}
+.period-pick select{font:inherit;font-size:14px;padding:7px 11px;border-radius:9px;border:none;background:rgba(255,255,255,.16);color:#fff;font-weight:600;cursor:pointer}
+.period-pick select option{color:#0F1F2C}
+.period-pick label{opacity:.85}
+.tabbar{display:flex;gap:4px;margin:44px 0 6px;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.tabbar button{border:none;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--muted);
+padding:11px 16px 12px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;border-radius:8px 8px 0 0}
+.tabbar button:hover{background:#eef2f7;color:var(--ink)}
+.tabbar button.on{color:var(--ink);border-bottom-color:var(--true-blue)}
+.tabbar button[data-tab="seo"].on{border-bottom-color:var(--seo)}
+.tabbar button[data-tab="aeo"].on{border-bottom-color:var(--aeo)}
+.tabbar button[data-tab="leadcap"].on{border-bottom-color:var(--lead)}
+.tabbar .tag-degreed{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+background:#eef1f5;color:var(--muted);padding:1px 6px;border-radius:20px;margin-left:6px;vertical-align:middle}
+.tab-section{display:none}
+.tab-section.active{display:block}
+.degreed-ribbon{display:flex;align-items:center;gap:10px;margin:20px 0 6px;padding:10px 14px;border-radius:10px;
+background:#eef2f7;border:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.degreed-ribbon b{color:var(--ink)}
+.degreed-ribbon .pill{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+padding:2px 8px;border-radius:20px;color:#fff}
+.freshness{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 20px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:12.5px;display:flex;align-items:center;gap:8px}
+.chip b{font-weight:600}
+.chip .badge{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:20px}
+.badge.weekly{background:#e6f0ff;color:var(--true-blue)}
+.badge.monthly{background:#fff2ec;color:#c4502e}
+.badge.carry{background:#fff8e1;color:#8a6d00}
+h2.section{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+margin:34px 0 14px;font-weight:700}
+.mfilter{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 6px;align-items:center}
+.mbtn{border:1px solid var(--line);background:var(--card);font:inherit;font-size:12.5px;font-weight:600;
+color:var(--muted);padding:7px 13px;border-radius:9px;cursor:pointer}
+.mbtn:hover{background:#eef2f7}
+.mbtn.on{background:var(--seo);color:#fff;border-color:var(--seo)}
+.mbtn.alltoggle{margin-left:auto;color:var(--true-blue);border-style:dashed;background:none}
+.mbtn.aeo.on{background:var(--aeo);border-color:var(--aeo)}
+.pielegend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:12px}
+.pielegend .li{display:flex;align-items:center;gap:7px}
+.pielegend .sw{width:12px;height:12px;border-radius:3px}
+.srcnote{font-size:11px;color:var(--muted);margin:8px 2px 0}
+.srcnote a{color:var(--muted);text-decoration:underline}
+.srcnote b{color:var(--ink);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;
+cursor:pointer;transition:.15s;position:relative;border-top:4px solid var(--line)}
+.card:hover{box-shadow:0 6px 20px rgba(15,31,44,.08);transform:translateY(-1px)}
+.card.sel{box-shadow:0 8px 26px rgba(15,31,44,.12)}
+.card .rname{font-size:12.5px;font-weight:600;color:var(--muted);min-height:32px}
+.card .sov{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1;margin:6px 0 2px}
+.card .plabel{font-size:11.5px;color:var(--muted)}
+.card .split{display:flex;gap:8px;margin-top:12px;font-size:11.5px}
+.card .split .s{flex:1}
+.card .split .k{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.03em}
+.card .split .v{font-weight:700;font-size:14px}
+.card .bar{height:5px;border-radius:4px;background:#eef1f5;margin-top:4px;overflow:hidden}
+.card .bar i{display:block;height:100%;border-radius:4px}
+.card .flagdot{position:absolute;top:12px;right:13px;font-size:11px;color:var(--gold-deep)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+.chart-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.toggle{display:inline-flex;background:#eef1f5;border-radius:9px;padding:3px}
+.toggle button{border:none;background:none;font:inherit;font-size:12.5px;font-weight:600;color:var(--muted);
+padding:6px 12px;border-radius:7px;cursor:pointer}
+.toggle button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12.5px}
+.legend .li{display:flex;align-items:center;gap:7px;cursor:pointer;opacity:.55;transition:.12s}
+.legend .li.on{opacity:1}
+.legend .sw{width:14px;height:4px;border-radius:3px}
+#tip{position:fixed;pointer-events:none;background:var(--moonshot);color:#fff;font-size:12px;
+padding:7px 10px;border-radius:8px;opacity:0;transition:opacity .1s;z-index:20;white-space:nowrap}
+.chart-note{font-size:11.5px;color:var(--muted);margin-top:8px}
+.brk-row{margin:14px 0}
+.brk-row .lab{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
+.brk-row .lab b{font-weight:700}
+.brk-bar{height:11px;border-radius:7px;background:#eef1f5;overflow:hidden}
+.brk-bar i{display:block;height:100%;border-radius:7px}
+.composite{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:13px}
+.composite .big{font-size:30px;font-weight:800;letter-spacing:-.02em}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:700;
+position:sticky;top:0;background:var(--card)}
+thead th.grp{color:var(--ink);border-bottom:2px solid var(--line);text-align:center}
+thead th.grp.social{color:var(--true-blue)}
+thead th.grp.web{color:var(--seo)}
+tbody tr:hover{background:#f8fafc}
+td.brand{font-weight:600}
+.tag{display:inline-block;font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:20px;margin-left:5px;
+background:#eef1f5;color:var(--muted);vertical-align:middle}
+.tag.me{background:#e6f0ff;color:var(--true-blue)}
+.tbl-scroll{overflow-x:auto;max-height:520px;overflow-y:auto}
+.flags{list-style:none;padding:0;margin:0;font-size:12.5px}
+.flags li{padding:8px 0;border-bottom:1px solid var(--line);color:var(--muted);display:flex;gap:9px}
+.flags li:last-child{border:none}
+.flags .ic{color:var(--gold-deep);flex:none}
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.metric-grid.three{grid-template-columns:repeat(3,1fr)}
+.m-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.m-card .mh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.m-card .mname{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.m-card .mval{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:4px 0 0}
+.m-card .mdelta{font-size:12px;font-weight:700}
+.m-card .mdelta.up{color:var(--good)} .m-card .mdelta.down{color:var(--bad)} .m-card .mdelta.flat{color:var(--muted)}
+.m-card .msub{font-size:11.5px;color:var(--muted);margin-top:2px}
+.m-card.lead{grid-column:span 1}
+.m-card.wide{grid-column:1 / -1}
+.m-card.placeholder{background:repeating-linear-gradient(45deg,#fafbfc,#fafbfc 10px,#f4f6f8 10px,#f4f6f8 20px);border-style:dashed}
+.databox{border-left:3px solid var(--gold-deep);background:#fff8e1;padding:11px 14px;border-radius:8px;
+font-size:12.5px;margin:14px 0;color:#6b5600}
+.databox.info{border-left-color:var(--aeo);background:#f2f0fc;color:#3f356e}
+.databox.seo{border-left-color:var(--seo);background:#e9f7f1;color:#0d5c3e}
+.databox b{font-weight:700}
+.subtle{font-size:11.5px;color:var(--muted)}
+.pr-item{padding:11px 0;border-bottom:1px solid var(--line)}
+.pr-item:last-child{border:none}
+.pr-item .hl{font-weight:600;font-size:13.5px}
+.pr-item .meta{font-size:11.5px;color:var(--muted);margin-top:2px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sent{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:1px 7px;border-radius:20px}
+.sent.positive{background:#e5f6ee;color:var(--good)}
+.sent.negative{background:#fdeceb;color:var(--bad)}
+.sent.neutral{background:#eef1f5;color:var(--muted)}
+.pr-takeaway{background:#f0f5ff;border-left:3px solid var(--true-blue);padding:11px 14px;border-radius:8px;
+font-size:13px;margin-bottom:12px}
+.notpartof{font-size:11px;color:var(--muted);font-style:italic;margin-top:2px}
+.pr-group{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+font-weight:700;margin:18px 0 4px;padding-bottom:5px;border-bottom:2px solid var(--line)}
+.pr-brand{padding:11px 0;border-bottom:1px solid var(--line)}
+.pr-brand:last-child{border:none}
+.pr-brand .bn{font-weight:700;font-size:14px}
+.pr-brand ul{margin:6px 0 7px 2px;padding-left:18px;font-size:12.5px}
+.pr-brand ul li{margin:2px 0}
+.pr-brand .tk{font-size:12px;color:var(--muted);font-style:italic}
+.pr-none{color:var(--muted);font-weight:400;font-style:italic}
+footer{margin-top:36px;font-size:11.5px;color:var(--muted);text-align:center}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.metric-grid,.metric-grid.three{grid-template-columns:1fr}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<div>
+<h1><span class="dot"></span>Degreed Marketing Intelligence</h1>
+<div class="sub" id="headsub">Share of Voice &nbsp;·&nbsp; SEO &nbsp;·&nbsp; AEO &nbsp;·&nbsp; Lead Capture</div>
+</div>
+<div class="period-pick" id="periodPick">
+<label for="periodSel">Viewing pull</label>
+<select id="periodSel"></select>
+</div>
+</div>
+</header>
+<div class="wrap">
+<div class="tabbar" id="tabbar">
+<button data-tab="sov" class="on">Share of Voice</button>
+<button data-tab="seo">SEO</button>
+<button data-tab="aeo">AEO</button>
+<button data-tab="leadcap">Lead Capture</button>
+</div>
+<section class="tab-section active" id="tab-sov">
+<div class="freshness" id="freshness"></div>
+<h2 class="section">SOV by segment · click a card to focus the trend &amp; detail below</h2>
+<div class="cards" id="cards"></div>
+<div class="srcnote" id="cardsSrc"></div>
+<h2 class="section">Trend</h2>
+<div class="panel">
+<div class="chart-head">
+<div><strong id="trendTitle">All segments</strong>
+<span style="color:var(--muted);font-size:12.5px" id="trendSub"></span></div>
+<div class="toggle" id="metricToggle">
+<button data-m="sov" class="on">SOV</button>
+<button data-m="linkedin_share">LinkedIn share</button>
+<button data-m="web_share">Web share</button>
+</div>
+</div>
+<div id="chart"></div>
+<div class="legend" id="legend"></div>
+<div class="chart-note" id="chartNote"></div>
+</div>
+<div class="srcnote" id="trendSrc"></div>
+<h2 class="section">Channel breakdown &amp; context</h2>
+<div class="grid2">
+<div class="panel">
+<div style="font-size:12.5px;color:var(--muted);margin-bottom:2px">Composite for</div>
+<div style="font-weight:700;font-size:16px;margin-bottom:10px" id="brkName"></div>
+<div id="breakdown"></div>
+</div>
+<div class="panel">
+<div style="font-weight:700;font-size:14px;margin-bottom:4px">Notes &amp; flags</div>
+<div style="font-size:11.5px;color:var(--muted);margin-bottom:8px" id="flagPeriod"></div>
+<ul class="flags" id="flags"></ul>
+</div>
+</div>
+<h2 class="section">Per-brand detail</h2>
+<div class="panel" style="padding:6px 8px">
+<div class="tbl-scroll">
+<table id="detail"><thead></thead><tbody></tbody></table>
+</div>
+</div>
+<div class="srcnote" id="detailSrc"></div>
+<h2 class="section">PR &amp; news <span style="text-transform:none;font-weight:400;color:var(--muted)">— qualitative, hand-entered</span></h2>
+<div class="panel" id="prPanel">
+<div class="notpartof">Not part of the SOV score. Sourced from pr-notes/pr-notes.json.</div>
+<div id="prBody"></div>
+</div>
+</section>
+<section class="tab-section" id="tab-seo">
+<div id="seoBody"></div>
+</section>
+<section class="tab-section" id="tab-aeo">
+<div id="aeoBody"></div>
+</section>
+<section class="tab-section" id="tab-leadcap">
+<div id="leadBody"></div>
+</section>
+<footer id="footer"></footer>
+</div>
+<div id="tip"></div><script>
+const DATA = {"snapshots":{"2026-01":{"period":"2026-01","linkedin":{"start":"Jan 2026","end":"Jan 2026","source":"LinkedIn Competitor Analytics Report"},"web":{"period_label":"Jan 2026","carried_forward":false,"source_period":"2026-01"},"aeo":{"share_of_authority":0.3845,"included_in_overall":true},"readings":[{"name":"Skills / talent intel","linkedin_share":0.191996,"web_share":0.044622,"aeo_share":null,"sov":11.8309,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Learning platforms","linkedin_share":0.220218,"web_share":0.030037,"aeo_share":null,"sov":12.5127,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"AI learning / practice","linkedin_share":0.132873,"web_share":0.12244,"aeo_share":null,"sov":12.7657,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Overall","linkedin_share":0.066175,"web_share":0.016163,"aeo_share":0.3845,"sov":10.9835,"weights_used":{"linkedin":0.4,"web":0.4,"aeo":0.2},"web_fallback":false,"flags":[]}],"context":{"Cornerstone":{"linkedin":{"total_followers":201514,"new_followers":1959,"engagements":1990},"web":{"organic_traffic":74300}},"Degreed":{"linkedin":{"total_followers":82245,"new_followers":550,"engagements":1327},"web":{"organic_traffic":10813}},"Yoodli":{"linkedin":{"total_followers":17898,"new_followers":559,"engagements":621},"web":{"organic_traffic":21800}},"Sana":{"linkedin":{"total_followers":98963,"new_followers":3479,"engagements":4134},"web":{"organic_traffic":41100}},"Skillsoft":{"linkedin":{"total_followers":247890,"new_followers":2531,"engagements":1407},"web":{"organic_traffic":94200}},"Eightfold":{"linkedin":{"total_followers":166045,"new_followers":1700,"engagements":1137},"web":{"organic_traffic":82300}},"Docebo":{"linkedin":{"total_followers":131156,"new_followers":1014,"engagements":2568},"web":{"organic_traffic":113300}},"360Learning":{"linkedin":{"total_followers":60153,"new_followers":921,"engagements":840},"web":{"organic_traffic":95800}},"Gloat":{"linkedin":{"total_followers":77196,"new_followers":137,"engagements":302},"web":{"organic_traffic":8800}},"TechWolf":{"linkedin":{"total_followers":22328,"new_followers":470,"engagements":713},"web":{"organic_traffic":2600}}}},"2026-02":{"period":"2026-02","linkedin":{"start":"Feb 2026","end":"Feb 2026","source":"LinkedIn Competitor Analytics Report"},"web":{"period_label":"Feb 2026","carried_forward":false,"source_period":"2026-02"},"aeo":{"share_of_authority":0.376,"included_in_overall":true},"readings":[{"name":"Skills / talent intel","linkedin_share":0.150633,"web_share":0.03688,"aeo_share":null,"sov":9.3756,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Learning platforms","linkedin_share":0.162893,"web_share":0.025911,"aeo_share":null,"sov":9.4402,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"AI learning / practice","linkedin_share":0.100652,"web_share":0.110352,"aeo_share":null,"sov":10.5502,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Overall","linkedin_share":0.04759,"web_share":0.013742,"aeo_share":0.376,"sov":9.9733,"weights_used":{"linkedin":0.4,"web":0.4,"aeo":0.2},"web_fallback":false,"flags":[]}],"context":{"Cornerstone":{"linkedin":{"total_followers":201514,"new_followers":4150,"engagements":1202},"web":{"organic_traffic":65200}},"Degreed":{"linkedin":{"total_followers":82245,"new_followers":563,"engagements":720},"web":{"organic_traffic":10195}},"Yoodli":{"linkedin":{"total_followers":17898,"new_followers":489,"engagements":910},"web":{"organic_traffic":24600}},"Sana":{"linkedin":{"total_followers":98963,"new_followers":2714,"engagements":3711},"web":{"organic_traffic":41000}},"Skillsoft":{"linkedin":{"total_followers":247890,"new_followers":2102,"engagements":1459},"web":{"organic_traffic":112500}},"Eightfold":{"linkedin":{"total_followers":166045,"new_followers":1496,"engagements":1175},"web":{"organic_traffic":82700}},"Docebo":{"linkedin":{"total_followers":131157,"new_followers":800,"engagements":1870},"web":{"organic_traffic":124600}},"360Learning":{"linkedin":{"total_followers":60153,"new_followers":1022,"engagements":1024},"web":{"organic_traffic":116100}},"Gloat":{"linkedin":{"total_followers":77196,"new_followers":110,"engagements":65},"web":{"organic_traffic":14800}},"TechWolf":{"linkedin":{"total_followers":22328,"new_followers":495,"engagements":730},"web":{"organic_traffic":2500}}}},"2026-03":{"period":"2026-03","linkedin":{"start":"Mar 2026","end":"Mar 2026","source":"LinkedIn Competitor Analytics Report"},"web":{"period_label":"Mar 2026","carried_forward":false,"source_period":"2026-03"},"aeo":{"share_of_authority":0.3403,"included_in_overall":true},"readings":[{"name":"Skills / talent intel","linkedin_share":0.169883,"web_share":0.040682,"aeo_share":null,"sov":10.5282,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Learning platforms","linkedin_share":0.276116,"web_share":0.027586,"aeo_share":null,"sov":15.1851,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"AI learning / practice","linkedin_share":0.133494,"web_share":0.145284,"aeo_share":null,"sov":13.9389,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Overall","linkedin_share":0.066852,"web_share":0.015218,"aeo_share":0.3403,"sov":10.0888,"weights_used":{"linkedin":0.4,"web":0.4,"aeo":0.2},"web_fallback":false,"flags":[]}],"context":{"Cornerstone":{"linkedin":{"total_followers":201515,"new_followers":2932,"engagements":2661},"web":{"organic_traffic":60400}},"Degreed":{"linkedin":{"total_followers":82245,"new_followers":721,"engagements":1899},"web":{"organic_traffic":10248}},"Yoodli":{"linkedin":{"total_followers":17897,"new_followers":590,"engagements":1390},"web":{"organic_traffic":21500}},"Sana":{"linkedin":{"total_followers":98963,"new_followers":3608,"engagements":4783},"web":{"organic_traffic":27100}},"Skillsoft":{"linkedin":{"total_followers":247890,"new_followers":1906,"engagements":899},"web":{"organic_traffic":97400}},"Eightfold":{"linkedin":{"total_followers":166045,"new_followers":1707,"engagements":1038},"web":{"organic_traffic":81000}},"Docebo":{"linkedin":{"total_followers":131157,"new_followers":1142,"engagements":1583},"web":{"organic_traffic":106200}},"360Learning":{"linkedin":{"total_followers":60153,"new_followers":893,"engagements":894},"web":{"organic_traffic":124600}},"Gloat":{"linkedin":{"total_followers":77196,"new_followers":102,"engagements":27},"web":{"organic_traffic":12700}},"TechWolf":{"linkedin":{"total_followers":22328,"new_followers":885,"engagements":1708},"web":{"organic_traffic":3700}}}},"2026-04":{"period":"2026-04","linkedin":{"start":"Apr 2026","end":"Apr 2026","source":"LinkedIn Competitor Analytics Report"},"web":{"period_label":"Apr 2026","carried_forward":false,"source_period":"2026-04"},"aeo":{"share_of_authority":0.3399,"included_in_overall":true},"readings":[{"name":"Skills / talent intel","linkedin_share":0.189442,"web_share":0.034996,"aeo_share":null,"sov":11.2219,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Learning platforms","linkedin_share":0.155829,"web_share":0.027439,"aeo_share":null,"sov":9.1634,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"AI learning / practice","linkedin_share":0.097068,"web_share":0.12238,"aeo_share":null,"sov":10.9724,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Overall","linkedin_share":0.050086,"web_share":0.014047,"aeo_share":0.3399,"sov":9.3633,"weights_used":{"linkedin":0.4,"web":0.4,"aeo":0.2},"web_fallback":false,"flags":[]}],"context":{"Cornerstone":{"linkedin":{"total_followers":201515,"new_followers":4098,"engagements":2466},"web":{"organic_traffic":65600}},"Degreed":{"linkedin":{"total_followers":82245,"new_followers":475,"engagements":964},"web":{"organic_traffic":8692}},"Yoodli":{"linkedin":{"total_followers":17897,"new_followers":567,"engagements":920},"web":{"organic_traffic":16800}},"Sana":{"linkedin":{"total_followers":98963,"new_followers":3381,"engagements":3973},"web":{"organic_traffic":35500}},"Skillsoft":{"linkedin":{"total_followers":247890,"new_followers":1315,"engagements":1570},"web":{"organic_traffic":91000}},"Eightfold":{"linkedin":{"total_followers":166045,"new_followers":1784,"engagements":1221},"web":{"organic_traffic":86700}},"Docebo":{"linkedin":{"total_followers":131157,"new_followers":1194,"engagements":2971},"web":{"organic_traffic":96100}},"360Learning":{"linkedin":{"total_followers":60153,"new_followers":763,"engagements":886},"web":{"organic_traffic":96800}},"Gloat":{"linkedin":{"total_followers":77196,"new_followers":247,"engagements":118},"web":{"organic_traffic":19600}},"TechWolf":{"linkedin":{"total_followers":22328,"new_followers":428,"engagements":453},"web":{"organic_traffic":3800}}}},"2026-05":{"period":"2026-05","linkedin":{"start":"May 2026","end":"May 2026","source":"LinkedIn Competitor Analytics Report"},"web":{"period_label":"May 2026","carried_forward":false,"source_period":"2026-05"},"aeo":{"share_of_authority":0.2804,"included_in_overall":true},"readings":[{"name":"Skills / talent intel","linkedin_share":0.113016,"web_share":0.037293,"aeo_share":null,"sov":7.5154,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Learning platforms","linkedin_share":0.119631,"web_share":0.027206,"aeo_share":null,"sov":7.3419,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"AI learning / practice","linkedin_share":0.083379,"web_share":0.10888,"aeo_share":null,"sov":9.6129,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Overall","linkedin_share":0.036193,"web_share":0.014133,"aeo_share":0.2804,"sov":7.621,"weights_used":{"linkedin":0.4,"web":0.4,"aeo":0.2},"web_fallback":false,"flags":[]}],"context":{"Cornerstone":{"linkedin":{"total_followers":201515,"new_followers":7906,"engagements":4945},"web":{"organic_traffic":47800}},"Degreed":{"linkedin":{"total_followers":82245,"new_followers":422,"engagements":856},"web":{"organic_traffic":8001}},"Yoodli":{"linkedin":{"total_followers":17897,"new_followers":528,"engagements":1241},"web":{"organic_traffic":16900}},"Sana":{"linkedin":{"total_followers":98963,"new_followers":3180,"engagements":3564},"web":{"organic_traffic":37600}},"Skillsoft":{"linkedin":{"total_followers":247890,"new_followers":1292,"engagements":1226},"web":{"organic_traffic":88700}},"Eightfold":{"linkedin":{"total_followers":166045,"new_followers":1920,"engagements":2223},"web":{"organic_traffic":63300}},"Docebo":{"linkedin":{"total_followers":131157,"new_followers":1339,"engagements":1723},"web":{"organic_traffic":121600}},"360Learning":{"linkedin":{"total_followers":60153,"new_followers":938,"engagements":876},"web":{"organic_traffic":68700}},"Gloat":{"linkedin":{"total_followers":77196,"new_followers":120,"engagements":103},"web":{"organic_traffic":16200}},"TechWolf":{"linkedin":{"total_followers":22328,"new_followers":740,"engagements":1045},"web":{"organic_traffic":3700}}}},"2026-06":{"period":"2026-06","linkedin":{"start":"Jun 2026","end":"Jun 2026","source":"LinkedIn Competitor Analytics Report"},"web":{"period_label":"Jun 2026","carried_forward":false,"source_period":"2026-06"},"aeo":{"share_of_authority":0.3533,"included_in_overall":true},"readings":[{"name":"Skills / talent intel","linkedin_share":0.117412,"web_share":0.038666,"aeo_share":null,"sov":7.8039,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Learning platforms","linkedin_share":0.130792,"web_share":0.032165,"aeo_share":null,"sov":8.1478,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"AI learning / practice","linkedin_share":0.081976,"web_share":0.164839,"aeo_share":null,"sov":12.3408,"weights_used":{"linkedin":0.5,"web":0.5},"web_fallback":false,"flags":[]},{"name":"Overall","linkedin_share":0.037791,"web_share":0.016388,"aeo_share":0.3533,"sov":9.2332,"weights_used":{"linkedin":0.4,"web":0.4,"aeo":0.2},"web_fallback":false,"flags":[]}],"context":{"Cornerstone":{"linkedin":{"total_followers":201515,"new_followers":3708,"engagements":3707},"web":{"organic_traffic":49200}},"Degreed":{"linkedin":{"total_followers":82245,"new_followers":464,"engagements":681},"web":{"organic_traffic":8817}},"Yoodli":{"linkedin":{"total_followers":17897,"new_followers":566,"engagements":1043},"web":{"organic_traffic":17500}},"Sana":{"linkedin":{"total_followers":98963,"new_followers":3087,"engagements":3462},"web":{"organic_traffic":20200}},"Skillsoft":{"linkedin":{"total_followers":247890,"new_followers":1264,"engagements":1016},"web":{"organic_traffic":77300}},"Eightfold":{"linkedin":{"total_followers":166045,"new_followers":3213,"engagements":1244},"web":{"organic_traffic":87600}},"Docebo":{"linkedin":{"total_followers":131157,"new_followers":1484,"engagements":1436},"web":{"organic_traffic":110700}},"360Learning":{"linkedin":{"total_followers":60153,"new_followers":826,"engagements":1133},"web":{"organic_traffic":64000}},"Gloat":{"linkedin":{"total_followers":77196,"new_followers":113,"engagements":120},"web":{"organic_traffic":16800}},"TechWolf":{"linkedin":{"total_followers":22328,"new_followers":513,"engagements":929},"web":{"organic_traffic":3300}}}}},"prnotes":{"2026-06":{"window":"June 2026","note":"June was a quieter news month than Q1–Q2; brands with no confirmed June coverage are marked explicitly rather than dropped. Sources are public press and analyst coverage gathered via web search — directional, not a precise mention count. Qualitative only; not part of the SOV score.","brands":{"Degreed":{"group":"brand","highlights":["Sponsored the SAP HR Connect Paris conference (June 16).","No major press release in June; the Fosway 9-Grid recognition, Fast Company listing, and LENS 2026 launches were all March–April."],"takeaway":"Quiet June for headline PR after a strong Q1. Momentum carried over from spring rather than new June news."},"Eightfold":{"group":"Skills / talent intel","highlights":["Named a Strategic Leader in the 2026 Fosway 9-Grid for Talent Acquisition, fourth consecutive year (June 1).","Announced 2026 Pathfinder Award winners (June 11)."],"takeaway":"Most active competitor in June. Recognition and awards keep it visible, though the focus is hiring and talent intelligence rather than learning."},"Skillsoft":{"group":"Skills / talent intel","highlights":["Released first quarter fiscal 2027 financial results after market close (June 9)."],"takeaway":"June activity was earnings, not product. Financial performance and listing status remain the dominant storyline."},"Gloat":{"group":"Skills / talent intel","highlights":["Coverage of its Irresistible 2026 event appeared around June 10."],"takeaway":"Modest June presence tied to an event. The Agentic HR launch that drew analyst attention was March."},"TechWolf":{"group":"Skills / talent intel","highlights":["No significant June-specific coverage found."],"takeaway":"Consistently low PR footprint. Nothing notable surfaced for June."},"Cornerstone":{"group":"Learning platforms","highlights":["Newsroom continued publishing through June at its usual high cadence, though no standout June headline was confirmed.","The Cornerstone Workforce AI launch was May."],"takeaway":"Steady high-volume output even in a quiet month. A key reason PR stays qualitative and out of the score."},"Docebo":{"group":"Learning platforms","highlights":["Announced annual meeting voting results (June 9); routine investor-relations activity.","No product news in June; the Inspire 2026 platform launch was April."],"takeaway":"June was administrative. Product momentum sits in the spring launch."},"360Learning":{"group":"Learning platforms","highlights":["No significant June-specific coverage found."],"takeaway":"Quiet in June. Smaller PR footprint overall."},"Sana":{"group":"AI learning / practice","highlights":["No significant June-specific coverage found; activity was concentrated on the March Sana from Workday launch."],"takeaway":"Now a Workday product. Watch the SOV data: standalone LinkedIn and web numbers may drift or become unreliable as the integration proceeds."},"Yoodli":{"group":"AI learning / practice","highlights":["Auto-generated learning content reached general availability (June 9), announced June 11.","Hosted a demo webinar (June 25).","Named to Training Industry's 2026 Top 20 AI Coaching and Learner Support Tools list (late June)."],"takeaway":"Active June for its size, with a real product launch. Continues expanding from communication coaching into experiential learning."}}}},"config":{"brand":"Degreed","channel_weights":{"groups":{"linkedin":0.5,"web":0.5},"overall":{"linkedin":0.4,"web":0.4,"aeo":0.2}},"linkedin_blend":{"efficiency":0.5,"growth_rate":0.5},"web_excluded_brands":[],"groups":{"Skills / talent intel":["Eightfold","TechWolf","Gloat","Skillsoft"],"Learning platforms":["Docebo","Cornerstone","360Learning"],"AI learning / practice":["Sana","Yoodli"]},"overall_includes_all":true,"brand_name_map":{"Degreed":{"linkedin":"Degreed","web":"degreed.com"},"Cornerstone":{"linkedin":"Cornerstone OnDemand","web":"cornerstoneondemand.com"},"Docebo":{"linkedin":"Docebo","web":"docebo.com"},"Sana":{"linkedin":"Sana","web":"sanalabs.com"},"Yoodli":{"linkedin":"Yoodli AI Roleplays","web":"yoodli.ai"},"Eightfold":{"linkedin":"Eightfold AI","web":"eightfold.ai"},"Gloat":{"linkedin":"Gloat","web":"gloat.com"},"TechWolf":{"linkedin":"TechWolf","web":"techwolf.ai"},"360Learning":{"linkedin":"360Learning","web":"360learning.com"},"Skillsoft":{"linkedin":"Skillsoft","web":"skillsoft.com"}}},"seo":{"domain":"degreed.com","latest_ym":"2026-06","gsc_latest_label":"Jun 2026","months":[{"ym":"2026-01","month_label":"Jan 2026","ga_organic":10813,"authority":38},{"ym":"2026-02","month_label":"Feb 2026","ga_organic":10195,"authority":38},{"ym":"2026-03","month_label":"Mar 2026","ga_organic":10248,"authority":38},{"ym":"2026-04","month_label":"Apr 2026","ga_organic":8692,"authority":38},{"ym":"2026-05","month_label":"May 2026","ga_organic":8001,"authority":38},{"ym":"2026-06","month_label":"Jun 2026","ga_organic":8817,"authority":38}],"gsc":[{"ym":"2026-01","month_label":"Jan 2026","queries":17690,"clicks":13308},{"ym":"2026-02","month_label":"Feb 2026","queries":14650,"clicks":11526},{"ym":"2026-03","month_label":"Mar 2026","queries":7286,"clicks":12585},{"ym":"2026-04","month_label":"Apr 2026","queries":7627,"clicks":11917},{"ym":"2026-05","month_label":"May 2026","queries":6615,"clicks":10525},{"ym":"2026-06","month_label":"Jun 2026","queries":5916,"clicks":11999}],"competitor_authority":[{"brand":"Docebo","score":49},{"brand":"Eightfold","score":48},{"brand":"Cornerstone","score":47},{"brand":"360Learning","score":46},{"brand":"Skillsoft","score":43},{"brand":"Gloat","score":39},{"brand":"Degreed","score":38},{"brand":"Yoodli","score":38},{"brand":"Sana","score":36},{"brand":"TechWolf","score":32}],"branded":[{"q":"degreed","clicks":6141,"impr":16665,"pos":1.39,"ctr":36.85},{"q":"degreed login","clicks":854,"impr":1211,"pos":1.59,"ctr":70.52},{"q":"iox degreed","clicks":236,"impr":480,"pos":1.12,"ctr":49.17},{"q":"degreed careers","clicks":230,"impr":524,"pos":17.15,"ctr":43.89},{"q":"degreed itau","clicks":107,"impr":139,"pos":1.0,"ctr":76.98},{"q":"degreed sso login","clicks":102,"impr":122,"pos":1.02,"ctr":83.61},{"q":"degreed.com login","clicks":76,"impr":120,"pos":1.31,"ctr":63.33},{"q":"degreed capgemini","clicks":74,"impr":100,"pos":1.04,"ctr":74.0},{"q":"degreed citi login","clicks":69,"impr":181,"pos":1.69,"ctr":38.12},{"q":"degreed citi","clicks":65,"impr":153,"pos":1.72,"ctr":42.48},{"q":"degred","clicks":60,"impr":360,"pos":1.56,"ctr":16.67},{"q":"degreed.com","clicks":45,"impr":228,"pos":1.22,"ctr":19.74},{"q":"deegreed","clicks":44,"impr":123,"pos":1.01,"ctr":35.77}],"nonbranded":[{"q":"iox itau","clicks":174,"impr":345,"pos":1.75,"ctr":50.43},{"q":"td thrive","clicks":42,"impr":104,"pos":1.35,"ctr":40.38},{"q":"lxp 日立 ログイン","clicks":24,"impr":46,"pos":2.09,"ctr":52.17},{"q":"iox itaú","clicks":18,"impr":46,"pos":2.13,"ctr":39.13},{"q":"next capgemini","clicks":10,"impr":98,"pos":4.65,"ctr":10.2},{"q":"circus street","clicks":8,"impr":121,"pos":6.26,"ctr":6.61},{"q":"prosus academy login","clicks":8,"impr":43,"pos":4.44,"ctr":18.6},{"q":"curiosy","clicks":7,"impr":30,"pos":2.73,"ctr":23.33},{"q":"td thrive login","clicks":6,"impr":10,"pos":1.0,"ctr":60.0},{"q":"learning 2026","clicks":5,"impr":31,"pos":3.48,"ctr":16.13},{"q":"udemy citi login","clicks":5,"impr":28,"pos":3.54,"ctr":17.86},{"q":"shoshin school ltimindtree login","clicks":4,"impr":205,"pos":6.51,"ctr":1.95},{"q":"max wessel","clicks":4,"impr":83,"pos":3.84,"ctr":4.82}]},"aeo":{"months":[{"ym":"2025-09","year":2025,"month_name":"Sep 2025","score":24,"mentions":278,"citations":null,"cited_pages":null,"share_of_authority":null},{"ym":"2025-10","year":2025,"month_name":"Oct 2025","score":22,"mentions":341,"citations":null,"cited_pages":null,"share_of_authority":null},{"ym":"2025-11","year":2025,"month_name":"Nov 2025","score":22,"mentions":451,"citations":184,"cited_pages":284,"share_of_authority":null},{"ym":"2025-12","year":2025,"month_name":"Dec 2025","score":22,"mentions":518,"citations":186,"cited_pages":263,"share_of_authority":null},{"ym":"2026-01","year":2026,"month_name":"Jan 2026","score":21,"mentions":730,"citations":498,"cited_pages":330,"share_of_authority":0.3845},{"ym":"2026-02","year":2026,"month_name":"Feb 2026","score":21,"mentions":764,"citations":511,"cited_pages":340,"share_of_authority":0.376},{"ym":"2026-03","year":2026,"month_name":"Mar 2026","score":21,"mentions":760,"citations":329,"cited_pages":279,"share_of_authority":0.3403},{"ym":"2026-04","year":2026,"month_name":"Apr 2026","score":21,"mentions":794,"citations":360,"cited_pages":289,"share_of_authority":0.33990000000000004},{"ym":"2026-05","year":2026,"month_name":"May 2026","score":19,"mentions":847,"citations":514,"cited_pages":310,"share_of_authority":0.2804},{"ym":"2026-06","year":2026,"month_name":"Jun 2026","score":19,"mentions":650,"citations":362,"cited_pages":272,"share_of_authority":0.3533}],"soa_by_ym":{"2026-01":0.3845,"2026-02":0.376,"2026-03":0.3403,"2026-04":0.33990000000000004,"2026-05":0.2804,"2026-06":0.3533},"ai_sessions":[{"ym":"2026-01","month_label":"Jan 2026","sessions":296,"official":true},{"ym":"2026-02","month_label":"Feb 2026","sessions":260,"official":true},{"ym":"2026-03","month_label":"Mar 2026","sessions":298,"official":true},{"ym":"2026-04","month_label":"Apr 2026","sessions":348,"official":true},{"ym":"2026-05","month_label":"May 2026","sessions":346,"official":true},{"ym":"2026-06","month_label":"Jun 2026","sessions":608,"official":true}],"latest_ym":"2026-06"},"leadcapture":{"months":[{"ym":"2026-01","month_label":"Jan 2026","date_range":"01/01/26 - 01/31/26","filtered_rate":6.530303030303031,"raw_rate":6.722076407115778,"filtered_submissions":431,"filtered_views":6600,"raw_submissions":461,"raw_views":6858,"excluded_forms":73,"counted_forms":648,"top_forms":[{"name":"Demo Form 2025 - English [Production]","submissions":176,"views":3168},{"name":"Professional Services Webinar Series Webinar Series - English","submissions":101,"views":266},{"name":"Master Form Template - English","submissions":39,"views":294},{"name":"Professional Services Webinar Series Webinar Series - Spanish","submissions":23,"views":95},{"name":"Newsletter Form 2025 - English [Production]","submissions":15,"views":531},{"name":"Demo Form 2025 - Portuguese [Production]","submissions":12,"views":80},{"name":"[RL] How the Workforce Learns: Gen AI in 2025 v2","submissions":10,"views":0},{"name":"AI Powered Learning Webinar Series - English","submissions":7,"views":70}],"source_file":"Hubspot_form_Jan26.csv"},{"ym":"2026-02","month_label":"Feb 2026","date_range":"02/01/26 - 02/28/26","filtered_rate":5.534876193558828,"raw_rate":5.342679127725856,"filtered_submissions":342,"filtered_views":6179,"raw_submissions":343,"raw_views":6420,"excluded_forms":73,"counted_forms":648,"top_forms":[{"name":"Demo Form 2025 - English [Production]","submissions":194,"views":3262},{"name":"Master Form Template - English","submissions":58,"views":306},{"name":"Professional Services Webinar Series Webinar Series - English","submissions":18,"views":117},{"name":"Newsletter Form 2025 - English [Production]","submissions":14,"views":559},{"name":"Demo Form 2025 - Spanish [Production]","submissions":14,"views":87},{"name":"Master Sales Inquiry Form 2024 - English","submissions":7,"views":46},{"name":"Demo Form 2025 - Portuguese [Production]","submissions":7,"views":93},{"name":"Skill Data Handbook JF 22","submissions":6,"views":0}],"source_file":"Hubspot_form_Feb26.csv"},{"ym":"2026-03","month_label":"Mar 2026","date_range":"03/01/26 - 03/31/26","filtered_rate":7.629063097514341,"raw_rate":7.459338194054964,"filtered_submissions":399,"filtered_views":5230,"raw_submissions":399,"raw_views":5349,"excluded_forms":73,"counted_forms":648,"top_forms":[{"name":"Demo Form 2025 - English [Production]","submissions":217,"views":2684},{"name":"Master Form Template - English","submissions":64,"views":282},{"name":"Demo Form 2025 - Spanish [Production]","submissions":20,"views":70},{"name":"Demo Form 2025 - Portuguese [Production]","submissions":18,"views":103},{"name":"Newsletter Form 2025 - English [Production]","submissions":14,"views":616},{"name":"RL_AI Powered Revolution Webinar","submissions":11,"views":0},{"name":"Skill Data Handbook JF 22","submissions":6,"views":0},{"name":"Master Sales Inquiry Form 2024 - English","submissions":4,"views":44}],"source_file":"Hubspot_form_Mar26.csv"},{"ym":"2026-04","month_label":"Apr 2026","date_range":"04/01/26 - 04/30/26","filtered_rate":7.888945319112917,"raw_rate":7.7718478985990656,"filtered_submissions":466,"filtered_views":5907,"raw_submissions":466,"raw_views":5996,"excluded_forms":73,"counted_forms":648,"top_forms":[{"name":"Demo Form 2025 - English [Production]","submissions":174,"views":2437},{"name":"RL_AI Powered Revolution Webinar_Prospects","submissions":62,"views":0},{"name":"Master Form Template - English","submissions":35,"views":268},{"name":"RL_YouTube Video Degreed Skills_Opps1774034214261","submissions":26,"views":0},{"name":"Newsletter Form 2025 - English [Production]","submissions":21,"views":556},{"name":"RL_Learning & Leading in the Age of AI Guide_Prospects1774034214542","submissions":20,"views":0},{"name":"Demo Form 2025 - Portuguese [Production]","submissions":15,"views":86},{"name":"Newsletter Sign-Up Form 2-Field 2026 - English [Production]","submissions":15,"views":807}],"source_file":"Hubspot_form_Apr26.csv"},{"ym":"2026-05","month_label":"May 2026","date_range":"05/01/26 - 05/31/26","filtered_rate":6.742902208201892,"raw_rate":6.309786607799853,"filtered_submissions":342,"filtered_views":5072,"raw_submissions":343,"raw_views":5436,"excluded_forms":73,"counted_forms":648,"top_forms":[{"name":"Demo Form 2025 - English [Production]","submissions":172,"views":2229},{"name":"Master Form Template - English","submissions":58,"views":264},{"name":"Newsletter Sign-Up Form 2-Field 2026 - English [Production]","submissions":20,"views":729},{"name":"Demo Form 2025 - Portuguese [Production]","submissions":13,"views":98},{"name":"Newsletter Form 2025 - English [Production]","submissions":12,"views":469},{"name":"Demo Form 2025 - Spanish [Production]","submissions":12,"views":63},{"name":"RL_AI Powered Revolution Webinar_Prospects","submissions":11,"views":0},{"name":"Master Sales Inquiry Form 2024 - English","submissions":8,"views":35}],"source_file":"Hubspot_form_May26.csv"},{"ym":"2026-06","month_label":"Jun 2026","date_range":"06/01/26 - 06/30/26","filtered_rate":8.235528148000796,"raw_rate":8.47684653654803,"filtered_submissions":414,"filtered_views":5027,"raw_submissions":443,"raw_views":5226,"excluded_forms":73,"counted_forms":648,"top_forms":[{"name":"Demo Form 2025 - English [Production]","submissions":156,"views":2351},{"name":"Master Form Template - English","submissions":70,"views":210},{"name":"Newsletter Sign-Up Form 2-Field 2026 - English [Production]","submissions":28,"views":744},{"name":"Master Form Template - German","submissions":23,"views":9},{"name":"Newsletter Form 2025 - English [Production]","submissions":18,"views":461},{"name":"Master Form Template - Spanish (LATAM)","submissions":15,"views":10},{"name":"Master Form Template - French","submissions":13,"views":13},{"name":"Master Form Template - Portuguese","submissions":12,"views":30}],"source_file":"Hubspot_form_Jun26.csv"}],"patterns":["[INACTIVE]","DO NOT USE","Legacy Data - Not Active","Dev Testing","Created by Typeform","Meetings Link:","Payment Link:","test form","luke test","HQ Test"]},"provenance":[{"tab":"SEO","source":"SEMrush SEO export","file":"data/seo/semrush_unified_domain_data_Jan-Jun_2026.csv","drive_folder_id":"1oz6gwcGNpEVDQREQhSDx88yR0-2RitGh","latest":"2026-06"},{"tab":"AEO","source":"SEMrush AI Visibility + Microsoft Clarity SoA","file":"data/aeo/ai_visibility_semrush.csv","drive_sheet_id":"1ydetL7b7u5oudofQcq1K8w2hEhYsa-Z1uDkOInB8Vw8","latest":"2026-06"},{"tab":"Lead Capture","source":"HubSpot Form Performance","files":["Hubspot_form_Apr26.csv","Hubspot_form_Feb26.csv","Hubspot_form_Jan26.csv","Hubspot_form_Jun26.csv","Hubspot_form_Mar26.csv","Hubspot_form_May26.csv"],"drive_folder_id":"1p1-v6sq-x0yweVWctfmrRmsI8lIrKGUP","latest":"2026-06"}],"generated_at":"2026-07-21T19:49:24"};
+const SRC = {
+linkedin: "https://drive.google.com/drive/folders/1jw_9Zp730SMphZPtqv2T4j0ELZnSk2l1",
+semrush:  "https://drive.google.com/drive/folders/1oz6gwcGNpEVDQREQhSDx88yR0-2RitGh",
+ga:       "https://drive.google.com/drive/folders/1d7_NGFK0MU5jYTnDM6aiRUutazA_7SLq",
+gsc:      "https://drive.google.com/drive/folders/1vYV_476BRKE8A0NsmDbaIoTpXQczgie2",
+aeo:      "https://docs.google.com/spreadsheets/d/1ydetL7b7u5oudofQcq1K8w2hEhYsa-Z1uDkOInB8Vw8",
+hubspot:  "https://drive.google.com/drive/folders/1p1-v6sq-x0yweVWctfmrRmsI8lIrKGUP"
+};
+const RHEX = {
+"Skills / talent intel":"#0062E3",
+"Learning platforms":"#FF7F64",
+"AI learning / practice":"#C98A00",
+"Overall":"#0F1F2C"
+};
+const periods = Object.keys(DATA.snapshots).sort();
+let state = {
+period: periods[periods.length-1],
+focus: "Overall",
+metric: "sov",
+hidden: new Set(),
+tab: "sov",
+leadRaw: false
+};
+const $ = s => document.querySelector(s);
+const snap = p => DATA.snapshots[p];
+const reading = (p,name) => snap(p).readings.find(r=>r.name===name);
+const fmtPct = (v,dp=1)=> v==null ? "—" : (v*100).toFixed(dp)+"%";
+const fmtSov = v => v==null ? "—" : v.toFixed(1)+"%";
+const fmtInt = v => v==null ? "—" : Math.round(v).toLocaleString();
+const kFmt = v => v==null ? "" : (Math.abs(v)>=1000 ? (v/1000).toFixed(Math.abs(v)>=10000?0:1)+"k" : ""+Math.round(v));
+function metricVal(r,m){
+if(!r) return null;
+if(m==="sov") return r.sov==null?null:r.sov/100;
+return r[m];
+}
+const metricName = {sov:"SOV", linkedin_share:"LinkedIn share", web_share:"Web share"};
+function trendChart(labels, series, opts){
+opts = opts||{};
+const W=680, H=opts.height||240, padL=54, padR=18, padT=16, padB=30;
+const plotW=W-padL-padR, plotH=H-padT-padB;
+const yFmt = opts.yFmt || (v=>kFmt(v));
+const tipFmt = opts.tipFmt || (v=>(""+v));
+let lo=Infinity, hi=-Infinity;
+series.forEach(s=>s.values.forEach(v=>{ if(v!=null){ if(v<lo)lo=v; if(v>hi)hi=v; }}));
+if(!isFinite(lo)){ lo=0; hi=1; }
+if(opts.zeroBase) lo=Math.min(lo,0);
+if(hi===lo) hi=lo+1;
+const span=hi-lo, yMin=lo-span*0.12, yMax=hi+span*0.12;
+const n=labels.length;
+const x=i=> n<=1 ? padL+plotW/2 : padL + plotW*i/(n-1);
+const y=v=> padT + plotH*(1-(v-yMin)/(yMax-yMin));
+let g="";
+const steps=4;
+for(let k=0;k<=steps;k++){
+const val=yMin+(yMax-yMin)*k/steps, yy=y(val);
+g+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}" stroke="#eef1f5"/>`;
+g+=`<text x="${padL-8}" y="${yy+4}" text-anchor="end" font-size="11" fill="#8a97a3">${yFmt(val)}</text>`;
+}
+labels.forEach((lab,i)=>{
+if(n>8 && i%2===1 && i!==n-1) return;
+g+=`<text x="${x(i)}" y="${H-10}" text-anchor="middle" font-size="10.5" fill="#8a97a3">${lab}</text>`;
+});
+series.forEach(s=>{
+const pts=[];
+s.values.forEach((v,i)=>{ if(v!=null) pts.push([x(i),y(v),i,v]); });
+for(let k=1;k<pts.length;k++){
+const a=pts[k-1], b=pts[k];
+const gap = b[2]-a[2] > 1;
+const isLast = opts.provisional && b[2]===n-1;
+g+=`<path d="M${a[0]},${a[1]} L${b[0]},${b[1]}" fill="none" stroke="${s.color}"
+stroke-width="${s.dashed?2:2.6}" stroke-linecap="round"
+stroke-dasharray="${s.dashed?'5,4':(gap||isLast?'4,4':'')}" opacity="${s.dashed?0.75:1}"/>`;
+}
+pts.forEach(pt=>{
+const isLast = opts.provisional && pt[2]===n-1;
+g+=`<circle cx="${pt[0]}" cy="${pt[1]}" r="${isLast?4.5:4}" fill="${isLast?'#fff':s.color}"
+stroke="${s.color}" stroke-width="${isLast?2.2:1.5}"
+data-tip="${s.name} · ${labels[pt[2]]} · ${tipFmt(pt[3])}"/>`;
+});
+});
+const svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet"
+style="max-height:${H+20}px" role="img">${g}</svg>`;
+return svg;
+}
+function delta(cur,prev,fmt){
+if(cur==null||prev==null) return {cls:"flat",txt:""};
+const d=cur-prev;
+const pct = prev!==0 ? (d/prev*100) : null;
+const arrow = d>0?"▲":(d<0?"▼":"■");
+const cls = d>0?"up":(d<0?"down":"flat");
+const txt = arrow+" "+(fmt?fmt(Math.abs(d)):Math.abs(d))+(pct!=null?` (${d>0?'+':'−'}${Math.abs(pct).toFixed(1)}%)`:"");
+return {cls,txt};
+}
+function wireTips(sel){
+document.querySelectorAll(sel+" circle").forEach(c=>{
+c.onmousemove=e=>{const t=$("#tip");t.textContent=c.dataset.tip;
+t.style.opacity=1;t.style.left=(e.clientX+12)+"px";t.style.top=(e.clientY-14)+"px";};
+c.onmouseleave=()=>{$("#tip").style.opacity=0;};
+});
+}
+function renderFreshness(){
+const s = snap(state.period);
+const li = s.linkedin, web = s.web;
+const liRange = li.start && li.end ? (li.start===li.end?li.start:li.start+" – "+li.end) : (li.start||state.period);
+let html = "";
+html += `<div class="chip"><span class="badge weekly">Monthly</span>
+<span><b>LinkedIn</b> · ${liRange}</span></div>`;
+const webLab = web.period_label || "no web data";
+html += `<div class="chip"><span class="badge monthly">Monthly</span>
+<span><b>Web (organic traffic)</b> · ${webLab}${web.carried_forward?
+' <span class="badge carry">carried forward</span>':''}</span></div>`;
+const aeo = s.aeo||{};
+html += `<div class="chip"><span class="badge monthly">Monthly</span>
+<span><b>AEO (Share of Authority)</b> · ${aeo.share_of_authority!=null?
+(aeo.share_of_authority*100).toFixed(1)+"% · in Overall":"n/a"}</span></div>`;
+html += `<div class="chip"><span><b>Pull</b> · ${web.period_label||state.period}</span></div>`;
+$("#freshness").innerHTML = html;
+}
+function renderCards(){
+const order = ["Skills / talent intel","Learning platforms","AI learning / practice","Overall"];
+$("#cards").innerHTML = order.map(name=>{
+const r = reading(state.period,name); if(!r) return "";
+const c = RHEX[name];
+const li = r.linkedin_share, web = r.web_share, aeo = r.aeo_share;
+const liPct = li==null?0:Math.min(100,li*100), webPct = web==null?0:Math.min(100,web*100);
+const aeoPct = aeo==null?0:Math.min(100,aeo*100);
+const flag = (r.flags && r.flags.length) || r.web_fallback;
+const hasAeo = aeo!=null;
+return `<div class="card ${state.focus===name?'sel':''}" data-name="${name}"
+style="border-top-color:${c}">
+${flag?'<span class="flagdot" title="see notes below">▲</span>':''}
+<div class="rname">${name}</div>
+<div class="sov" style="color:${c}">${fmtSov(r.sov)}</div>
+<div class="plabel">${name==="Overall"?"all competitors":"vs group"} · ${snap(state.period).web.period_label||state.period}</div>
+<div class="split">
+<div class="s"><div class="k">LinkedIn</div><div class="v">${fmtPct(li)}</div>
+<div class="bar"><i style="width:${liPct}%;background:${c}"></i></div></div>
+<div class="s"><div class="k">Web${r.web_fallback?' *':''}</div><div class="v">${fmtPct(web)}</div>
+<div class="bar"><i style="width:${webPct}%;background:${c};opacity:.55"></i></div></div>
+${hasAeo?`<div class="s"><div class="k">AEO</div><div class="v">${fmtPct(aeo)}</div>
+<div class="bar"><i style="width:${aeoPct}%;background:var(--aeo)"></i></div></div>`
+:`<div class="s"><div class="k">AEO</div><div class="v" style="color:var(--muted)">n/a</div>
+<div class="bar"></div></div>`}
+</div>
+</div>`;
+}).join("");
+document.querySelectorAll("#cards .card").forEach(el=>{
+el.onclick=()=>{state.focus=el.dataset.name; renderSOV();};
+});
+$("#cardsSrc").innerHTML = `<b>Source:</b> LinkedIn engagement &amp; follower growth — `
++ `<a href="${SRC.linkedin}" target="_blank">LinkedIn Competitor Analytics Report</a>; `
++ `web organic traffic — <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.`;
+}
+function renderChart(){
+const order = ["Skills / talent intel","Learning platforms","AI learning / practice","Overall"];
+const W=720,H=300,padL=46,padR=18,padT=16,padB=34;
+const plotW=W-padL-padR, plotH=H-padT-padB;
+let maxV=0;
+periods.forEach(p=>order.forEach(n=>{
+if(state.hidden.has(n))return;
+const v=metricVal(reading(p,n),state.metric);
+if(v!=null&&v>maxV)maxV=v;
+}));
+maxV = maxV<=0 ? 0.1 : maxV*1.15;
+const nice = Math.ceil(maxV*20)/20;
+const yMax = nice;
+const n = periods.length;
+const x = i => n<=1 ? padL+plotW/2 : padL + plotW*i/(n-1);
+const y = v => padT + plotH*(1 - v/yMax);
+let g = "";
+const steps=5;
+for(let k=0;k<=steps;k++){
+const val=yMax*k/steps, yy=y(val);
+g+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}" stroke="#eef1f5"/>`;
+g+=`<text x="${padL-8}" y="${yy+4}" text-anchor="end" font-size="11" fill="#8a97a3">${(val*100).toFixed(0)}%</text>`;
+}
+periods.forEach((p,i)=>{
+const lab = snap(p).web.period_label || p;
+g+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-size="11" fill="#8a97a3">${lab}</text>`;
+});
+order.forEach(name=>{
+if(state.hidden.has(name))return;
+const col=RHEX[name];
+const dim = state.focus!==name ? 0.32 : 1;
+const lw = state.focus===name ? 3.2 : 2;
+const pts=[];
+periods.forEach((p,i)=>{
+const v=metricVal(reading(p,name),state.metric);
+if(v!=null)pts.push([x(i),y(v),p,v]);
+});
+if(pts.length>1){
+const d="M"+pts.map(pt=>pt[0]+","+pt[1]).join(" L");
+g+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="${lw}"
+stroke-linejoin="round" stroke-linecap="round" opacity="${dim}"/>`;
+}
+pts.forEach(pt=>{
+g+=`<circle cx="${pt[0]}" cy="${pt[1]}" r="${state.focus===name?5:4}" fill="${col}"
+opacity="${dim}" stroke="#fff" stroke-width="1.5"
+data-tip="${name} · ${snap(pt[2]).web.period_label||pt[2]} · ${(pt[3]*100).toFixed(1)}%"/>`;
+});
+});
+$("#chart").innerHTML =
+`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet"
+style="max-height:340px" role="img">${g}</svg>`;
+$("#legend").innerHTML = order.map(name=>
+`<div class="li ${state.hidden.has(name)?'':'on'}" data-name="${name}">
+<span class="sw" style="background:${RHEX[name]}"></span>${name}</div>`).join("");
+document.querySelectorAll("#legend .li").forEach(el=>{
+el.onclick=()=>{const n=el.dataset.name;
+state.hidden.has(n)?state.hidden.delete(n):state.hidden.add(n); renderChart();};
+});
+$("#trendSub").textContent = " · "+metricName[state.metric];
+$("#chartNote").textContent =
+`Showing ${metricName[state.metric]} across ${n} monthly pulls. Click legend to toggle a segment; click a card to highlight one.`;
+wireTips("#chart");
+$("#trendSrc").innerHTML = `<b>Source:</b> LinkedIn engagement &amp; follower growth — `
++ `<a href="${SRC.linkedin}" target="_blank">LinkedIn Competitor Analytics Report</a>; `
++ `web organic traffic — <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.`;
+}
+function renderBreakdown(){
+const r = reading(state.period,state.focus);
+$("#brkName").textContent = state.focus + " · " + (snap(state.period).web.period_label||state.period);
+const c = RHEX[state.focus];
+const w = r.weights_used || {linkedin:0.5, web:0.5};
+const li=r.linkedin_share, web=r.web_share, aeo=r.aeo_share;
+const bar=(label,val,weight,color,note)=>{
+const pct = val==null?0:Math.min(100,val*100);
+return `<div class="brk-row">
+<div class="lab"><span>${label} <span style="color:var(--muted)">(weight ${weight==null?'—':weight})</span></span>
+<b>${fmtPct(val)}</b></div>
+<div class="brk-bar"><i style="width:${pct}%;background:${color}"></i></div>
+${note?`<div style="font-size:11px;color:var(--muted);margin-top:4px">${note}</div>`:''}
+</div>`;
+};
+let html = bar("LinkedIn", li, w.linkedin, c,
+"Equal blend of engagement-per-follower and new-followers-per-follower share.");
+html += bar("Web", web, w.web, c,
+r.web_fallback ? "No valid web data for this reading — SOV falls back to the remaining channel(s)."
+: "Share of organic search traffic (Degreed from Google Analytics; competitors from SEMrush).");
+if("aeo" in w){
+html += bar("AEO (Share of Authority)", aeo, w.aeo, "var(--aeo)",
+aeo!=null ? "Degreed Share of Authority, used directly. Overall reading only — measured against SEMrush/Clarity's own query set, so treat Overall as a blended visibility index, not a like-for-like average."
+: "No Share of Authority this period — Overall reverts to LinkedIn/Web renormalized to 0.5 / 0.5.");
+}
+let terms=[];
+if(li!=null) terms.push(`${w.linkedin} × ${fmtPct(li)}`);
+if(web!=null) terms.push(`${w.web} × ${fmtPct(web)}`);
+if(("aeo" in w) && aeo!=null) terms.push(`${w.aeo} × ${fmtPct(aeo)}`);
+const wsum=(li!=null?w.linkedin:0)+(web!=null?w.web:0)+(("aeo" in w)&&aeo!=null?w.aeo:0);
+const renorm = Math.abs(wsum-1)>1e-9;
+html += `<div class="composite">
+<div style="color:var(--muted);font-size:12px">Composite SOV${renorm?' (weights renormalized to available channels)':''}</div>
+<div class="big" style="color:${c}">${fmtSov(r.sov)}</div>
+<div style="font-size:12px;color:var(--muted);margin-top:3px">
+= (${terms.join(" + ")})${renorm?` ÷ ${wsum.toFixed(2)}`:""} × 100</div>
+</div>`;
+$("#breakdown").innerHTML = html;
+}
+function renderFlags(){
+const s = snap(state.period);
+const r = reading(state.period,state.focus);
+const items = [];
+(s.flags||[]).forEach(f=>items.push(f));
+(r.flags||[]).forEach(f=>items.push(state.focus+" — "+f));
+$("#flagPeriod").textContent = "Pull "+(s.web.period_label||state.period)+" · focus: "+state.focus;
+$("#flags").innerHTML = items.length
+? items.map(f=>`<li><span class="ic">▲</span><span>${f}</span></li>`).join("")
+: `<li style="color:var(--good)"><span class="ic" style="color:var(--good)">✓</span>No flags for this pull.</li>`;
+}
+function renderTable(){
+const s = snap(state.period);
+const groups = DATA.config.groups;
+const brandGroup = {};
+Object.entries(groups).forEach(([g,arr])=>arr.forEach(b=>brandGroup[b]=g));
+$("#detail thead").innerHTML =
+`<tr>
+<th></th>
+<th class="grp social" colspan="5">Social monitoring · LinkedIn</th>
+<th class="grp web" colspan="1">Web · organic search</th>
+</tr>
+<tr>
+<th>Brand</th>
+<th>Followers</th><th>New foll.</th><th>Engagements</th><th>Eng/foll.</th><th>New-foll/foll.</th>
+<th>Organic traffic</th>
+</tr>`;
+const brand = DATA.config.brand;
+const rows = Object.entries(s.context).sort((a,b)=>{
+if(a[0]===brand)return -1; if(b[0]===brand)return 1; return a[0].localeCompare(b[0]);
+});
+$("#detail tbody").innerHTML = rows.map(([b,ctx])=>{
+const li=ctx.linkedin, web=ctx.web;
+const eff = li&&li.total_followers?li.engagements/li.total_followers:null;
+const grw = li&&li.total_followers?li.new_followers/li.total_followers:null;
+const isMe = b===brand;
+let tags = isMe?'<span class="tag me">Degreed</span>':(brandGroup[b]?`<span class="tag">${brandGroup[b].split(" /")[0]}</span>`:"");
+return `<tr>
+<td class="brand">${b}${tags}</td>
+<td>${li?fmtInt(li.total_followers):"—"}</td>
+<td>${li?fmtInt(li.new_followers):"—"}</td>
+<td>${li?fmtInt(li.engagements):"—"}</td>
+<td>${eff!=null?(eff*100).toFixed(2)+"%":"—"}</td>
+<td>${grw!=null?(grw*100).toFixed(2)+"%":"—"}</td>
+<td>${web&&web.organic_traffic!=null?fmtInt(web.organic_traffic):"—"}</td>
+</tr>`;
+}).join("");
+$("#detailSrc").innerHTML = `<b>Source:</b> social columns — `
++ `<a href="${SRC.linkedin}" target="_blank">LinkedIn Competitor Analytics Report</a>; `
++ `organic traffic — Degreed from <a href="${SRC.ga}" target="_blank">Google Analytics (Traffic Acquisition · Organic Search)</a>, `
++ `competitors from <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.`;
+}
+function renderPR(){
+const note = (DATA.prnotes||{})[state.period];
+const el = $("#prBody");
+if(!note){ el.innerHTML = `<div style="color:var(--muted);font-size:13px;padding:8px 0">
+No PR notes for ${state.period}. Add a "${state.period}" block to pr-notes/pr-notes.json.</div>`; return; }
+let html="";
+if(note.window || note.note){
+html += `<div class="pr-takeaway">`;
+if(note.window) html += `<b>${note.window}.</b> `;
+if(note.note) html += note.note;
+html += `</div>`;
+} else if(note.takeaway){
+html += `<div class="pr-takeaway"><b>Takeaway:</b> ${note.takeaway}</div>`;
+}
+if(note.brands){
+const order = ["brand", ...Object.keys(DATA.config.groups)];
+const label = {"brand":"Our brand"};
+const buckets = {};
+Object.entries(note.brands).forEach(([b,info])=>{
+const g = info.group || "other";
+(buckets[g] = buckets[g] || []).push([b,info]);
+});
+const seen = new Set(order);
+order.concat(Object.keys(buckets).filter(g=>!seen.has(g))).forEach(g=>{
+const arr = buckets[g]; if(!arr) return;
+html += `<div class="pr-group">${label[g]||g}</div>`;
+arr.forEach(([b,info])=>{
+const hl = (info.highlights||[]);
+const none = hl.length===1 && /^no (significant|major)/i.test(hl[0]);
+html += `<div class="pr-brand">
+<div class="bn">${b}</div>
+${hl.length ? (none
+? `<div class="tk pr-none">${hl[0]}</div>`
+: `<ul>${hl.map(h=>`<li>${h}</li>`).join("")}</ul>`) : ""}
+${info.takeaway ? `<div class="tk">${info.takeaway}</div>` : ""}
+</div>`;
+});
+});
+}
+el.innerHTML = html;
+}
+function renderSOV(){
+renderFreshness(); renderCards(); renderChart();
+renderBreakdown(); renderFlags(); renderTable(); renderPR();
+$("#trendTitle").textContent = state.focus;
+}
+function seoSelectedMonths(){
+const all = DATA.seo.months.map(x=>x.ym);
+if(!state.seoMonths) state.seoMonths = new Set(all);
+return DATA.seo.months.filter(x=>state.seoMonths.has(x.ym));
+}
+function seoAuthorityValue(selMonths){
+if(!selMonths.length) return "—";
+if(selMonths.length===1) return selMonths[0].authority;
+return Math.round(selMonths.reduce((a,x)=>a+x.authority,0)/selMonths.length);
+}
+function seoCompetitorAuthority(){
+const rows = (DATA.seo.competitor_authority||[]).map(c=>
+`<div style="display:flex;justify-content:space-between;font-size:11.5px;padding:2px 0;${
+c.brand==='Degreed'?'font-weight:700;color:var(--ink)':'color:var(--muted)'}">
+<span>${c.brand}</span><span>${c.score}</span></div>`).join("");
+return `<div style="font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin-bottom:4px">Competitor authority · context</div>${rows}`;
+}
+function seoKeywordTable(title, rows){
+let h = `<h2 class="section">${title} <span style="text-transform:none;font-weight:400;color:var(--muted)">— top ${rows.length} · ${DATA.seo.gsc_latest_label}</span></h2>
+<div class="panel" style="padding:6px 8px"><div class="tbl-scroll"><table><thead><tr>
+<th>Query</th><th>Clicks</th><th>Impressions</th><th>Avg position</th><th>Site CTR</th></tr></thead><tbody>`;
+rows.forEach(r=>{
+h += `<tr><td class="brand">${r.q}</td><td>${fmtInt(r.clicks)}</td><td>${fmtInt(r.impr)}</td>
+<td>${r.pos.toFixed(2)}</td><td>${r.ctr.toFixed(2)}%</td></tr>`;
+});
+h += `</tbody></table></div></div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.gsc}" target="_blank">Google Search Console</a> · Branded_vs_Non-Branded_Keywords.pdf.</div>`;
+return h;
+}
+function renderSEO(){
+const seo = DATA.seo;
+const el = $("#seoBody");
+if(!seo || !seo.months || !seo.months.length){
+el.innerHTML = `<div class="panel">No SEO data found.</div>`; return;
+}
+const all = seo.months;
+const selMonths = seoSelectedMonths();
+const selSet = new Set(selMonths.map(x=>x.ym));
+const gscSel = seo.gsc.filter(x=>selSet.has(x.ym));
+const col = "var(--seo)";
+const short = lab => lab.replace(" 2026","").replace(" 2025","");
+let html = `<div class="freshness">
+<div class="chip"><span class="badge monthly">Monthly</span><span><b>Google Analytics</b> · Organic Search sessions</span></div>
+<div class="chip"><span class="badge monthly">Monthly</span><span><b>Search Console</b> · queries &amp; clicks</span></div>
+<div class="chip"><span class="badge monthly">Monthly</span><span><b>SEMrush</b> · authority score</span></div>
+<div class="chip"><span><b>Coverage</b> · ${all[0].month_label} – ${all[all.length-1].month_label}</span></div>
+</div>`;
+html += `<h2 class="section">Filter months <span style="text-transform:none;font-weight:400;color:var(--muted)">— select one or more; charts &amp; Authority Score update</span></h2>
+<div class="mfilter" id="seoMonthFilter">`;
+all.forEach(x=>{ html += `<button class="mbtn ${selSet.has(x.ym)?'on':''}" data-ym="${x.ym}">${short(x.month_label)}</button>`; });
+html += `<button class="mbtn alltoggle" data-all="1">${selMonths.length===all.length?'Clear all':'Select all'}</button></div>`;
+const latestSel = selMonths.length ? selMonths[selMonths.length-1] : all[all.length-1];
+const li = all.findIndex(x=>x.ym===latestSel.ym);
+const prevM = li>0 ? all[li-1] : null;
+const dOT = delta(latestSel.ga_organic, prevM?prevM.ga_organic:null, fmtInt);
+html += `<h2 class="section">Organic traffic &amp; authority</h2><div class="metric-grid">
+<div class="m-card">
+<div class="mh"><span class="mname">Organic Search sessions</span><span class="mdelta ${dOT.cls}">${dOT.txt}</span></div>
+<div class="mval" style="color:${col}">${fmtInt(latestSel.ga_organic)}</div>
+<div class="msub">${latestSel.month_label} · Google Analytics (Organic Search)</div>
+<div data-chart="ga"></div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics · Traffic Acquisition</a> (Organic Search row).</div>
+</div>
+<div class="m-card">
+<div class="mh"><span class="mname">Authority Score</span></div>
+<div class="mval" style="color:${col}">${seoAuthorityValue(selMonths)}</div>
+<div class="msub">${selMonths.length>1?`Average of ${selMonths.length} selected months (rounded)`:latestSel.month_label} · SEMrush</div>
+<div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line)">${seoCompetitorAuthority()}</div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.</div>
+</div>
+</div>`;
+html += `<h2 class="section">Search Console — queries &amp; clicks</h2>
+<div class="panel">
+<div data-chart="gsc"></div>
+<div class="legend" style="opacity:1">
+<div class="li on"><span class="sw" style="background:#6b5bd4"></span>Queries</div>
+<div class="li on"><span class="sw" style="background:${col}"></span>Clicks</div>
+</div>
+</div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.gsc}" target="_blank">Google Search Console</a>.</div>`;
+html += seoKeywordTable("Branded keywords", seo.branded);
+html += seoKeywordTable("Non-branded keywords", seo.nonbranded);
+html += `<div class="databox seo" style="margin-top:16px"><b>Source &amp; caveat.</b>
+Organic Search sessions come from Google Analytics (first-party); query- and click-level data comes from
+Google Search Console. Authority Score and competitor figures come from SEMrush, which reports estimated,
+rounded values. Degreed's SEMrush contract ends September 2026 — replacement tools are being evaluated.
+Branded / non-branded keyword tables reflect the latest Search Console pull (${DATA.seo.gsc_latest_label}).</div>`;
+el.innerHTML = html;
+const gaLabels = selMonths.map(x=>short(x.month_label));
+el.querySelector('[data-chart="ga"]').innerHTML =
+trendChart(gaLabels, [{name:"Organic Search",color:col,values:selMonths.map(x=>x.ga_organic)}],
+{height:150, yFmt:kFmt, tipFmt:fmtInt});
+const gscLabels = gscSel.map(x=>short(x.month_label));
+el.querySelector('[data-chart="gsc"]').innerHTML =
+trendChart(gscLabels, [
+{name:"Queries",color:"#6b5bd4",values:gscSel.map(x=>x.queries)},
+{name:"Clicks",color:col,values:gscSel.map(x=>x.clicks)}
+], {height:210, yFmt:kFmt, tipFmt:fmtInt});
+wireTips("#seoBody");
+el.querySelectorAll("#seoMonthFilter .mbtn").forEach(b=>{
+b.onclick=()=>{
+const allYm = DATA.seo.months.map(x=>x.ym);
+if(!state.seoMonths) state.seoMonths = new Set(allYm);
+if(b.dataset.all){
+state.seoMonths = (state.seoMonths.size===allYm.length) ? new Set([allYm[allYm.length-1]]) : new Set(allYm);
+} else {
+const ym=b.dataset.ym;
+state.seoMonths.has(ym) ? state.seoMonths.delete(ym) : state.seoMonths.add(ym);
+if(state.seoMonths.size===0) state.seoMonths.add(ym); // never allow empty
+}
+renderSEO();
+};
+});
+}
+function aeoWindow(){ return DATA.aeo.months.filter(x=>x.ym>="2026-01"); }
+function aeoSelected(){
+const all = aeoWindow().map(x=>x.ym);
+if(!state.aeoMonths) state.aeoMonths = new Set(all);
+return aeoWindow().filter(x=>state.aeoMonths.has(x.ym));
+}
+function donut(frac){
+const size=160, r=size/2, ir=r*0.60, cx=r, cy=r;
+const f=Math.max(0.0001,Math.min(0.9999,frac));
+const arc=(f0,f1,color)=>{
+const a0=f0*2*Math.PI-Math.PI/2, a1=f1*2*Math.PI-Math.PI/2;
+const x0=cx+r*Math.cos(a0), y0=cy+r*Math.sin(a0);
+const x1=cx+r*Math.cos(a1), y1=cy+r*Math.sin(a1);
+const large=(f1-f0)>0.5?1:0;
+return `<path d="M${cx},${cy} L${x0.toFixed(2)},${y0.toFixed(2)} A${r},${r} 0 ${large} 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${color}"/>`;
+};
+let g=arc(0,f,"var(--aeo)")+arc(f,1,"#dfe4ea");
+g+=`<circle cx="${cx}" cy="${cy}" r="${ir}" fill="var(--card)"/>`;
+g+=`<text x="${cx}" y="${cy-1}" text-anchor="middle" font-size="24" font-weight="800" fill="var(--aeo)">${(f*100).toFixed(1)}%</text>`;
+g+=`<text x="${cx}" y="${cy+17}" text-anchor="middle" font-size="10.5" fill="#8a97a3">Degreed</text>`;
+return `<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" role="img">${g}</svg>`;
+}
+function renderAEO(){
+const aeo = DATA.aeo;
+const el = $("#aeoBody");
+if(!aeo || !aeo.months || !aeo.months.length){
+el.innerHTML = `<div class="panel">No AEO data found.</div>`; return;
+}
+const win = aeoWindow();
+const sel = aeoSelected();
+const selSet = new Set(sel.map(x=>x.ym));
+const col = "var(--aeo)";
+const short = n => n.replace(" 2026","").replace(" 2025","");
+const latestSel = sel.length ? sel[sel.length-1] : win[win.length-1];
+let html = `<div class="freshness">
+<div class="chip"><span class="badge monthly">Monthly</span><span><b>Microsoft Clarity</b> · Share of Authority</span></div>
+<div class="chip"><span class="badge monthly">Monthly</span><span><b>SEMrush AI Visibility</b> · mentions &amp; citations</span></div>
+<div class="chip"><span class="badge monthly">Monthly</span><span><b>Google Analytics</b> · AI sessions</span></div>
+<div class="chip"><span><b>Coverage</b> · ${win[0].month_name} – ${win[win.length-1].month_name}</span></div>
+</div>`;
+html += `<h2 class="section">Filter months <span style="text-transform:none;font-weight:400;color:var(--muted)">— select one or more; metrics update</span></h2>
+<div class="mfilter" id="aeoMonthFilter">`;
+win.forEach(x=>{ html += `<button class="mbtn aeo ${selSet.has(x.ym)?'on':''}" data-ym="${x.ym}">${short(x.month_name)}</button>`; });
+html += `<button class="mbtn alltoggle" data-all="1">${sel.length===win.length?'Clear all':'Select all'}</button></div>`;
+const soaVals = sel.map(x=>x.share_of_authority).filter(v=>v!=null);
+const soaAvg = soaVals.length ? soaVals.reduce((a,b)=>a+b,0)/soaVals.length : null;
+const aiSel = aeo.ai_sessions.filter(x=>selSet.has(x.ym));
+const aiLatest = aiSel.length ? aiSel[aiSel.length-1] : null;
+html += `<h2 class="section">Primary metrics</h2><div class="metric-grid">
+<div class="m-card">
+<div class="mname">Share of Authority</div>
+<div style="display:flex;align-items:center;gap:18px;margin-top:8px">
+<div data-pie="1"></div>
+<div class="pielegend" style="flex-direction:column;gap:10px">
+<div class="li"><span class="sw" style="background:var(--aeo)"></span>Degreed · ${soaAvg!=null?(soaAvg*100).toFixed(1)+'%':'—'}</div>
+<div class="li"><span class="sw" style="background:#dfe4ea"></span>Competitors · ${soaAvg!=null?((1-soaAvg)*100).toFixed(1)+'%':'—'}</div>
+</div>
+</div>
+<div class="msub" style="margin-top:10px">${sel.length>1?`Average of ${soaVals.length} selected months`:latestSel.month_name} · Microsoft Clarity</div>
+</div>
+<div class="m-card">
+<div class="mname">AI sessions driven to site</div>
+<div class="mval" style="color:${col}">${aiLatest?fmtInt(aiLatest.sessions):'—'}</div>
+<div class="msub">${aiLatest?aiLatest.month_label:''} · GA — sessions from AI sources</div>
+<div data-chart="ai"></div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics</a> — sessions from AI sources (ChatGPT, Gemini, Perplexity), per the WEB OKR metrics report. Consistent method across all six months.</div>
+</div>
+</div>`;
+html += `<h2 class="section">Secondary metrics</h2><div class="metric-grid three">`;
+const mk=(title,key)=>{
+const idx = win.findIndex(x=>x.ym===latestSel.ym);
+const prevM = idx>0?win[idx-1]:null;
+const d = delta(latestSel[key], prevM?prevM[key]:null, fmtInt);
+return `<div class="m-card">
+<div class="mh"><span class="mname">${title}</span><span class="mdelta ${d.cls}">${d.txt}</span></div>
+<div class="mval" style="color:${col}">${fmtInt(latestSel[key])}</div>
+<div class="msub">${latestSel.month_name}</div>
+<div data-chart="${key}"></div>
+</div>`;
+};
+html += mk("Mentions","mentions");
+html += mk("Citations","citations");
+html += mk("Cited Pages","cited_pages");
+html += `</div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.aeo}" target="_blank">SEMrush AI Visibility</a> (mentions, citations, cited pages).</div>`;
+el.innerHTML = html;
+if(soaAvg!=null) el.querySelector('[data-pie="1"]').innerHTML = donut(soaAvg);
+else el.querySelector('[data-pie="1"]').innerHTML = `<div class="subtle">No Share of Authority for the selected months.</div>`;
+const labs = sel.map(x=>short(x.month_name));
+const aiLabs = aiSel.map(x=>short(x.month_label));
+el.querySelector('[data-chart="ai"]').innerHTML =
+trendChart(aiLabs, [{name:"AI sessions",color:col,values:aiSel.map(x=>x.sessions)}], {height:150, yFmt:kFmt, tipFmt:fmtInt});
+["mentions","citations","cited_pages"].forEach(key=>{
+el.querySelector(`[data-chart="${key}"]`).innerHTML =
+trendChart(labs, [{name:key,color:col,values:sel.map(x=>x[key])}], {height:120, yFmt:kFmt, tipFmt:fmtInt});
+});
+wireTips("#aeoBody");
+el.querySelectorAll("#aeoMonthFilter .mbtn").forEach(b=>{
+b.onclick=()=>{
+const allYm = aeoWindow().map(x=>x.ym);
+if(!state.aeoMonths) state.aeoMonths=new Set(allYm);
+if(b.dataset.all){
+state.aeoMonths = (state.aeoMonths.size===allYm.length)?new Set([allYm[allYm.length-1]]):new Set(allYm);
+} else {
+const ym=b.dataset.ym;
+state.aeoMonths.has(ym)?state.aeoMonths.delete(ym):state.aeoMonths.add(ym);
+if(state.aeoMonths.size===0) state.aeoMonths.add(ym);
+}
+renderAEO();
+};
+});
+}
+function renderLead(){
+const lc = DATA.leadcapture;
+const el = $("#leadBody");
+if(!lc || !lc.months || !lc.months.length){
+el.innerHTML = `<div class="panel">No HubSpot form exports found.</div>`; return;
+}
+const m = lc.months, labels = m.map(x=>x.month_label.replace(" 20"," '"));
+const latest = m[m.length-1], prev = m[m.length-2];
+const col = "var(--lead)";
+const conv = x => (x.filtered_views ? x.filtered_submissions / x.filtered_views * 100 : null);
+const rFmt = v => v==null ? "—" : v.toFixed(2)+"%";
+const d = delta(conv(latest), prev?conv(prev):null, v=>v.toFixed(2)+"pp");
+let html = `<div class="freshness">
+<div class="chip"><span class="badge monthly">Monthly</span><span><b>HubSpot Form Performance</b></span></div>
+<div class="chip"><span><b>Latest</b> · ${latest.month_label} (${latest.date_range||""})</span></div>
+<div class="chip"><span><b>Coverage</b> · ${m.length} months</span></div>
+</div>`;
+html += `<div class="metric-grid" style="grid-template-columns:1fr">
+<div class="m-card wide">
+<div class="mname">Conversion rate</div>
+<div class="mval" style="color:${col}">${rFmt(conv(latest))}
+<span class="mdelta ${d.cls}" style="font-size:13px">${d.txt}</span></div>
+<div class="msub">${latest.month_label} · ${fmtInt(latest.filtered_submissions)} submissions ÷ ${fmtInt(latest.filtered_views)} form views</div>
+<div data-chart="rate" style="margin-top:6px"></div>
+<div class="chart-note">Conversion rate = submissions ÷ form views × 100.</div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.hubspot}" target="_blank">HubSpot form exports</a></div>
+</div>
+</div>`;
+html += `<h2 class="section">Monthly detail</h2>
+<div class="panel" style="padding:6px 8px"><div class="tbl-scroll"><table><thead><tr>
+<th>Month</th><th>Conversion rate</th><th>Submissions</th><th>Form views</th></tr></thead><tbody>`;
+m.forEach(x=>{
+html += `<tr><td class="brand">${x.month_label}</td>
+<td><b>${rFmt(conv(x))}</b></td>
+<td>${fmtInt(x.filtered_submissions)}</td><td>${fmtInt(x.filtered_views)}</td></tr>`;
+});
+html += `</tbody></table></div></div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.hubspot}" target="_blank">HubSpot form exports</a></div>`;
+html += `<h2 class="section">Top forms by submissions · ${latest.month_label}</h2>
+<div class="panel" style="padding:6px 8px"><div class="tbl-scroll"><table><thead><tr>
+<th>Form</th><th>Submissions</th><th>Form views</th></tr></thead><tbody>`;
+(latest.top_forms||[]).forEach(f=>{
+html += `<tr><td class="brand">${f.name}</td><td><b>${fmtInt(f.submissions)}</b></td><td>${fmtInt(f.views)}</td></tr>`;
+});
+html += `</tbody></table></div></div>
+<div class="srcnote"><b>Source:</b> <a href="${SRC.hubspot}" target="_blank">HubSpot form exports</a></div>`;
+el.innerHTML = html;
+el.querySelector('[data-chart="rate"]').innerHTML =
+trendChart(labels, [{name:"Conversion rate",color:col,values:m.map(x=>conv(x))}],
+{height:200, zeroBase:true, yFmt:v=>v.toFixed(0)+"%", tipFmt:v=>v.toFixed(2)+"%"});
+wireTips("#leadBody");
+}
+function showTab(tab){
+state.tab = tab;
+document.querySelectorAll(".tab-section").forEach(s=>s.classList.remove("active"));
+const map={sov:"tab-sov",seo:"tab-seo",aeo:"tab-aeo",leadcap:"tab-leadcap"};
+$("#"+map[tab]).classList.add("active");
+document.querySelectorAll("#tabbar button").forEach(b=>b.classList.toggle("on",b.dataset.tab===tab));
+$("#periodPick").style.visibility = tab==="sov" ? "visible" : "hidden";
+if(tab==="sov") renderSOV();
+else if(tab==="seo") renderSEO();
+else if(tab==="aeo") renderAEO();
+else if(tab==="leadcap") renderLead();
+}
+document.querySelectorAll("#tabbar button").forEach(b=>{
+b.onclick=()=>showTab(b.dataset.tab);
+});
+document.querySelectorAll("#metricToggle button").forEach(b=>{
+b.onclick=()=>{
+document.querySelectorAll("#metricToggle button").forEach(x=>x.classList.remove("on"));
+b.classList.add("on"); state.metric=b.dataset.m; renderChart();
+};
+});
+function initPeriodSel(){
+const sel=$("#periodSel");
+sel.innerHTML = periods.slice().reverse().map(p=>{
+const s=snap(p); const lab = (s.web&&s.web.period_label)?s.web.period_label:p;
+return `<option value="${p}">${lab}</option>`;
+}).join("");
+sel.value=state.period;
+sel.onchange=()=>{state.period=sel.value; renderSOV();};
+}
+function renderFooter(){
+$("#footer").innerHTML =
+`Generated ${DATA.generated_at} · ${periods.length} SOV pull(s) in history · `+
+`Group SOV blends LinkedIn/Web 50 / 50; Overall blends LinkedIn 0.4 / Web 0.4 / AEO 0.2 · `+
+`SEO, AEO and Lead Capture are Degreed-only trend tabs and never feed the SOV score.`;
+}
+initPeriodSel();
+renderFooter();
+showTab("sov");
+</script></body>
+</html>
