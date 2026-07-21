@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Degreed — Share of Voice</title>
+<style>
+  :root{
+    --true-blue:#0062E3; --deep-blue:#0026EE; --moonshot:#0F1F2C;
+    --sky:#8FCEEE; --fry:#FF7F64; --gold:#FED141; --gold-deep:#C98A00;
+    --ink:#0F1F2C; --muted:#5b6b78; --line:#e4e9ee; --bg:#f5f7fa;
+    --card:#ffffff; --good:#1a9d6b; --bad:#d4483b;
+    --r-skills:#0062E3; --r-learning:#FF7F64; --r-ai:#C98A00; --r-overall:#0F1F2C;
+    --seo:#1a9d6b; --aeo:#6b5bd4; --lead:#0062E3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--true-blue)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 60px}
+  header.top{background:linear-gradient(105deg,#0026EE 0%,#0062E3 60%,#3d8bf0 100%);color:#fff;padding:26px 0 30px;margin-bottom:-26px}
+  header.top .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  header.top h1{margin:0;font-size:26px;font-weight:700;letter-spacing:-.02em}
+  header.top .sub{opacity:.85;font-size:13.5px;margin-top:3px}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle}
+  .period-pick{display:flex;align-items:center;gap:9px;font-size:13px}
+  .period-pick select{font:inherit;font-size:14px;padding:7px 11px;border-radius:9px;border:none;background:rgba(255,255,255,.16);color:#fff;font-weight:600;cursor:pointer}
+  .period-pick select option{color:#0F1F2C}
+  .period-pick label{opacity:.85}
+
+  /* ---- top-level tabs ---- */
+  .tabbar{display:flex;gap:4px;margin:44px 0 6px;border-bottom:2px solid var(--line);flex-wrap:wrap}
+  .tabbar button{border:none;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--muted);
+    padding:11px 16px 12px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;border-radius:8px 8px 0 0}
+  .tabbar button:hover{background:#eef2f7;color:var(--ink)}
+  .tabbar button.on{color:var(--ink);border-bottom-color:var(--true-blue)}
+  .tabbar button[data-tab="seo"].on{border-bottom-color:var(--seo)}
+  .tabbar button[data-tab="aeo"].on{border-bottom-color:var(--aeo)}
+  .tabbar button[data-tab="leadcap"].on{border-bottom-color:var(--lead)}
+  .tabbar .tag-degreed{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    background:#eef1f5;color:var(--muted);padding:1px 6px;border-radius:20px;margin-left:6px;vertical-align:middle}
+  .tab-section{display:none}
+  .tab-section.active{display:block}
+
+  .degreed-ribbon{display:flex;align-items:center;gap:10px;margin:20px 0 6px;padding:10px 14px;border-radius:10px;
+    background:#eef2f7;border:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  .degreed-ribbon b{color:var(--ink)}
+  .degreed-ribbon .pill{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    padding:2px 8px;border-radius:20px;color:#fff}
+
+  .freshness{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 20px}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:12.5px;display:flex;align-items:center;gap:8px}
+  .chip b{font-weight:600}
+  .chip .badge{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:20px}
+  .badge.weekly{background:#e6f0ff;color:var(--true-blue)}
+  .badge.monthly{background:#fff2ec;color:#c4502e}
+  .badge.carry{background:#fff8e1;color:#8a6d00}
+
+  h2.section{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+    margin:34px 0 14px;font-weight:700}
+
+  .mfilter{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 6px;align-items:center}
+  .mbtn{border:1px solid var(--line);background:var(--card);font:inherit;font-size:12.5px;font-weight:600;
+    color:var(--muted);padding:7px 13px;border-radius:9px;cursor:pointer}
+  .mbtn:hover{background:#eef2f7}
+  .mbtn.on{background:var(--seo);color:#fff;border-color:var(--seo)}
+  .mbtn.alltoggle{margin-left:auto;color:var(--true-blue);border-style:dashed;background:none}
+  .mbtn.aeo.on{background:var(--aeo);border-color:var(--aeo)}
+  .pielegend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:12px}
+  .pielegend .li{display:flex;align-items:center;gap:7px}
+  .pielegend .sw{width:12px;height:12px;border-radius:3px}
+  .srcnote{font-size:11px;color:var(--muted);margin:8px 2px 0}
+  .srcnote a{color:var(--muted);text-decoration:underline}
+  .srcnote b{color:var(--ink);font-weight:600}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;
+    cursor:pointer;transition:.15s;position:relative;border-top:4px solid var(--line)}
+  .card:hover{box-shadow:0 6px 20px rgba(15,31,44,.08);transform:translateY(-1px)}
+  .card.sel{box-shadow:0 8px 26px rgba(15,31,44,.12)}
+  .card .rname{font-size:12.5px;font-weight:600;color:var(--muted);min-height:32px}
+  .card .sov{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1;margin:6px 0 2px}
+  .card .plabel{font-size:11.5px;color:var(--muted)}
+  .card .split{display:flex;gap:8px;margin-top:12px;font-size:11.5px}
+  .card .split .s{flex:1}
+  .card .split .k{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.03em}
+  .card .split .v{font-weight:700;font-size:14px}
+  .card .bar{height:5px;border-radius:4px;background:#eef1f5;margin-top:4px;overflow:hidden}
+  .card .bar i{display:block;height:100%;border-radius:4px}
+  .card .flagdot{position:absolute;top:12px;right:13px;font-size:11px;color:var(--gold-deep)}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+
+  .chart-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+  .toggle{display:inline-flex;background:#eef1f5;border-radius:9px;padding:3px}
+  .toggle button{border:none;background:none;font:inherit;font-size:12.5px;font-weight:600;color:var(--muted);
+    padding:6px 12px;border-radius:7px;cursor:pointer}
+  .toggle button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12.5px}
+  .legend .li{display:flex;align-items:center;gap:7px;cursor:pointer;opacity:.55;transition:.12s}
+  .legend .li.on{opacity:1}
+  .legend .sw{width:14px;height:4px;border-radius:3px}
+  #tip{position:fixed;pointer-events:none;background:var(--moonshot);color:#fff;font-size:12px;
+    padding:7px 10px;border-radius:8px;opacity:0;transition:opacity .1s;z-index:20;white-space:nowrap}
+  .chart-note{font-size:11.5px;color:var(--muted);margin-top:8px}
+
+  .brk-row{margin:14px 0}
+  .brk-row .lab{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
+  .brk-row .lab b{font-weight:700}
+  .brk-bar{height:11px;border-radius:7px;background:#eef1f5;overflow:hidden}
+  .brk-bar i{display:block;height:100%;border-radius:7px}
+  .composite{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:13px}
+  .composite .big{font-size:30px;font-weight:800;letter-spacing:-.02em}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:700;
+    position:sticky;top:0;background:var(--card)}
+  thead th.grp{color:var(--ink);border-bottom:2px solid var(--line);text-align:center}
+  thead th.grp.social{color:var(--true-blue)}
+  thead th.grp.web{color:var(--seo)}
+  tbody tr:hover{background:#f8fafc}
+  td.brand{font-weight:600}
+  .tag{display:inline-block;font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:20px;margin-left:5px;
+    background:#eef1f5;color:var(--muted);vertical-align:middle}
+  .tag.me{background:#e6f0ff;color:var(--true-blue)}
+  .tbl-scroll{overflow-x:auto;max-height:520px;overflow-y:auto}
+
+  .flags{list-style:none;padding:0;margin:0;font-size:12.5px}
+  .flags li{padding:8px 0;border-bottom:1px solid var(--line);color:var(--muted);display:flex;gap:9px}
+  .flags li:last-child{border:none}
+  .flags .ic{color:var(--gold-deep);flex:none}
+
+  /* ---- Degreed-only tabs ---- */
+  .metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .metric-grid.three{grid-template-columns:repeat(3,1fr)}
+  .m-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .m-card .mh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .m-card .mname{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+  .m-card .mval{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:4px 0 0}
+  .m-card .mdelta{font-size:12px;font-weight:700}
+  .m-card .mdelta.up{color:var(--good)} .m-card .mdelta.down{color:var(--bad)} .m-card .mdelta.flat{color:var(--muted)}
+  .m-card .msub{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .m-card.lead{grid-column:span 1}
+  .m-card.wide{grid-column:1 / -1}
+  .m-card.placeholder{background:repeating-linear-gradient(45deg,#fafbfc,#fafbfc 10px,#f4f6f8 10px,#f4f6f8 20px);border-style:dashed}
+  .databox{border-left:3px solid var(--gold-deep);background:#fff8e1;padding:11px 14px;border-radius:8px;
+    font-size:12.5px;margin:14px 0;color:#6b5600}
+  .databox.info{border-left-color:var(--aeo);background:#f2f0fc;color:#3f356e}
+  .databox.seo{border-left-color:var(--seo);background:#e9f7f1;color:#0d5c3e}
+  .databox b{font-weight:700}
+  .subtle{font-size:11.5px;color:var(--muted)}
+
+  .pr-item{padding:11px 0;border-bottom:1px solid var(--line)}
+  .pr-item:last-child{border:none}
+  .pr-item .hl{font-weight:600;font-size:13.5px}
+  .pr-item .meta{font-size:11.5px;color:var(--muted);margin-top:2px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .sent{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:1px 7px;border-radius:20px}
+  .sent.positive{background:#e5f6ee;color:var(--good)}
+  .sent.negative{background:#fdeceb;color:var(--bad)}
+  .sent.neutral{background:#eef1f5;color:var(--muted)}
+  .pr-takeaway{background:#f0f5ff;border-left:3px solid var(--true-blue);padding:11px 14px;border-radius:8px;
+    font-size:13px;margin-bottom:12px}
+  .notpartof{font-size:11px;color:var(--muted);font-style:italic;margin-top:2px}
+  .pr-group{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+    font-weight:700;margin:18px 0 4px;padding-bottom:5px;border-bottom:2px solid var(--line)}
+  .pr-brand{padding:11px 0;border-bottom:1px solid var(--line)}
+  .pr-brand:last-child{border:none}
+  .pr-brand .bn{font-weight:700;font-size:14px}
+  .pr-brand ul{margin:6px 0 7px 2px;padding-left:18px;font-size:12.5px}
+  .pr-brand ul li{margin:2px 0}
+  .pr-brand .tk{font-size:12px;color:var(--muted);font-style:italic}
+  .pr-none{color:var(--muted);font-weight:400;font-style:italic}
+
+  footer{margin-top:36px;font-size:11.5px;color:var(--muted);text-align:center}
+  @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.metric-grid,.metric-grid.three{grid-template-columns:1fr}}
+  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div>
+      <h1><span class="dot"></span>Degreed Marketing Intelligence</h1>
+      <div class="sub" id="headsub">Share of Voice &nbsp;·&nbsp; SEO &nbsp;·&nbsp; AEO &nbsp;·&nbsp; Lead Capture</div>
+    </div>
+    <div class="period-pick" id="periodPick">
+      <label for="periodSel">Viewing pull</label>
+      <select id="periodSel"></select>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tabbar" id="tabbar">
+    <button data-tab="sov" class="on">Share of Voice</button>
+    <button data-tab="seo">SEO</button>
+    <button data-tab="aeo">AEO</button>
+    <button data-tab="leadcap">Lead Capture</button>
+  </div>
+
+  <!-- =================== SOV TAB =================== -->
+  <section class="tab-section active" id="tab-sov">
+    <div class="freshness" id="freshness"></div>
+
+    <h2 class="section">SOV by segment · click a card to focus the trend &amp; detail below</h2>
+    <div class="cards" id="cards"></div>
+    <div class="srcnote" id="cardsSrc"></div>
+
+    <h2 class="section">Trend</h2>
+    <div class="panel">
+      <div class="chart-head">
+        <div><strong id="trendTitle">All segments</strong>
+          <span style="color:var(--muted);font-size:12.5px" id="trendSub"></span></div>
+        <div class="toggle" id="metricToggle">
+          <button data-m="sov" class="on">SOV</button>
+          <button data-m="linkedin_share">LinkedIn share</button>
+          <button data-m="web_share">Web share</button>
+        </div>
+      </div>
+      <div id="chart"></div>
+      <div class="legend" id="legend"></div>
+      <div class="chart-note" id="chartNote"></div>
+    </div>
+    <div class="srcnote" id="trendSrc"></div>
+
+    <h2 class="section">Channel breakdown &amp; context</h2>
+    <div class="grid2">
+      <div class="panel">
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:2px">Composite for</div>
+        <div style="font-weight:700;font-size:16px;margin-bottom:10px" id="brkName"></div>
+        <div id="breakdown"></div>
+      </div>
+      <div class="panel">
+        <div style="font-weight:700;font-size:14px;margin-bottom:4px">Notes &amp; flags</div>
+        <div style="font-size:11.5px;color:var(--muted);margin-bottom:8px" id="flagPeriod"></div>
+        <ul class="flags" id="flags"></ul>
+      </div>
+    </div>
+
+    <h2 class="section">Per-brand detail</h2>
+    <div class="panel" style="padding:6px 8px">
+      <div class="tbl-scroll">
+        <table id="detail"><thead></thead><tbody></tbody></table>
+      </div>
+    </div>
+    <div class="srcnote" id="detailSrc"></div>
+
+    <h2 class="section">PR &amp; news <span style="text-transform:none;font-weight:400;color:var(--muted)">— qualitative, hand-entered</span></h2>
+    <div class="panel" id="prPanel">
+      <div class="notpartof">Not part of the SOV score. Sourced from pr-notes/pr-notes.json.</div>
+      <div id="prBody"></div>
+    </div>
+  </section>
+
+  <!-- =================== SEO TAB =================== -->
+  <section class="tab-section" id="tab-seo">
+    <div id="seoBody"></div>
+  </section>
+
+  <!-- =================== AEO TAB =================== -->
+  <section class="tab-section" id="tab-aeo">
+    <div id="aeoBody"></div>
+  </section>
+
+  <!-- =================== LEAD CAPTURE TAB =================== -->
+  <section class="tab-section" id="tab-leadcap">
+    <div id="leadBody"></div>
+  </section>
+
+  <footer id="footer"></footer>
+</div>
+
+<div id="tip"></div>
+
+<script>
+const DATA = __DATA__;
+
+/* ---------- source folders ---------- */
+const SRC = {
+  linkedin: "https://drive.google.com/drive/folders/1jw_9Zp730SMphZPtqv2T4j0ELZnSk2l1",
+  semrush:  "https://drive.google.com/drive/folders/1oz6gwcGNpEVDQREQhSDx88yR0-2RitGh",
+  ga:       "https://drive.google.com/drive/folders/1d7_NGFK0MU5jYTnDM6aiRUutazA_7SLq",
+  gsc:      "https://drive.google.com/drive/folders/1vYV_476BRKE8A0NsmDbaIoTpXQczgie2",
+  aeo:      "https://docs.google.com/spreadsheets/d/1ydetL7b7u5oudofQcq1K8w2hEhYsa-Z1uDkOInB8Vw8",
+  hubspot:  "https://drive.google.com/drive/folders/1p1-v6sq-x0yweVWctfmrRmsI8lIrKGUP"
+};
+
+/* ---------- reading colors ---------- */
+const RHEX = {
+  "Skills / talent intel":"#0062E3",
+  "Learning platforms":"#FF7F64",
+  "AI learning / practice":"#C98A00",
+  "Overall":"#0F1F2C"
+};
+
+/* ---------- state ---------- */
+const periods = Object.keys(DATA.snapshots).sort();
+let state = {
+  period: periods[periods.length-1],
+  focus: "Overall",
+  metric: "sov",
+  hidden: new Set(),
+  tab: "sov",
+  leadRaw: false
+};
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const snap = p => DATA.snapshots[p];
+const reading = (p,name) => snap(p).readings.find(r=>r.name===name);
+const fmtPct = (v,dp=1)=> v==null ? "—" : (v*100).toFixed(dp)+"%";
+const fmtSov = v => v==null ? "—" : v.toFixed(1)+"%";
+const fmtInt = v => v==null ? "—" : Math.round(v).toLocaleString();
+const kFmt = v => v==null ? "" : (Math.abs(v)>=1000 ? (v/1000).toFixed(Math.abs(v)>=10000?0:1)+"k" : ""+Math.round(v));
+
+function metricVal(r,m){
+  if(!r) return null;
+  if(m==="sov") return r.sov==null?null:r.sov/100;
+  return r[m];
+}
+const metricName = {sov:"SOV", linkedin_share:"LinkedIn share", web_share:"Web share"};
+
+/* ================================================================
+   Generic trend chart (inline SVG) used by the Degreed-only tabs.
+   ================================================================ */
+function trendChart(labels, series, opts){
+  opts = opts||{};
+  const W=680, H=opts.height||240, padL=54, padR=18, padT=16, padB=30;
+  const plotW=W-padL-padR, plotH=H-padT-padB;
+  const yFmt = opts.yFmt || (v=>kFmt(v));
+  const tipFmt = opts.tipFmt || (v=>(""+v));
+  let lo=Infinity, hi=-Infinity;
+  series.forEach(s=>s.values.forEach(v=>{ if(v!=null){ if(v<lo)lo=v; if(v>hi)hi=v; }}));
+  if(!isFinite(lo)){ lo=0; hi=1; }
+  if(opts.zeroBase) lo=Math.min(lo,0);
+  if(hi===lo) hi=lo+1;
+  const span=hi-lo, yMin=lo-span*0.12, yMax=hi+span*0.12;
+  const n=labels.length;
+  const x=i=> n<=1 ? padL+plotW/2 : padL + plotW*i/(n-1);
+  const y=v=> padT + plotH*(1-(v-yMin)/(yMax-yMin));
+  let g="";
+  const steps=4;
+  for(let k=0;k<=steps;k++){
+    const val=yMin+(yMax-yMin)*k/steps, yy=y(val);
+    g+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}" stroke="#eef1f5"/>`;
+    g+=`<text x="${padL-8}" y="${yy+4}" text-anchor="end" font-size="11" fill="#8a97a3">${yFmt(val)}</text>`;
+  }
+  labels.forEach((lab,i)=>{
+    if(n>8 && i%2===1 && i!==n-1) return;
+    g+=`<text x="${x(i)}" y="${H-10}" text-anchor="middle" font-size="10.5" fill="#8a97a3">${lab}</text>`;
+  });
+  series.forEach(s=>{
+    const pts=[];
+    s.values.forEach((v,i)=>{ if(v!=null) pts.push([x(i),y(v),i,v]); });
+    for(let k=1;k<pts.length;k++){
+      const a=pts[k-1], b=pts[k];
+      const gap = b[2]-a[2] > 1;
+      const isLast = opts.provisional && b[2]===n-1;
+      g+=`<path d="M${a[0]},${a[1]} L${b[0]},${b[1]}" fill="none" stroke="${s.color}"
+           stroke-width="${s.dashed?2:2.6}" stroke-linecap="round"
+           stroke-dasharray="${s.dashed?'5,4':(gap||isLast?'4,4':'')}" opacity="${s.dashed?0.75:1}"/>`;
+    }
+    pts.forEach(pt=>{
+      const isLast = opts.provisional && pt[2]===n-1;
+      g+=`<circle cx="${pt[0]}" cy="${pt[1]}" r="${isLast?4.5:4}" fill="${isLast?'#fff':s.color}"
+           stroke="${s.color}" stroke-width="${isLast?2.2:1.5}"
+           data-tip="${s.name} · ${labels[pt[2]]} · ${tipFmt(pt[3])}"/>`;
+    });
+  });
+  const svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet"
+     style="max-height:${H+20}px" role="img">${g}</svg>`;
+  return svg;
+}
+
+/* delta helper for metric cards */
+function delta(cur,prev,fmt){
+  if(cur==null||prev==null) return {cls:"flat",txt:""};
+  const d=cur-prev;
+  const pct = prev!==0 ? (d/prev*100) : null;
+  const arrow = d>0?"▲":(d<0?"▼":"■");
+  const cls = d>0?"up":(d<0?"down":"flat");
+  const txt = arrow+" "+(fmt?fmt(Math.abs(d)):Math.abs(d))+(pct!=null?` (${d>0?'+':'−'}${Math.abs(pct).toFixed(1)}%)`:"");
+  return {cls,txt};
+}
+
+/* attach tooltips to any chart circles inside a container */
+function wireTips(sel){
+  document.querySelectorAll(sel+" circle").forEach(c=>{
+    c.onmousemove=e=>{const t=$("#tip");t.textContent=c.dataset.tip;
+      t.style.opacity=1;t.style.left=(e.clientX+12)+"px";t.style.top=(e.clientY-14)+"px";};
+    c.onmouseleave=()=>{$("#tip").style.opacity=0;};
+  });
+}
+
+/* ================= SOV TAB ================= */
+function renderFreshness(){
+  const s = snap(state.period);
+  const li = s.linkedin, web = s.web;
+  const liRange = li.start && li.end ? (li.start===li.end?li.start:li.start+" – "+li.end) : (li.start||state.period);
+  let html = "";
+  html += `<div class="chip"><span class="badge weekly">Monthly</span>
+     <span><b>LinkedIn</b> · ${liRange}</span></div>`;
+  const webLab = web.period_label || "no web data";
+  html += `<div class="chip"><span class="badge monthly">Monthly</span>
+     <span><b>Web (organic traffic)</b> · ${webLab}${web.carried_forward?
+        ' <span class="badge carry">carried forward</span>':''}</span></div>`;
+  const aeo = s.aeo||{};
+  html += `<div class="chip"><span class="badge monthly">Monthly</span>
+     <span><b>AEO (Share of Authority)</b> · ${aeo.share_of_authority!=null?
+        (aeo.share_of_authority*100).toFixed(1)+"% · in Overall":"n/a"}</span></div>`;
+  html += `<div class="chip"><span><b>Pull</b> · ${web.period_label||state.period}</span></div>`;
+  $("#freshness").innerHTML = html;
+}
+
+function renderCards(){
+  const order = ["Skills / talent intel","Learning platforms","AI learning / practice","Overall"];
+  $("#cards").innerHTML = order.map(name=>{
+    const r = reading(state.period,name); if(!r) return "";
+    const c = RHEX[name];
+    const li = r.linkedin_share, web = r.web_share, aeo = r.aeo_share;
+    const liPct = li==null?0:Math.min(100,li*100), webPct = web==null?0:Math.min(100,web*100);
+    const aeoPct = aeo==null?0:Math.min(100,aeo*100);
+    const flag = (r.flags && r.flags.length) || r.web_fallback;
+    const hasAeo = aeo!=null;
+    return `<div class="card ${state.focus===name?'sel':''}" data-name="${name}"
+        style="border-top-color:${c}">
+      ${flag?'<span class="flagdot" title="see notes below">▲</span>':''}
+      <div class="rname">${name}</div>
+      <div class="sov" style="color:${c}">${fmtSov(r.sov)}</div>
+      <div class="plabel">${name==="Overall"?"all competitors":"vs group"} · ${snap(state.period).web.period_label||state.period}</div>
+      <div class="split">
+        <div class="s"><div class="k">LinkedIn</div><div class="v">${fmtPct(li)}</div>
+          <div class="bar"><i style="width:${liPct}%;background:${c}"></i></div></div>
+        <div class="s"><div class="k">Web${r.web_fallback?' *':''}</div><div class="v">${fmtPct(web)}</div>
+          <div class="bar"><i style="width:${webPct}%;background:${c};opacity:.55"></i></div></div>
+        ${hasAeo?`<div class="s"><div class="k">AEO</div><div class="v">${fmtPct(aeo)}</div>
+          <div class="bar"><i style="width:${aeoPct}%;background:var(--aeo)"></i></div></div>`
+        :`<div class="s"><div class="k">AEO</div><div class="v" style="color:var(--muted)">n/a</div>
+          <div class="bar"></div></div>`}
+      </div>
+    </div>`;
+  }).join("");
+  document.querySelectorAll("#cards .card").forEach(el=>{
+    el.onclick=()=>{state.focus=el.dataset.name; renderSOV();};
+  });
+  $("#cardsSrc").innerHTML = `<b>Source:</b> LinkedIn engagement &amp; follower growth — `
+    + `<a href="${SRC.linkedin}" target="_blank">LinkedIn Competitor Analytics Report</a>; `
+    + `web organic traffic — <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.`;
+}
+
+function renderChart(){
+  const order = ["Skills / talent intel","Learning platforms","AI learning / practice","Overall"];
+  const W=720,H=300,padL=46,padR=18,padT=16,padB=34;
+  const plotW=W-padL-padR, plotH=H-padT-padB;
+  let maxV=0;
+  periods.forEach(p=>order.forEach(n=>{
+    if(state.hidden.has(n))return;
+    const v=metricVal(reading(p,n),state.metric);
+    if(v!=null&&v>maxV)maxV=v;
+  }));
+  maxV = maxV<=0 ? 0.1 : maxV*1.15;
+  const nice = Math.ceil(maxV*20)/20;
+  const yMax = nice;
+  const n = periods.length;
+  const x = i => n<=1 ? padL+plotW/2 : padL + plotW*i/(n-1);
+  const y = v => padT + plotH*(1 - v/yMax);
+  let g = "";
+  const steps=5;
+  for(let k=0;k<=steps;k++){
+    const val=yMax*k/steps, yy=y(val);
+    g+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}" stroke="#eef1f5"/>`;
+    g+=`<text x="${padL-8}" y="${yy+4}" text-anchor="end" font-size="11" fill="#8a97a3">${(val*100).toFixed(0)}%</text>`;
+  }
+  periods.forEach((p,i)=>{
+    const lab = snap(p).web.period_label || p;
+    g+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-size="11" fill="#8a97a3">${lab}</text>`;
+  });
+  order.forEach(name=>{
+    if(state.hidden.has(name))return;
+    const col=RHEX[name];
+    const dim = state.focus!==name ? 0.32 : 1;
+    const lw = state.focus===name ? 3.2 : 2;
+    const pts=[];
+    periods.forEach((p,i)=>{
+      const v=metricVal(reading(p,name),state.metric);
+      if(v!=null)pts.push([x(i),y(v),p,v]);
+    });
+    if(pts.length>1){
+      const d="M"+pts.map(pt=>pt[0]+","+pt[1]).join(" L");
+      g+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="${lw}"
+          stroke-linejoin="round" stroke-linecap="round" opacity="${dim}"/>`;
+    }
+    pts.forEach(pt=>{
+      g+=`<circle cx="${pt[0]}" cy="${pt[1]}" r="${state.focus===name?5:4}" fill="${col}"
+          opacity="${dim}" stroke="#fff" stroke-width="1.5"
+          data-tip="${name} · ${snap(pt[2]).web.period_label||pt[2]} · ${(pt[3]*100).toFixed(1)}%"/>`;
+    });
+  });
+  $("#chart").innerHTML =
+    `<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet"
+       style="max-height:340px" role="img">${g}</svg>`;
+  $("#legend").innerHTML = order.map(name=>
+    `<div class="li ${state.hidden.has(name)?'':'on'}" data-name="${name}">
+       <span class="sw" style="background:${RHEX[name]}"></span>${name}</div>`).join("");
+  document.querySelectorAll("#legend .li").forEach(el=>{
+    el.onclick=()=>{const n=el.dataset.name;
+      state.hidden.has(n)?state.hidden.delete(n):state.hidden.add(n); renderChart();};
+  });
+  $("#trendSub").textContent = " · "+metricName[state.metric];
+  $("#chartNote").textContent =
+    `Showing ${metricName[state.metric]} across ${n} monthly pulls. Click legend to toggle a segment; click a card to highlight one.`;
+  wireTips("#chart");
+  $("#trendSrc").innerHTML = `<b>Source:</b> LinkedIn engagement &amp; follower growth — `
+    + `<a href="${SRC.linkedin}" target="_blank">LinkedIn Competitor Analytics Report</a>; `
+    + `web organic traffic — <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.`;
+}
+
+function renderBreakdown(){
+  const r = reading(state.period,state.focus);
+  $("#brkName").textContent = state.focus + " · " + (snap(state.period).web.period_label||state.period);
+  const c = RHEX[state.focus];
+  const w = r.weights_used || {linkedin:0.5, web:0.5};
+  const li=r.linkedin_share, web=r.web_share, aeo=r.aeo_share;
+  const bar=(label,val,weight,color,note)=>{
+    const pct = val==null?0:Math.min(100,val*100);
+    return `<div class="brk-row">
+      <div class="lab"><span>${label} <span style="color:var(--muted)">(weight ${weight==null?'—':weight})</span></span>
+        <b>${fmtPct(val)}</b></div>
+      <div class="brk-bar"><i style="width:${pct}%;background:${color}"></i></div>
+      ${note?`<div style="font-size:11px;color:var(--muted);margin-top:4px">${note}</div>`:''}
+    </div>`;
+  };
+  let html = bar("LinkedIn", li, w.linkedin, c,
+    "Equal blend of engagement-per-follower and new-followers-per-follower share.");
+  html += bar("Web", web, w.web, c,
+    r.web_fallback ? "No valid web data for this reading — SOV falls back to the remaining channel(s)."
+      : "Share of organic search traffic (Degreed from Google Analytics; competitors from SEMrush).");
+  if("aeo" in w){
+    html += bar("AEO (Share of Authority)", aeo, w.aeo, "var(--aeo)",
+      aeo!=null ? "Degreed Share of Authority, used directly. Overall reading only — measured against SEMrush/Clarity's own query set, so treat Overall as a blended visibility index, not a like-for-like average."
+        : "No Share of Authority this period — Overall reverts to LinkedIn/Web renormalized to 0.5 / 0.5.");
+  }
+  let terms=[];
+  if(li!=null) terms.push(`${w.linkedin} × ${fmtPct(li)}`);
+  if(web!=null) terms.push(`${w.web} × ${fmtPct(web)}`);
+  if(("aeo" in w) && aeo!=null) terms.push(`${w.aeo} × ${fmtPct(aeo)}`);
+  const wsum=(li!=null?w.linkedin:0)+(web!=null?w.web:0)+(("aeo" in w)&&aeo!=null?w.aeo:0);
+  const renorm = Math.abs(wsum-1)>1e-9;
+  html += `<div class="composite">
+      <div style="color:var(--muted);font-size:12px">Composite SOV${renorm?' (weights renormalized to available channels)':''}</div>
+      <div class="big" style="color:${c}">${fmtSov(r.sov)}</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">
+        = (${terms.join(" + ")})${renorm?` ÷ ${wsum.toFixed(2)}`:""} × 100</div>
+    </div>`;
+  $("#breakdown").innerHTML = html;
+}
+
+function renderFlags(){
+  const s = snap(state.period);
+  const r = reading(state.period,state.focus);
+  const items = [];
+  (s.flags||[]).forEach(f=>items.push(f));
+  (r.flags||[]).forEach(f=>items.push(state.focus+" — "+f));
+  $("#flagPeriod").textContent = "Pull "+(s.web.period_label||state.period)+" · focus: "+state.focus;
+  $("#flags").innerHTML = items.length
+    ? items.map(f=>`<li><span class="ic">▲</span><span>${f}</span></li>`).join("")
+    : `<li style="color:var(--good)"><span class="ic" style="color:var(--good)">✓</span>No flags for this pull.</li>`;
+}
+
+function renderTable(){
+  const s = snap(state.period);
+  const groups = DATA.config.groups;
+  const brandGroup = {};
+  Object.entries(groups).forEach(([g,arr])=>arr.forEach(b=>brandGroup[b]=g));
+  // grouped header: Brand | Social monitoring (LinkedIn) x5 | Web (organic search) x1
+  $("#detail thead").innerHTML =
+    `<tr>
+       <th></th>
+       <th class="grp social" colspan="5">Social monitoring · LinkedIn</th>
+       <th class="grp web" colspan="1">Web · organic search</th>
+     </tr>
+     <tr>
+       <th>Brand</th>
+       <th>Followers</th><th>New foll.</th><th>Engagements</th><th>Eng/foll.</th><th>New-foll/foll.</th>
+       <th>Organic traffic</th>
+     </tr>`;
+  const brand = DATA.config.brand;
+  const rows = Object.entries(s.context).sort((a,b)=>{
+    if(a[0]===brand)return -1; if(b[0]===brand)return 1; return a[0].localeCompare(b[0]);
+  });
+  $("#detail tbody").innerHTML = rows.map(([b,ctx])=>{
+    const li=ctx.linkedin, web=ctx.web;
+    const eff = li&&li.total_followers?li.engagements/li.total_followers:null;
+    const grw = li&&li.total_followers?li.new_followers/li.total_followers:null;
+    const isMe = b===brand;
+    let tags = isMe?'<span class="tag me">Degreed</span>':(brandGroup[b]?`<span class="tag">${brandGroup[b].split(" /")[0]}</span>`:"");
+    return `<tr>
+      <td class="brand">${b}${tags}</td>
+      <td>${li?fmtInt(li.total_followers):"—"}</td>
+      <td>${li?fmtInt(li.new_followers):"—"}</td>
+      <td>${li?fmtInt(li.engagements):"—"}</td>
+      <td>${eff!=null?(eff*100).toFixed(2)+"%":"—"}</td>
+      <td>${grw!=null?(grw*100).toFixed(2)+"%":"—"}</td>
+      <td>${web&&web.organic_traffic!=null?fmtInt(web.organic_traffic):"—"}</td>
+    </tr>`;
+  }).join("");
+  $("#detailSrc").innerHTML = `<b>Source:</b> social columns — `
+    + `<a href="${SRC.linkedin}" target="_blank">LinkedIn Competitor Analytics Report</a>; `
+    + `organic traffic — Degreed from <a href="${SRC.ga}" target="_blank">Google Analytics (Traffic Acquisition · Organic Search)</a>, `
+    + `competitors from <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.`;
+}
+
+function renderPR(){
+  const note = (DATA.prnotes||{})[state.period];
+  const el = $("#prBody");
+  if(!note){ el.innerHTML = `<div style="color:var(--muted);font-size:13px;padding:8px 0">
+     No PR notes for ${state.period}. Add a "${state.period}" block to pr-notes/pr-notes.json.</div>`; return; }
+  let html="";
+  if(note.window || note.note){
+    html += `<div class="pr-takeaway">`;
+    if(note.window) html += `<b>${note.window}.</b> `;
+    if(note.note) html += note.note;
+    html += `</div>`;
+  } else if(note.takeaway){
+    html += `<div class="pr-takeaway"><b>Takeaway:</b> ${note.takeaway}</div>`;
+  }
+  if(note.brands){
+    const order = ["brand", ...Object.keys(DATA.config.groups)];
+    const label = {"brand":"Our brand"};
+    const buckets = {};
+    Object.entries(note.brands).forEach(([b,info])=>{
+      const g = info.group || "other";
+      (buckets[g] = buckets[g] || []).push([b,info]);
+    });
+    const seen = new Set(order);
+    order.concat(Object.keys(buckets).filter(g=>!seen.has(g))).forEach(g=>{
+      const arr = buckets[g]; if(!arr) return;
+      html += `<div class="pr-group">${label[g]||g}</div>`;
+      arr.forEach(([b,info])=>{
+        const hl = (info.highlights||[]);
+        const none = hl.length===1 && /^no (significant|major)/i.test(hl[0]);
+        html += `<div class="pr-brand">
+          <div class="bn">${b}</div>
+          ${hl.length ? (none
+              ? `<div class="tk pr-none">${hl[0]}</div>`
+              : `<ul>${hl.map(h=>`<li>${h}</li>`).join("")}</ul>`) : ""}
+          ${info.takeaway ? `<div class="tk">${info.takeaway}</div>` : ""}
+        </div>`;
+      });
+    });
+  }
+  el.innerHTML = html;
+}
+
+function renderSOV(){
+  renderFreshness(); renderCards(); renderChart();
+  renderBreakdown(); renderFlags(); renderTable(); renderPR();
+  $("#trendTitle").textContent = state.focus;
+}
+
+/* ================= SEO TAB ================= */
+function seoSelectedMonths(){
+  const all = DATA.seo.months.map(x=>x.ym);
+  if(!state.seoMonths) state.seoMonths = new Set(all);
+  return DATA.seo.months.filter(x=>state.seoMonths.has(x.ym));
+}
+function seoAuthorityValue(selMonths){
+  if(!selMonths.length) return "—";
+  if(selMonths.length===1) return selMonths[0].authority;
+  return Math.round(selMonths.reduce((a,x)=>a+x.authority,0)/selMonths.length);
+}
+function seoCompetitorAuthority(){
+  const rows = (DATA.seo.competitor_authority||[]).map(c=>
+    `<div style="display:flex;justify-content:space-between;font-size:11.5px;padding:2px 0;${
+      c.brand==='Degreed'?'font-weight:700;color:var(--ink)':'color:var(--muted)'}">
+      <span>${c.brand}</span><span>${c.score}</span></div>`).join("");
+  return `<div style="font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin-bottom:4px">Competitor authority · context</div>${rows}`;
+}
+function seoKeywordTable(title, rows){
+  let h = `<h2 class="section">${title} <span style="text-transform:none;font-weight:400;color:var(--muted)">— top ${rows.length} · ${DATA.seo.gsc_latest_label}</span></h2>
+    <div class="panel" style="padding:6px 8px"><div class="tbl-scroll"><table><thead><tr>
+    <th>Query</th><th>Clicks</th><th>Impressions</th><th>Avg position</th><th>Site CTR</th></tr></thead><tbody>`;
+  rows.forEach(r=>{
+    h += `<tr><td class="brand">${r.q}</td><td>${fmtInt(r.clicks)}</td><td>${fmtInt(r.impr)}</td>
+      <td>${r.pos.toFixed(2)}</td><td>${r.ctr.toFixed(2)}%</td></tr>`;
+  });
+  h += `</tbody></table></div></div>
+    <div class="srcnote"><b>Source:</b> <a href="${SRC.gsc}" target="_blank">Google Search Console</a> · Branded_vs_Non-Branded_Keywords.pdf.</div>`;
+  return h;
+}
+function renderSEO(){
+  const seo = DATA.seo;
+  const el = $("#seoBody");
+  if(!seo || !seo.months || !seo.months.length){
+    el.innerHTML = `<div class="panel">No SEO data found.</div>`; return;
+  }
+  const all = seo.months;
+  const selMonths = seoSelectedMonths();
+  const selSet = new Set(selMonths.map(x=>x.ym));
+  const gscSel = seo.gsc.filter(x=>selSet.has(x.ym));
+  const col = "var(--seo)";
+  const short = lab => lab.replace(" 2026","").replace(" 2025","");
+
+  let html = `<div class="freshness">
+    <div class="chip"><span class="badge monthly">Monthly</span><span><b>Google Analytics</b> · Organic Search sessions</span></div>
+    <div class="chip"><span class="badge monthly">Monthly</span><span><b>Search Console</b> · queries &amp; clicks</span></div>
+    <div class="chip"><span class="badge monthly">Monthly</span><span><b>SEMrush</b> · authority score</span></div>
+    <div class="chip"><span><b>Coverage</b> · ${all[0].month_label} – ${all[all.length-1].month_label}</span></div>
+  </div>`;
+
+  // month multi-select filter
+  html += `<h2 class="section">Filter months <span style="text-transform:none;font-weight:400;color:var(--muted)">— select one or more; charts &amp; Authority Score update</span></h2>
+    <div class="mfilter" id="seoMonthFilter">`;
+  all.forEach(x=>{ html += `<button class="mbtn ${selSet.has(x.ym)?'on':''}" data-ym="${x.ym}">${short(x.month_label)}</button>`; });
+  html += `<button class="mbtn alltoggle" data-all="1">${selMonths.length===all.length?'Clear all':'Select all'}</button></div>`;
+
+  // Organic traffic (GA) + Authority
+  const latestSel = selMonths.length ? selMonths[selMonths.length-1] : all[all.length-1];
+  const li = all.findIndex(x=>x.ym===latestSel.ym);
+  const prevM = li>0 ? all[li-1] : null;
+  const dOT = delta(latestSel.ga_organic, prevM?prevM.ga_organic:null, fmtInt);
+  html += `<h2 class="section">Organic traffic &amp; authority</h2><div class="metric-grid">
+    <div class="m-card">
+      <div class="mh"><span class="mname">Organic Search sessions</span><span class="mdelta ${dOT.cls}">${dOT.txt}</span></div>
+      <div class="mval" style="color:${col}">${fmtInt(latestSel.ga_organic)}</div>
+      <div class="msub">${latestSel.month_label} · Google Analytics (Organic Search)</div>
+      <div data-chart="ga"></div>
+      <div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics · Traffic Acquisition</a> (Organic Search row).</div>
+    </div>
+    <div class="m-card">
+      <div class="mh"><span class="mname">Authority Score</span></div>
+      <div class="mval" style="color:${col}">${seoAuthorityValue(selMonths)}</div>
+      <div class="msub">${selMonths.length>1?`Average of ${selMonths.length} selected months (rounded)`:latestSel.month_label} · SEMrush</div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line)">${seoCompetitorAuthority()}</div>
+      <div class="srcnote"><b>Source:</b> <a href="${SRC.semrush}" target="_blank">SEMrush Compare Domains Report</a>.</div>
+    </div>
+  </div>`;
+
+  // Search Console — queries & clicks (replaces Organic Keywords)
+  html += `<h2 class="section">Search Console — queries &amp; clicks</h2>
+    <div class="panel">
+      <div data-chart="gsc"></div>
+      <div class="legend" style="opacity:1">
+        <div class="li on"><span class="sw" style="background:#6b5bd4"></span>Queries</div>
+        <div class="li on"><span class="sw" style="background:${col}"></span>Clicks</div>
+      </div>
+    </div>
+    <div class="srcnote"><b>Source:</b> <a href="${SRC.gsc}" target="_blank">Google Search Console</a>.</div>`;
+
+  // branded / non-branded keyword tables
+  html += seoKeywordTable("Branded keywords", seo.branded);
+  html += seoKeywordTable("Non-branded keywords", seo.nonbranded);
+
+  // caveat
+  html += `<div class="databox seo" style="margin-top:16px"><b>Source &amp; caveat.</b>
+    Organic Search sessions come from Google Analytics (first-party); query- and click-level data comes from
+    Google Search Console. Authority Score and competitor figures come from SEMrush, which reports estimated,
+    rounded values. Degreed's SEMrush contract ends September 2026 — replacement tools are being evaluated.
+    Branded / non-branded keyword tables reflect the latest Search Console pull (${DATA.seo.gsc_latest_label}).</div>`;
+
+  el.innerHTML = html;
+
+  // charts
+  const gaLabels = selMonths.map(x=>short(x.month_label));
+  el.querySelector('[data-chart="ga"]').innerHTML =
+    trendChart(gaLabels, [{name:"Organic Search",color:col,values:selMonths.map(x=>x.ga_organic)}],
+      {height:150, yFmt:kFmt, tipFmt:fmtInt});
+  const gscLabels = gscSel.map(x=>short(x.month_label));
+  el.querySelector('[data-chart="gsc"]').innerHTML =
+    trendChart(gscLabels, [
+      {name:"Queries",color:"#6b5bd4",values:gscSel.map(x=>x.queries)},
+      {name:"Clicks",color:col,values:gscSel.map(x=>x.clicks)}
+    ], {height:210, yFmt:kFmt, tipFmt:fmtInt});
+  wireTips("#seoBody");
+
+  // wire month filter
+  el.querySelectorAll("#seoMonthFilter .mbtn").forEach(b=>{
+    b.onclick=()=>{
+      const allYm = DATA.seo.months.map(x=>x.ym);
+      if(!state.seoMonths) state.seoMonths = new Set(allYm);
+      if(b.dataset.all){
+        state.seoMonths = (state.seoMonths.size===allYm.length) ? new Set([allYm[allYm.length-1]]) : new Set(allYm);
+      } else {
+        const ym=b.dataset.ym;
+        state.seoMonths.has(ym) ? state.seoMonths.delete(ym) : state.seoMonths.add(ym);
+        if(state.seoMonths.size===0) state.seoMonths.add(ym); // never allow empty
+      }
+      renderSEO();
+    };
+  });
+}
+
+/* ================= AEO TAB ================= */
+function aeoWindow(){ return DATA.aeo.months.filter(x=>x.ym>="2026-01"); }
+function aeoSelected(){
+  const all = aeoWindow().map(x=>x.ym);
+  if(!state.aeoMonths) state.aeoMonths = new Set(all);
+  return aeoWindow().filter(x=>state.aeoMonths.has(x.ym));
+}
+function donut(frac){
+  const size=160, r=size/2, ir=r*0.60, cx=r, cy=r;
+  const f=Math.max(0.0001,Math.min(0.9999,frac));
+  const arc=(f0,f1,color)=>{
+    const a0=f0*2*Math.PI-Math.PI/2, a1=f1*2*Math.PI-Math.PI/2;
+    const x0=cx+r*Math.cos(a0), y0=cy+r*Math.sin(a0);
+    const x1=cx+r*Math.cos(a1), y1=cy+r*Math.sin(a1);
+    const large=(f1-f0)>0.5?1:0;
+    return `<path d="M${cx},${cy} L${x0.toFixed(2)},${y0.toFixed(2)} A${r},${r} 0 ${large} 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${color}"/>`;
+  };
+  let g=arc(0,f,"var(--aeo)")+arc(f,1,"#dfe4ea");
+  g+=`<circle cx="${cx}" cy="${cy}" r="${ir}" fill="var(--card)"/>`;
+  g+=`<text x="${cx}" y="${cy-1}" text-anchor="middle" font-size="24" font-weight="800" fill="var(--aeo)">${(f*100).toFixed(1)}%</text>`;
+  g+=`<text x="${cx}" y="${cy+17}" text-anchor="middle" font-size="10.5" fill="#8a97a3">Degreed</text>`;
+  return `<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" role="img">${g}</svg>`;
+}
+function renderAEO(){
+  const aeo = DATA.aeo;
+  const el = $("#aeoBody");
+  if(!aeo || !aeo.months || !aeo.months.length){
+    el.innerHTML = `<div class="panel">No AEO data found.</div>`; return;
+  }
+  const win = aeoWindow();
+  const sel = aeoSelected();
+  const selSet = new Set(sel.map(x=>x.ym));
+  const col = "var(--aeo)";
+  const short = n => n.replace(" 2026","").replace(" 2025","");
+  const latestSel = sel.length ? sel[sel.length-1] : win[win.length-1];
+
+  let html = `<div class="freshness">
+    <div class="chip"><span class="badge monthly">Monthly</span><span><b>Microsoft Clarity</b> · Share of Authority</span></div>
+    <div class="chip"><span class="badge monthly">Monthly</span><span><b>SEMrush AI Visibility</b> · mentions &amp; citations</span></div>
+    <div class="chip"><span class="badge monthly">Monthly</span><span><b>Google Analytics</b> · AI sessions</span></div>
+    <div class="chip"><span><b>Coverage</b> · ${win[0].month_name} – ${win[win.length-1].month_name}</span></div>
+  </div>`;
+
+  html += `<h2 class="section">Filter months <span style="text-transform:none;font-weight:400;color:var(--muted)">— select one or more; metrics update</span></h2>
+    <div class="mfilter" id="aeoMonthFilter">`;
+  win.forEach(x=>{ html += `<button class="mbtn aeo ${selSet.has(x.ym)?'on':''}" data-ym="${x.ym}">${short(x.month_name)}</button>`; });
+  html += `<button class="mbtn alltoggle" data-all="1">${sel.length===win.length?'Clear all':'Select all'}</button></div>`;
+
+  const soaVals = sel.map(x=>x.share_of_authority).filter(v=>v!=null);
+  const soaAvg = soaVals.length ? soaVals.reduce((a,b)=>a+b,0)/soaVals.length : null;
+  const aiSel = aeo.ai_sessions.filter(x=>selSet.has(x.ym));
+  const aiLatest = aiSel.length ? aiSel[aiSel.length-1] : null;
+
+  html += `<h2 class="section">Primary metrics</h2><div class="metric-grid">
+    <div class="m-card">
+      <div class="mname">Share of Authority</div>
+      <div style="display:flex;align-items:center;gap:18px;margin-top:8px">
+        <div data-pie="1"></div>
+        <div class="pielegend" style="flex-direction:column;gap:10px">
+          <div class="li"><span class="sw" style="background:var(--aeo)"></span>Degreed · ${soaAvg!=null?(soaAvg*100).toFixed(1)+'%':'—'}</div>
+          <div class="li"><span class="sw" style="background:#dfe4ea"></span>Competitors · ${soaAvg!=null?((1-soaAvg)*100).toFixed(1)+'%':'—'}</div>
+        </div>
+      </div>
+      <div class="msub" style="margin-top:10px">${sel.length>1?`Average of ${soaVals.length} selected months`:latestSel.month_name} · Microsoft Clarity</div>
+    </div>
+    <div class="m-card">
+      <div class="mname">AI sessions driven to site</div>
+      <div class="mval" style="color:${col}">${aiLatest?fmtInt(aiLatest.sessions):'—'}</div>
+      <div class="msub">${aiLatest?aiLatest.month_label:''} · GA — sessions from AI sources</div>
+      <div data-chart="ai"></div>
+      <div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics</a> — sessions from AI sources (ChatGPT, Gemini, Perplexity), per the WEB OKR metrics report. Consistent method across all six months.</div>
+    </div>
+  </div>`;
+
+  html += `<h2 class="section">Secondary metrics</h2><div class="metric-grid three">`;
+  const mk=(title,key)=>{
+    const idx = win.findIndex(x=>x.ym===latestSel.ym);
+    const prevM = idx>0?win[idx-1]:null;
+    const d = delta(latestSel[key], prevM?prevM[key]:null, fmtInt);
+    return `<div class="m-card">
+      <div class="mh"><span class="mname">${title}</span><span class="mdelta ${d.cls}">${d.txt}</span></div>
+      <div class="mval" style="color:${col}">${fmtInt(latestSel[key])}</div>
+      <div class="msub">${latestSel.month_name}</div>
+      <div data-chart="${key}"></div>
+    </div>`;
+  };
+  html += mk("Mentions","mentions");
+  html += mk("Citations","citations");
+  html += mk("Cited Pages","cited_pages");
+  html += `</div>
+    <div class="srcnote"><b>Source:</b> <a href="${SRC.aeo}" target="_blank">SEMrush AI Visibility</a> (mentions, citations, cited pages).</div>`;
+
+  el.innerHTML = html;
+
+  if(soaAvg!=null) el.querySelector('[data-pie="1"]').innerHTML = donut(soaAvg);
+  else el.querySelector('[data-pie="1"]').innerHTML = `<div class="subtle">No Share of Authority for the selected months.</div>`;
+
+  const labs = sel.map(x=>short(x.month_name));
+  const aiLabs = aiSel.map(x=>short(x.month_label));
+  el.querySelector('[data-chart="ai"]').innerHTML =
+    trendChart(aiLabs, [{name:"AI sessions",color:col,values:aiSel.map(x=>x.sessions)}], {height:150, yFmt:kFmt, tipFmt:fmtInt});
+  ["mentions","citations","cited_pages"].forEach(key=>{
+    el.querySelector(`[data-chart="${key}"]`).innerHTML =
+      trendChart(labs, [{name:key,color:col,values:sel.map(x=>x[key])}], {height:120, yFmt:kFmt, tipFmt:fmtInt});
+  });
+  wireTips("#aeoBody");
+
+  el.querySelectorAll("#aeoMonthFilter .mbtn").forEach(b=>{
+    b.onclick=()=>{
+      const allYm = aeoWindow().map(x=>x.ym);
+      if(!state.aeoMonths) state.aeoMonths=new Set(allYm);
+      if(b.dataset.all){
+        state.aeoMonths = (state.aeoMonths.size===allYm.length)?new Set([allYm[allYm.length-1]]):new Set(allYm);
+      } else {
+        const ym=b.dataset.ym;
+        state.aeoMonths.has(ym)?state.aeoMonths.delete(ym):state.aeoMonths.add(ym);
+        if(state.aeoMonths.size===0) state.aeoMonths.add(ym);
+      }
+      renderAEO();
+    };
+  });
+}
+
+/* ================= LEAD CAPTURE TAB (unchanged for now) ================= */
+function renderLead(){
+  const lc = DATA.leadcapture;
+  const el = $("#leadBody");
+  if(!lc || !lc.months || !lc.months.length){
+    el.innerHTML = `<div class="panel">No HubSpot form exports found.</div>`; return;
+  }
+  const m = lc.months, labels = m.map(x=>x.month_label.replace(" 20"," '"));
+  const latest = m[m.length-1], prev = m[m.length-2];
+  const col = "var(--lead)";
+  const conv = x => (x.filtered_views ? x.filtered_submissions / x.filtered_views * 100 : null);
+  const rFmt = v => v==null ? "—" : v.toFixed(2)+"%";
+  const d = delta(conv(latest), prev?conv(prev):null, v=>v.toFixed(2)+"pp");
+
+  let html = `<div class="freshness">
+    <div class="chip"><span class="badge monthly">Monthly</span><span><b>HubSpot Form Performance</b></span></div>
+    <div class="chip"><span><b>Latest</b> · ${latest.month_label} (${latest.date_range||""})</span></div>
+    <div class="chip"><span><b>Coverage</b> · ${m.length} months</span></div>
+  </div>`;
+
+  html += `<div class="metric-grid" style="grid-template-columns:1fr">
+    <div class="m-card wide">
+      <div class="mname">Conversion rate</div>
+      <div class="mval" style="color:${col}">${rFmt(conv(latest))}
+        <span class="mdelta ${d.cls}" style="font-size:13px">${d.txt}</span></div>
+      <div class="msub">${latest.month_label} · ${fmtInt(latest.filtered_submissions)} submissions ÷ ${fmtInt(latest.filtered_views)} form views</div>
+      <div data-chart="rate" style="margin-top:6px"></div>
+      <div class="chart-note">Conversion rate = submissions ÷ form views × 100.</div>
+      <div class="srcnote"><b>Source:</b> <a href="${SRC.hubspot}" target="_blank">HubSpot form exports</a></div>
+    </div>
+  </div>`;
+
+  html += `<h2 class="section">Monthly detail</h2>
+    <div class="panel" style="padding:6px 8px"><div class="tbl-scroll"><table><thead><tr>
+    <th>Month</th><th>Conversion rate</th><th>Submissions</th><th>Form views</th></tr></thead><tbody>`;
+  m.forEach(x=>{
+    html += `<tr><td class="brand">${x.month_label}</td>
+      <td><b>${rFmt(conv(x))}</b></td>
+      <td>${fmtInt(x.filtered_submissions)}</td><td>${fmtInt(x.filtered_views)}</td></tr>`;
+  });
+  html += `</tbody></table></div></div>
+    <div class="srcnote"><b>Source:</b> <a href="${SRC.hubspot}" target="_blank">HubSpot form exports</a></div>`;
+
+  html += `<h2 class="section">Top forms by submissions · ${latest.month_label}</h2>
+    <div class="panel" style="padding:6px 8px"><div class="tbl-scroll"><table><thead><tr>
+    <th>Form</th><th>Submissions</th><th>Form views</th></tr></thead><tbody>`;
+  (latest.top_forms||[]).forEach(f=>{
+    html += `<tr><td class="brand">${f.name}</td><td><b>${fmtInt(f.submissions)}</b></td><td>${fmtInt(f.views)}</td></tr>`;
+  });
+  html += `</tbody></table></div></div>
+    <div class="srcnote"><b>Source:</b> <a href="${SRC.hubspot}" target="_blank">HubSpot form exports</a></div>`;
+
+  el.innerHTML = html;
+  el.querySelector('[data-chart="rate"]').innerHTML =
+    trendChart(labels, [{name:"Conversion rate",color:col,values:m.map(x=>conv(x))}],
+      {height:200, zeroBase:true, yFmt:v=>v.toFixed(0)+"%", tipFmt:v=>v.toFixed(2)+"%"});
+  wireTips("#leadBody");
+}
+
+/* ================= tab switching ================= */
+function showTab(tab){
+  state.tab = tab;
+  document.querySelectorAll(".tab-section").forEach(s=>s.classList.remove("active"));
+  const map={sov:"tab-sov",seo:"tab-seo",aeo:"tab-aeo",leadcap:"tab-leadcap"};
+  $("#"+map[tab]).classList.add("active");
+  document.querySelectorAll("#tabbar button").forEach(b=>b.classList.toggle("on",b.dataset.tab===tab));
+  $("#periodPick").style.visibility = tab==="sov" ? "visible" : "hidden";
+  if(tab==="sov") renderSOV();
+  else if(tab==="seo") renderSEO();
+  else if(tab==="aeo") renderAEO();
+  else if(tab==="leadcap") renderLead();
+}
+document.querySelectorAll("#tabbar button").forEach(b=>{
+  b.onclick=()=>showTab(b.dataset.tab);
+});
+
+/* metric toggle (SOV) */
+document.querySelectorAll("#metricToggle button").forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll("#metricToggle button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); state.metric=b.dataset.m; renderChart();
+  };
+});
+
+/* period selector (SOV) — labels are "Month YYYY" */
+function initPeriodSel(){
+  const sel=$("#periodSel");
+  sel.innerHTML = periods.slice().reverse().map(p=>{
+    const s=snap(p); const lab = (s.web&&s.web.period_label)?s.web.period_label:p;
+    return `<option value="${p}">${lab}</option>`;
+  }).join("");
+  sel.value=state.period;
+  sel.onchange=()=>{state.period=sel.value; renderSOV();};
+}
+
+/* footer */
+function renderFooter(){
+  $("#footer").innerHTML =
+    `Generated ${DATA.generated_at} · ${periods.length} SOV pull(s) in history · `+
+    `Group SOV blends LinkedIn/Web 50 / 50; Overall blends LinkedIn 0.4 / Web 0.4 / AEO 0.2 · `+
+    `SEO, AEO and Lead Capture are Degreed-only trend tabs and never feed the SOV score.`;
+}
+
+initPeriodSel();
+renderFooter();
+showTab("sov");
+</script>
+</body>
+</html>
