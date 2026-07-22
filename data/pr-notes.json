@@ -1,0 +1,87 @@
+{
+  "_readme": "Manual qualitative PR / news notes, entered by hand. Claude Code does not fetch these -- it renders whatever this file contains. One block per pull, keyed by the pull folder name (e.g. '2026-06'). Each block has an optional 'window' label, an optional 'note' (methodology / caveat line shown at the top of the panel), and a 'brands' object. Each brand has: 'group' (its segment, or 'brand' for Degreed itself), 'highlights' (a list of short bullet strings), and a one-line 'takeaway'. To start a new period, copy a block, change the key, and edit.",
+  "2026-06": {
+    "window": "June 2026",
+    "note": "June was a quieter news month than Q1–Q2; brands with no confirmed June coverage are marked explicitly rather than dropped. Sources are public press and analyst coverage gathered via web search — directional, not a precise mention count. Qualitative only; not part of the SOV score.",
+    "brands": {
+      "Degreed": {
+        "group": "brand",
+        "highlights": [
+          "Sponsored the SAP HR Connect Paris conference (June 16).",
+          "No major press release in June; the Fosway 9-Grid recognition, Fast Company listing, and LENS 2026 launches were all March–April."
+        ],
+        "takeaway": "Quiet June for headline PR after a strong Q1. Momentum carried over from spring rather than new June news."
+      },
+      "Eightfold": {
+        "group": "Skills / talent intel",
+        "highlights": [
+          "Named a Strategic Leader in the 2026 Fosway 9-Grid for Talent Acquisition, fourth consecutive year (June 1).",
+          "Announced 2026 Pathfinder Award winners (June 11)."
+        ],
+        "takeaway": "Most active competitor in June. Recognition and awards keep it visible, though the focus is hiring and talent intelligence rather than learning."
+      },
+      "Skillsoft": {
+        "group": "Skills / talent intel",
+        "highlights": [
+          "Released first quarter fiscal 2027 financial results after market close (June 9)."
+        ],
+        "takeaway": "June activity was earnings, not product. Financial performance and listing status remain the dominant storyline."
+      },
+      "Gloat": {
+        "group": "Skills / talent intel",
+        "highlights": [
+          "Coverage of its Irresistible 2026 event appeared around June 10."
+        ],
+        "takeaway": "Modest June presence tied to an event. The Agentic HR launch that drew analyst attention was March."
+      },
+      "TechWolf": {
+        "group": "Skills / talent intel",
+        "highlights": [
+          "No significant June-specific coverage found."
+        ],
+        "takeaway": "Consistently low PR footprint. Nothing notable surfaced for June."
+      },
+      "Cornerstone": {
+        "group": "Learning platforms",
+        "highlights": [
+          "Newsroom continued publishing through June at its usual high cadence, though no standout June headline was confirmed.",
+          "The Cornerstone Workforce AI launch was May."
+        ],
+        "takeaway": "Steady high-volume output even in a quiet month. A key reason PR stays qualitative and out of the score."
+      },
+      "Docebo": {
+        "group": "Learning platforms",
+        "highlights": [
+          "Announced annual meeting voting results (June 9); routine investor-relations activity.",
+          "No product news in June; the Inspire 2026 platform launch was April."
+        ],
+        "takeaway": "June was administrative. Product momentum sits in the spring launch."
+      },
+      "360Learning": {
+        "group": "Learning platforms",
+        "highlights": [
+          "No significant June-specific coverage found."
+        ],
+        "takeaway": "Quiet in June. Smaller PR footprint overall."
+      },
+      "Sana": {
+        "group": "AI learning / practice",
+        "highlights": [
+          "No significant June-specific coverage found; activity was concentrated on the March Sana from Workday launch."
+        ],
+        "takeaway": "Now a Workday product. Watch the SOV data: standalone LinkedIn and web numbers may drift or become unreliable as the integration proceeds."
+      },
+      "Yoodli": {
+        "group": "AI learning / practice",
+        "highlights": [
+          "Auto-generated learning content reached general availability (June 9), announced June 11.",
+          "Hosted a demo webinar (June 25).",
+          "Named to Training Industry's 2026 Top 20 AI Coaching and Learner Support Tools list (late June)."
+        ],
+        "takeaway": "Active June for its size, with a real product launch. Continues expanding from communication coaching into experiential learning."
+      }
+    }
+  }
+}
+
+✕Merlin
