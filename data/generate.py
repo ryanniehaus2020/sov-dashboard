@@ -419,8 +419,17 @@ def main():
         "latest_ym": aeo["latest_ym"],
     }
 
-    # ---- Step 7: carry forward prnotes / config unchanged -----------------
-    prnotes = old_sections["prnotes"]
+    # ---- Step 7: prnotes come from data/pr-notes.json, hand-maintained -----
+    # (kept as its own small file so non-engineers can edit it directly on
+    # GitHub without touching the generated sections.json). Falls back to
+    # whatever was already in sections.json if the file isn't there yet.
+    pr_notes_path = os.path.join(ROOT, "pr-notes.json")
+    if os.path.exists(pr_notes_path):
+        with open(pr_notes_path, "r", encoding="utf-8-sig") as f:
+            pr_notes_raw = json.load(f)
+        prnotes = {k: v for k, v in pr_notes_raw.items() if not k.startswith("_")}
+    else:
+        prnotes = old_sections["prnotes"]
 
     # ---- Step 8: provenance -------------------------------------------
     provenance = [
