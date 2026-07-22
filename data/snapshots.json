@@ -267,76 +267,6 @@
       }
     ],
     "context": {
-      "Gloat": {
-        "linkedin": {
-          "total_followers": 77196,
-          "new_followers": 137,
-          "engagements": 302,
-          "total_posts": 16
-        },
-        "web": {
-          "domain": "gloat.com",
-          "period": "Jan 2026",
-          "organic_traffic": 8800,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Yoodli": {
-        "linkedin": {
-          "total_followers": 17898,
-          "new_followers": 559,
-          "engagements": 621,
-          "total_posts": 64
-        },
-        "web": {
-          "domain": "yoodli.ai",
-          "period": "Jan 2026",
-          "organic_traffic": 21800,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Docebo": {
-        "linkedin": {
-          "total_followers": 131156,
-          "new_followers": 1014,
-          "engagements": 2568,
-          "total_posts": 42
-        },
-        "web": {
-          "domain": "docebo.com",
-          "period": "Jan 2026",
-          "organic_traffic": 113300,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Degreed": {
-        "linkedin": {
-          "total_followers": 82245,
-          "new_followers": 550,
-          "engagements": 1327,
-          "total_posts": 23
-        },
-        "web": {
-          "domain": "degreed.com",
-          "period": "Jan 2026",
-          "organic_traffic": 10813,
-          "organic_source": "Google Analytics (Organic Search)"
-        }
-      },
-      "360Learning": {
-        "linkedin": {
-          "total_followers": 60153,
-          "new_followers": 921,
-          "engagements": 840,
-          "total_posts": 22
-        },
-        "web": {
-          "domain": "360learning.com",
-          "period": "Jan 2026",
-          "organic_traffic": 95800,
-          "organic_source": "SEMrush"
-        }
-      },
       "Sana": {
         "linkedin": {
           "total_followers": 98963,
@@ -348,20 +278,6 @@
           "domain": "sanalabs.com",
           "period": "Jan 2026",
           "organic_traffic": 41100,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Eightfold": {
-        "linkedin": {
-          "total_followers": 166045,
-          "new_followers": 1700,
-          "engagements": 1137,
-          "total_posts": 23
-        },
-        "web": {
-          "domain": "eightfold.ai",
-          "period": "Jan 2026",
-          "organic_traffic": 82300,
           "organic_source": "SEMrush"
         }
       },
@@ -379,17 +295,31 @@
           "organic_source": "SEMrush"
         }
       },
-      "Skillsoft": {
+      "360Learning": {
         "linkedin": {
-          "total_followers": 247890,
-          "new_followers": 2531,
-          "engagements": 1407,
-          "total_posts": 21
+          "total_followers": 60153,
+          "new_followers": 921,
+          "engagements": 840,
+          "total_posts": 22
         },
         "web": {
-          "domain": "skillsoft.com",
+          "domain": "360learning.com",
           "period": "Jan 2026",
-          "organic_traffic": 94200,
+          "organic_traffic": 95800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Docebo": {
+        "linkedin": {
+          "total_followers": 131156,
+          "new_followers": 1014,
+          "engagements": 2568,
+          "total_posts": 42
+        },
+        "web": {
+          "domain": "docebo.com",
+          "period": "Jan 2026",
+          "organic_traffic": 113300,
           "organic_source": "SEMrush"
         }
       },
@@ -404,6 +334,76 @@
           "domain": "techwolf.ai",
           "period": "Jan 2026",
           "organic_traffic": 2600,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Skillsoft": {
+        "linkedin": {
+          "total_followers": 247890,
+          "new_followers": 2531,
+          "engagements": 1407,
+          "total_posts": 21
+        },
+        "web": {
+          "domain": "skillsoft.com",
+          "period": "Jan 2026",
+          "organic_traffic": 94200,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Degreed": {
+        "linkedin": {
+          "total_followers": 82245,
+          "new_followers": 550,
+          "engagements": 1327,
+          "total_posts": 23
+        },
+        "web": {
+          "domain": "degreed.com",
+          "period": "Jan 2026",
+          "organic_traffic": 10813,
+          "organic_source": "Google Analytics (Organic Search)"
+        }
+      },
+      "Yoodli": {
+        "linkedin": {
+          "total_followers": 17898,
+          "new_followers": 559,
+          "engagements": 621,
+          "total_posts": 64
+        },
+        "web": {
+          "domain": "yoodli.ai",
+          "period": "Jan 2026",
+          "organic_traffic": 21800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Gloat": {
+        "linkedin": {
+          "total_followers": 77196,
+          "new_followers": 137,
+          "engagements": 302,
+          "total_posts": 16
+        },
+        "web": {
+          "domain": "gloat.com",
+          "period": "Jan 2026",
+          "organic_traffic": 8800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Eightfold": {
+        "linkedin": {
+          "total_followers": 166045,
+          "new_followers": 1700,
+          "engagements": 1137,
+          "total_posts": 23
+        },
+        "web": {
+          "domain": "eightfold.ai",
+          "period": "Jan 2026",
+          "organic_traffic": 82300,
           "organic_source": "SEMrush"
         }
       }
@@ -677,76 +677,6 @@
       }
     ],
     "context": {
-      "Gloat": {
-        "linkedin": {
-          "total_followers": 77196,
-          "new_followers": 110,
-          "engagements": 65,
-          "total_posts": 2
-        },
-        "web": {
-          "domain": "gloat.com",
-          "period": "Feb 2026",
-          "organic_traffic": 14800,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Yoodli": {
-        "linkedin": {
-          "total_followers": 17898,
-          "new_followers": 489,
-          "engagements": 910,
-          "total_posts": 141
-        },
-        "web": {
-          "domain": "yoodli.ai",
-          "period": "Feb 2026",
-          "organic_traffic": 24600,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Docebo": {
-        "linkedin": {
-          "total_followers": 131157,
-          "new_followers": 800,
-          "engagements": 1870,
-          "total_posts": 36
-        },
-        "web": {
-          "domain": "docebo.com",
-          "period": "Feb 2026",
-          "organic_traffic": 124600,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Degreed": {
-        "linkedin": {
-          "total_followers": 82245,
-          "new_followers": 563,
-          "engagements": 720,
-          "total_posts": 20
-        },
-        "web": {
-          "domain": "degreed.com",
-          "period": "Feb 2026",
-          "organic_traffic": 10195,
-          "organic_source": "Google Analytics (Organic Search)"
-        }
-      },
-      "360Learning": {
-        "linkedin": {
-          "total_followers": 60153,
-          "new_followers": 1022,
-          "engagements": 1024,
-          "total_posts": 26
-        },
-        "web": {
-          "domain": "360learning.com",
-          "period": "Feb 2026",
-          "organic_traffic": 116100,
-          "organic_source": "SEMrush"
-        }
-      },
       "Sana": {
         "linkedin": {
           "total_followers": 98963,
@@ -758,20 +688,6 @@
           "domain": "sanalabs.com",
           "period": "Feb 2026",
           "organic_traffic": 41000,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Eightfold": {
-        "linkedin": {
-          "total_followers": 166045,
-          "new_followers": 1496,
-          "engagements": 1175,
-          "total_posts": 24
-        },
-        "web": {
-          "domain": "eightfold.ai",
-          "period": "Feb 2026",
-          "organic_traffic": 82700,
           "organic_source": "SEMrush"
         }
       },
@@ -789,17 +705,31 @@
           "organic_source": "SEMrush"
         }
       },
-      "Skillsoft": {
+      "360Learning": {
         "linkedin": {
-          "total_followers": 247890,
-          "new_followers": 2102,
-          "engagements": 1459,
-          "total_posts": 16
+          "total_followers": 60153,
+          "new_followers": 1022,
+          "engagements": 1024,
+          "total_posts": 26
         },
         "web": {
-          "domain": "skillsoft.com",
+          "domain": "360learning.com",
           "period": "Feb 2026",
-          "organic_traffic": 112500,
+          "organic_traffic": 116100,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Docebo": {
+        "linkedin": {
+          "total_followers": 131157,
+          "new_followers": 800,
+          "engagements": 1870,
+          "total_posts": 36
+        },
+        "web": {
+          "domain": "docebo.com",
+          "period": "Feb 2026",
+          "organic_traffic": 124600,
           "organic_source": "SEMrush"
         }
       },
@@ -814,6 +744,76 @@
           "domain": "techwolf.ai",
           "period": "Feb 2026",
           "organic_traffic": 2500,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Skillsoft": {
+        "linkedin": {
+          "total_followers": 247890,
+          "new_followers": 2102,
+          "engagements": 1459,
+          "total_posts": 16
+        },
+        "web": {
+          "domain": "skillsoft.com",
+          "period": "Feb 2026",
+          "organic_traffic": 112500,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Degreed": {
+        "linkedin": {
+          "total_followers": 82245,
+          "new_followers": 563,
+          "engagements": 720,
+          "total_posts": 20
+        },
+        "web": {
+          "domain": "degreed.com",
+          "period": "Feb 2026",
+          "organic_traffic": 10195,
+          "organic_source": "Google Analytics (Organic Search)"
+        }
+      },
+      "Yoodli": {
+        "linkedin": {
+          "total_followers": 17898,
+          "new_followers": 489,
+          "engagements": 910,
+          "total_posts": 141
+        },
+        "web": {
+          "domain": "yoodli.ai",
+          "period": "Feb 2026",
+          "organic_traffic": 24600,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Gloat": {
+        "linkedin": {
+          "total_followers": 77196,
+          "new_followers": 110,
+          "engagements": 65,
+          "total_posts": 2
+        },
+        "web": {
+          "domain": "gloat.com",
+          "period": "Feb 2026",
+          "organic_traffic": 14800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Eightfold": {
+        "linkedin": {
+          "total_followers": 166045,
+          "new_followers": 1496,
+          "engagements": 1175,
+          "total_posts": 24
+        },
+        "web": {
+          "domain": "eightfold.ai",
+          "period": "Feb 2026",
+          "organic_traffic": 82700,
           "organic_source": "SEMrush"
         }
       }
@@ -1087,76 +1087,6 @@
       }
     ],
     "context": {
-      "Gloat": {
-        "linkedin": {
-          "total_followers": 77196,
-          "new_followers": 102,
-          "engagements": 27,
-          "total_posts": 1
-        },
-        "web": {
-          "domain": "gloat.com",
-          "period": "Mar 2026",
-          "organic_traffic": 12700,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Yoodli": {
-        "linkedin": {
-          "total_followers": 17897,
-          "new_followers": 590,
-          "engagements": 1390,
-          "total_posts": 139
-        },
-        "web": {
-          "domain": "yoodli.ai",
-          "period": "Mar 2026",
-          "organic_traffic": 21500,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Docebo": {
-        "linkedin": {
-          "total_followers": 131157,
-          "new_followers": 1142,
-          "engagements": 1583,
-          "total_posts": 44
-        },
-        "web": {
-          "domain": "docebo.com",
-          "period": "Mar 2026",
-          "organic_traffic": 106200,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Degreed": {
-        "linkedin": {
-          "total_followers": 82245,
-          "new_followers": 721,
-          "engagements": 1899,
-          "total_posts": 34
-        },
-        "web": {
-          "domain": "degreed.com",
-          "period": "Mar 2026",
-          "organic_traffic": 10248,
-          "organic_source": "Google Analytics (Organic Search)"
-        }
-      },
-      "360Learning": {
-        "linkedin": {
-          "total_followers": 60153,
-          "new_followers": 893,
-          "engagements": 894,
-          "total_posts": 22
-        },
-        "web": {
-          "domain": "360learning.com",
-          "period": "Mar 2026",
-          "organic_traffic": 124600,
-          "organic_source": "SEMrush"
-        }
-      },
       "Sana": {
         "linkedin": {
           "total_followers": 98963,
@@ -1168,20 +1098,6 @@
           "domain": "sanalabs.com",
           "period": "Mar 2026",
           "organic_traffic": 27100,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Eightfold": {
-        "linkedin": {
-          "total_followers": 166045,
-          "new_followers": 1707,
-          "engagements": 1038,
-          "total_posts": 29
-        },
-        "web": {
-          "domain": "eightfold.ai",
-          "period": "Mar 2026",
-          "organic_traffic": 81000,
           "organic_source": "SEMrush"
         }
       },
@@ -1199,17 +1115,31 @@
           "organic_source": "SEMrush"
         }
       },
-      "Skillsoft": {
+      "360Learning": {
         "linkedin": {
-          "total_followers": 247890,
-          "new_followers": 1906,
-          "engagements": 899,
-          "total_posts": 28
+          "total_followers": 60153,
+          "new_followers": 893,
+          "engagements": 894,
+          "total_posts": 22
         },
         "web": {
-          "domain": "skillsoft.com",
+          "domain": "360learning.com",
           "period": "Mar 2026",
-          "organic_traffic": 97400,
+          "organic_traffic": 124600,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Docebo": {
+        "linkedin": {
+          "total_followers": 131157,
+          "new_followers": 1142,
+          "engagements": 1583,
+          "total_posts": 44
+        },
+        "web": {
+          "domain": "docebo.com",
+          "period": "Mar 2026",
+          "organic_traffic": 106200,
           "organic_source": "SEMrush"
         }
       },
@@ -1224,6 +1154,76 @@
           "domain": "techwolf.ai",
           "period": "Mar 2026",
           "organic_traffic": 3700,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Skillsoft": {
+        "linkedin": {
+          "total_followers": 247890,
+          "new_followers": 1906,
+          "engagements": 899,
+          "total_posts": 28
+        },
+        "web": {
+          "domain": "skillsoft.com",
+          "period": "Mar 2026",
+          "organic_traffic": 97400,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Degreed": {
+        "linkedin": {
+          "total_followers": 82245,
+          "new_followers": 721,
+          "engagements": 1899,
+          "total_posts": 34
+        },
+        "web": {
+          "domain": "degreed.com",
+          "period": "Mar 2026",
+          "organic_traffic": 10248,
+          "organic_source": "Google Analytics (Organic Search)"
+        }
+      },
+      "Yoodli": {
+        "linkedin": {
+          "total_followers": 17897,
+          "new_followers": 590,
+          "engagements": 1390,
+          "total_posts": 139
+        },
+        "web": {
+          "domain": "yoodli.ai",
+          "period": "Mar 2026",
+          "organic_traffic": 21500,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Gloat": {
+        "linkedin": {
+          "total_followers": 77196,
+          "new_followers": 102,
+          "engagements": 27,
+          "total_posts": 1
+        },
+        "web": {
+          "domain": "gloat.com",
+          "period": "Mar 2026",
+          "organic_traffic": 12700,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Eightfold": {
+        "linkedin": {
+          "total_followers": 166045,
+          "new_followers": 1707,
+          "engagements": 1038,
+          "total_posts": 29
+        },
+        "web": {
+          "domain": "eightfold.ai",
+          "period": "Mar 2026",
+          "organic_traffic": 81000,
           "organic_source": "SEMrush"
         }
       }
@@ -1497,76 +1497,6 @@
       }
     ],
     "context": {
-      "Gloat": {
-        "linkedin": {
-          "total_followers": 77196,
-          "new_followers": 247,
-          "engagements": 118,
-          "total_posts": 1
-        },
-        "web": {
-          "domain": "gloat.com",
-          "period": "Apr 2026",
-          "organic_traffic": 19600,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Yoodli": {
-        "linkedin": {
-          "total_followers": 17897,
-          "new_followers": 567,
-          "engagements": 920,
-          "total_posts": 116
-        },
-        "web": {
-          "domain": "yoodli.ai",
-          "period": "Apr 2026",
-          "organic_traffic": 16800,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Docebo": {
-        "linkedin": {
-          "total_followers": 131157,
-          "new_followers": 1194,
-          "engagements": 2971,
-          "total_posts": 75
-        },
-        "web": {
-          "domain": "docebo.com",
-          "period": "Apr 2026",
-          "organic_traffic": 96100,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Degreed": {
-        "linkedin": {
-          "total_followers": 82245,
-          "new_followers": 475,
-          "engagements": 964,
-          "total_posts": 23
-        },
-        "web": {
-          "domain": "degreed.com",
-          "period": "Apr 2026",
-          "organic_traffic": 8692,
-          "organic_source": "Google Analytics (Organic Search)"
-        }
-      },
-      "360Learning": {
-        "linkedin": {
-          "total_followers": 60153,
-          "new_followers": 763,
-          "engagements": 886,
-          "total_posts": 25
-        },
-        "web": {
-          "domain": "360learning.com",
-          "period": "Apr 2026",
-          "organic_traffic": 96800,
-          "organic_source": "SEMrush"
-        }
-      },
       "Sana": {
         "linkedin": {
           "total_followers": 98963,
@@ -1578,20 +1508,6 @@
           "domain": "sanalabs.com",
           "period": "Apr 2026",
           "organic_traffic": 35500,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Eightfold": {
-        "linkedin": {
-          "total_followers": 166045,
-          "new_followers": 1784,
-          "engagements": 1221,
-          "total_posts": 37
-        },
-        "web": {
-          "domain": "eightfold.ai",
-          "period": "Apr 2026",
-          "organic_traffic": 86700,
           "organic_source": "SEMrush"
         }
       },
@@ -1609,17 +1525,31 @@
           "organic_source": "SEMrush"
         }
       },
-      "Skillsoft": {
+      "360Learning": {
         "linkedin": {
-          "total_followers": 247890,
-          "new_followers": 1315,
-          "engagements": 1570,
-          "total_posts": 31
+          "total_followers": 60153,
+          "new_followers": 763,
+          "engagements": 886,
+          "total_posts": 25
         },
         "web": {
-          "domain": "skillsoft.com",
+          "domain": "360learning.com",
           "period": "Apr 2026",
-          "organic_traffic": 91000,
+          "organic_traffic": 96800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Docebo": {
+        "linkedin": {
+          "total_followers": 131157,
+          "new_followers": 1194,
+          "engagements": 2971,
+          "total_posts": 75
+        },
+        "web": {
+          "domain": "docebo.com",
+          "period": "Apr 2026",
+          "organic_traffic": 96100,
           "organic_source": "SEMrush"
         }
       },
@@ -1634,6 +1564,76 @@
           "domain": "techwolf.ai",
           "period": "Apr 2026",
           "organic_traffic": 3800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Skillsoft": {
+        "linkedin": {
+          "total_followers": 247890,
+          "new_followers": 1315,
+          "engagements": 1570,
+          "total_posts": 31
+        },
+        "web": {
+          "domain": "skillsoft.com",
+          "period": "Apr 2026",
+          "organic_traffic": 91000,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Degreed": {
+        "linkedin": {
+          "total_followers": 82245,
+          "new_followers": 475,
+          "engagements": 964,
+          "total_posts": 23
+        },
+        "web": {
+          "domain": "degreed.com",
+          "period": "Apr 2026",
+          "organic_traffic": 8692,
+          "organic_source": "Google Analytics (Organic Search)"
+        }
+      },
+      "Yoodli": {
+        "linkedin": {
+          "total_followers": 17897,
+          "new_followers": 567,
+          "engagements": 920,
+          "total_posts": 116
+        },
+        "web": {
+          "domain": "yoodli.ai",
+          "period": "Apr 2026",
+          "organic_traffic": 16800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Gloat": {
+        "linkedin": {
+          "total_followers": 77196,
+          "new_followers": 247,
+          "engagements": 118,
+          "total_posts": 1
+        },
+        "web": {
+          "domain": "gloat.com",
+          "period": "Apr 2026",
+          "organic_traffic": 19600,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Eightfold": {
+        "linkedin": {
+          "total_followers": 166045,
+          "new_followers": 1784,
+          "engagements": 1221,
+          "total_posts": 37
+        },
+        "web": {
+          "domain": "eightfold.ai",
+          "period": "Apr 2026",
+          "organic_traffic": 86700,
           "organic_source": "SEMrush"
         }
       }
@@ -1907,76 +1907,6 @@
       }
     ],
     "context": {
-      "Gloat": {
-        "linkedin": {
-          "total_followers": 77196,
-          "new_followers": 120,
-          "engagements": 103,
-          "total_posts": 1
-        },
-        "web": {
-          "domain": "gloat.com",
-          "period": "May 2026",
-          "organic_traffic": 16200,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Yoodli": {
-        "linkedin": {
-          "total_followers": 17897,
-          "new_followers": 528,
-          "engagements": 1241,
-          "total_posts": 149
-        },
-        "web": {
-          "domain": "yoodli.ai",
-          "period": "May 2026",
-          "organic_traffic": 16900,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Docebo": {
-        "linkedin": {
-          "total_followers": 131157,
-          "new_followers": 1339,
-          "engagements": 1723,
-          "total_posts": 34
-        },
-        "web": {
-          "domain": "docebo.com",
-          "period": "May 2026",
-          "organic_traffic": 121600,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Degreed": {
-        "linkedin": {
-          "total_followers": 82245,
-          "new_followers": 422,
-          "engagements": 856,
-          "total_posts": 22
-        },
-        "web": {
-          "domain": "degreed.com",
-          "period": "May 2026",
-          "organic_traffic": 8001,
-          "organic_source": "Google Analytics (Organic Search)"
-        }
-      },
-      "360Learning": {
-        "linkedin": {
-          "total_followers": 60153,
-          "new_followers": 938,
-          "engagements": 876,
-          "total_posts": 21
-        },
-        "web": {
-          "domain": "360learning.com",
-          "period": "May 2026",
-          "organic_traffic": 68700,
-          "organic_source": "SEMrush"
-        }
-      },
       "Sana": {
         "linkedin": {
           "total_followers": 98963,
@@ -1988,20 +1918,6 @@
           "domain": "sanalabs.com",
           "period": "May 2026",
           "organic_traffic": 37600,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Eightfold": {
-        "linkedin": {
-          "total_followers": 166045,
-          "new_followers": 1920,
-          "engagements": 2223,
-          "total_posts": 69
-        },
-        "web": {
-          "domain": "eightfold.ai",
-          "period": "May 2026",
-          "organic_traffic": 63300,
           "organic_source": "SEMrush"
         }
       },
@@ -2019,17 +1935,31 @@
           "organic_source": "SEMrush"
         }
       },
-      "Skillsoft": {
+      "360Learning": {
         "linkedin": {
-          "total_followers": 247890,
-          "new_followers": 1292,
-          "engagements": 1226,
-          "total_posts": 41
+          "total_followers": 60153,
+          "new_followers": 938,
+          "engagements": 876,
+          "total_posts": 21
         },
         "web": {
-          "domain": "skillsoft.com",
+          "domain": "360learning.com",
           "period": "May 2026",
-          "organic_traffic": 88700,
+          "organic_traffic": 68700,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Docebo": {
+        "linkedin": {
+          "total_followers": 131157,
+          "new_followers": 1339,
+          "engagements": 1723,
+          "total_posts": 34
+        },
+        "web": {
+          "domain": "docebo.com",
+          "period": "May 2026",
+          "organic_traffic": 121600,
           "organic_source": "SEMrush"
         }
       },
@@ -2044,6 +1974,76 @@
           "domain": "techwolf.ai",
           "period": "May 2026",
           "organic_traffic": 3700,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Skillsoft": {
+        "linkedin": {
+          "total_followers": 247890,
+          "new_followers": 1292,
+          "engagements": 1226,
+          "total_posts": 41
+        },
+        "web": {
+          "domain": "skillsoft.com",
+          "period": "May 2026",
+          "organic_traffic": 88700,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Degreed": {
+        "linkedin": {
+          "total_followers": 82245,
+          "new_followers": 422,
+          "engagements": 856,
+          "total_posts": 22
+        },
+        "web": {
+          "domain": "degreed.com",
+          "period": "May 2026",
+          "organic_traffic": 8001,
+          "organic_source": "Google Analytics (Organic Search)"
+        }
+      },
+      "Yoodli": {
+        "linkedin": {
+          "total_followers": 17897,
+          "new_followers": 528,
+          "engagements": 1241,
+          "total_posts": 149
+        },
+        "web": {
+          "domain": "yoodli.ai",
+          "period": "May 2026",
+          "organic_traffic": 16900,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Gloat": {
+        "linkedin": {
+          "total_followers": 77196,
+          "new_followers": 120,
+          "engagements": 103,
+          "total_posts": 1
+        },
+        "web": {
+          "domain": "gloat.com",
+          "period": "May 2026",
+          "organic_traffic": 16200,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Eightfold": {
+        "linkedin": {
+          "total_followers": 166045,
+          "new_followers": 1920,
+          "engagements": 2223,
+          "total_posts": 69
+        },
+        "web": {
+          "domain": "eightfold.ai",
+          "period": "May 2026",
+          "organic_traffic": 63300,
           "organic_source": "SEMrush"
         }
       }
@@ -2317,76 +2317,6 @@
       }
     ],
     "context": {
-      "Gloat": {
-        "linkedin": {
-          "total_followers": 77196,
-          "new_followers": 113,
-          "engagements": 120,
-          "total_posts": 4
-        },
-        "web": {
-          "domain": "gloat.com",
-          "period": "Jun 2026",
-          "organic_traffic": 16800,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Yoodli": {
-        "linkedin": {
-          "total_followers": 17897,
-          "new_followers": 566,
-          "engagements": 1043,
-          "total_posts": 143
-        },
-        "web": {
-          "domain": "yoodli.ai",
-          "period": "Jun 2026",
-          "organic_traffic": 17500,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Docebo": {
-        "linkedin": {
-          "total_followers": 131157,
-          "new_followers": 1484,
-          "engagements": 1436,
-          "total_posts": 26
-        },
-        "web": {
-          "domain": "docebo.com",
-          "period": "Jun 2026",
-          "organic_traffic": 110700,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Degreed": {
-        "linkedin": {
-          "total_followers": 82245,
-          "new_followers": 464,
-          "engagements": 681,
-          "total_posts": 24
-        },
-        "web": {
-          "domain": "degreed.com",
-          "period": "Jun 2026",
-          "organic_traffic": 8817,
-          "organic_source": "Google Analytics (Organic Search)"
-        }
-      },
-      "360Learning": {
-        "linkedin": {
-          "total_followers": 60153,
-          "new_followers": 826,
-          "engagements": 1133,
-          "total_posts": 33
-        },
-        "web": {
-          "domain": "360learning.com",
-          "period": "Jun 2026",
-          "organic_traffic": 64000,
-          "organic_source": "SEMrush"
-        }
-      },
       "Sana": {
         "linkedin": {
           "total_followers": 98963,
@@ -2398,20 +2328,6 @@
           "domain": "sanalabs.com",
           "period": "Jun 2026",
           "organic_traffic": 20200,
-          "organic_source": "SEMrush"
-        }
-      },
-      "Eightfold": {
-        "linkedin": {
-          "total_followers": 166045,
-          "new_followers": 3213,
-          "engagements": 1244,
-          "total_posts": 63
-        },
-        "web": {
-          "domain": "eightfold.ai",
-          "period": "Jun 2026",
-          "organic_traffic": 87600,
           "organic_source": "SEMrush"
         }
       },
@@ -2429,17 +2345,31 @@
           "organic_source": "SEMrush"
         }
       },
-      "Skillsoft": {
+      "360Learning": {
         "linkedin": {
-          "total_followers": 247890,
-          "new_followers": 1264,
-          "engagements": 1016,
-          "total_posts": 34
+          "total_followers": 60153,
+          "new_followers": 826,
+          "engagements": 1133,
+          "total_posts": 33
         },
         "web": {
-          "domain": "skillsoft.com",
+          "domain": "360learning.com",
           "period": "Jun 2026",
-          "organic_traffic": 77300,
+          "organic_traffic": 64000,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Docebo": {
+        "linkedin": {
+          "total_followers": 131157,
+          "new_followers": 1484,
+          "engagements": 1436,
+          "total_posts": 26
+        },
+        "web": {
+          "domain": "docebo.com",
+          "period": "Jun 2026",
+          "organic_traffic": 110700,
           "organic_source": "SEMrush"
         }
       },
@@ -2454,6 +2384,76 @@
           "domain": "techwolf.ai",
           "period": "Jun 2026",
           "organic_traffic": 3300,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Skillsoft": {
+        "linkedin": {
+          "total_followers": 247890,
+          "new_followers": 1264,
+          "engagements": 1016,
+          "total_posts": 34
+        },
+        "web": {
+          "domain": "skillsoft.com",
+          "period": "Jun 2026",
+          "organic_traffic": 77300,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Degreed": {
+        "linkedin": {
+          "total_followers": 82245,
+          "new_followers": 464,
+          "engagements": 681,
+          "total_posts": 24
+        },
+        "web": {
+          "domain": "degreed.com",
+          "period": "Jun 2026",
+          "organic_traffic": 8817,
+          "organic_source": "Google Analytics (Organic Search)"
+        }
+      },
+      "Yoodli": {
+        "linkedin": {
+          "total_followers": 17897,
+          "new_followers": 566,
+          "engagements": 1043,
+          "total_posts": 143
+        },
+        "web": {
+          "domain": "yoodli.ai",
+          "period": "Jun 2026",
+          "organic_traffic": 17500,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Gloat": {
+        "linkedin": {
+          "total_followers": 77196,
+          "new_followers": 113,
+          "engagements": 120,
+          "total_posts": 4
+        },
+        "web": {
+          "domain": "gloat.com",
+          "period": "Jun 2026",
+          "organic_traffic": 16800,
+          "organic_source": "SEMrush"
+        }
+      },
+      "Eightfold": {
+        "linkedin": {
+          "total_followers": 166045,
+          "new_followers": 3213,
+          "engagements": 1244,
+          "total_posts": 63
+        },
+        "web": {
+          "domain": "eightfold.ai",
+          "period": "Jun 2026",
+          "organic_traffic": 87600,
           "organic_source": "SEMrush"
         }
       }
