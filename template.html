@@ -664,7 +664,7 @@ function renderSOV(){
 /* ================= SEO TAB ================= */
 function seoSelectedMonths(){
   const all = DATA.seo.months.map(x=>x.ym);
-  if(!state.seoMonths) state.seoMonths = new Set(all);
+  if(!state.seoMonths) state.seoMonths = new Set([all[all.length-1]]);
   return DATA.seo.months.filter(x=>state.seoMonths.has(x.ym));
 }
 function seoAuthorityValue(selMonths){
@@ -688,7 +688,7 @@ function seoKeywordTable(title, rows){
       <td>${r.pos.toFixed(2)}</td><td>${r.ctr.toFixed(2)}%</td></tr>`;
   });
   h += `</tbody></table></div></div>
-    <div class="srcnote"><b>Source:</b> <a href="${SRC.gsc}" target="_blank">Google Search Console</a> · Branded_vs_Non-Branded_Keywords.pdf.</div>`;
+    <div class="srcnote"><b>Source:</b> <a href="${SRC.gsc}" target="_blank">Google Search Console</a>.</div>`;
   return h;
 }
 function renderSEO(){
@@ -721,12 +721,13 @@ function renderSEO(){
   const latestSel = selMonths.length ? selMonths[selMonths.length-1] : all[all.length-1];
   const li = all.findIndex(x=>x.ym===latestSel.ym);
   const prevM = li>0 ? all[li-1] : null;
-  const dOT = delta(latestSel.ga_organic, prevM?prevM.ga_organic:null, fmtInt);
+  const dOT = selMonths.length===1 ? delta(latestSel.ga_organic, prevM?prevM.ga_organic:null, fmtInt) : {cls:"flat",txt:""};
+  const organicTotal = selMonths.reduce((a,x)=>a+(x.ga_organic||0),0);
   html += `<h2 class="section">Organic traffic &amp; authority</h2><div class="metric-grid">
     <div class="m-card">
       <div class="mh"><span class="mname">Organic Search sessions</span><span class="mdelta ${dOT.cls}">${dOT.txt}</span></div>
-      <div class="mval" style="color:${col}">${fmtInt(latestSel.ga_organic)}</div>
-      <div class="msub">${latestSel.month_label} · Google Analytics (Organic Search)</div>
+      <div class="mval" style="color:${col}">${fmtInt(organicTotal)}</div>
+      <div class="msub">${selMonths.length>1?`Sum of ${selMonths.length} selected months`:latestSel.month_label} · Google Analytics (Organic Search)</div>
       <div data-chart="ga"></div>
       <div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics · Traffic Acquisition</a> (Organic Search row).</div>
     </div>
@@ -797,7 +798,7 @@ function renderSEO(){
 function aeoWindow(){ return DATA.aeo.months.filter(x=>x.ym>="2026-01"); }
 function aeoSelected(){
   const all = aeoWindow().map(x=>x.ym);
-  if(!state.aeoMonths) state.aeoMonths = new Set(all);
+  if(!state.aeoMonths) state.aeoMonths = new Set([all[all.length-1]]);
   return aeoWindow().filter(x=>state.aeoMonths.has(x.ym));
 }
 function donut(frac){
@@ -845,6 +846,7 @@ function renderAEO(){
   const soaAvg = soaVals.length ? soaVals.reduce((a,b)=>a+b,0)/soaVals.length : null;
   const aiSel = aeo.ai_sessions.filter(x=>selSet.has(x.ym));
   const aiLatest = aiSel.length ? aiSel[aiSel.length-1] : null;
+  const aiTotal = aiSel.reduce((a,x)=>a+(x.sessions||0),0);
 
   html += `<h2 class="section">Primary metrics</h2><div class="metric-grid">
     <div class="m-card">
@@ -861,8 +863,8 @@ function renderAEO(){
     </div>
     <div class="m-card">
       <div class="mname">AI sessions driven to site</div>
-      <div class="mval" style="color:${col}">${aiLatest?fmtInt(aiLatest.sessions):'—'}</div>
-      <div class="msub">${aiLatest?aiLatest.month_label:''} · GA — sessions from AI sources</div>
+      <div class="mval" style="color:${col}">${aiSel.length?fmtInt(aiTotal):'—'}</div>
+      <div class="msub">${aiSel.length>1?`Sum of ${aiSel.length} selected months`:(aiLatest?aiLatest.month_label:'')} · GA — sessions from AI sources</div>
       <div data-chart="ai"></div>
       <div class="srcnote"><b>Source:</b> <a href="${SRC.ga}" target="_blank">Google Analytics</a> — sessions from AI sources (ChatGPT, Gemini, Perplexity), per the WEB OKR metrics report. Consistent method across all six months.</div>
     </div>
@@ -872,11 +874,12 @@ function renderAEO(){
   const mk=(title,key)=>{
     const idx = win.findIndex(x=>x.ym===latestSel.ym);
     const prevM = idx>0?win[idx-1]:null;
-    const d = delta(latestSel[key], prevM?prevM[key]:null, fmtInt);
+    const d = sel.length===1 ? delta(latestSel[key], prevM?prevM[key]:null, fmtInt) : {cls:"flat",txt:""};
+    const total = sel.reduce((a,x)=>a+(x[key]||0),0);
     return `<div class="m-card">
       <div class="mh"><span class="mname">${title}</span><span class="mdelta ${d.cls}">${d.txt}</span></div>
-      <div class="mval" style="color:${col}">${fmtInt(latestSel[key])}</div>
-      <div class="msub">${latestSel.month_name}</div>
+      <div class="mval" style="color:${col}">${fmtInt(total)}</div>
+      <div class="msub">${sel.length>1?`Sum of ${sel.length} selected months`:latestSel.month_name}</div>
       <div data-chart="${key}"></div>
       <div class="srcnote"><b>Source:</b> <a href="${SRC.aeo}" target="_blank">SEMrush AI Visibility</a>.</div>
     </div>`;
